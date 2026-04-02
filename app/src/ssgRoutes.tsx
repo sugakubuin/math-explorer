@@ -1,6 +1,5 @@
 import type { RouteRecord } from 'vite-react-ssg';
 import Layout from './components/layout/Layout';
-import ScrollManager from './components/layout/ScrollManager';
 import Home from './pages/Home';
 import Roadmap from './pages/Roadmap';
 import TopicPage from './pages/TopicPage';
@@ -63,24 +62,10 @@ function getSectionPaths(): string[] {
         );
 }
 
-/**
- * LayoutWrapper: ScrollManager を Layout の外に配置するために使用。
- * vite-react-ssg では <BrowserRouter> を内部的に使用するため、
- * ScrollManager は routes 定義内で直接使えるよう Component として定義する。
- */
-function LayoutWrapper() {
-    return (
-        <>
-            <ScrollManager />
-            <Layout />
-        </>
-    );
-}
-
 export const routes: RouteRecord[] = [
     {
         path: '/',
-        element: <LayoutWrapper />,
+        element: <Layout />,
         children: [
             {
                 index: true,
