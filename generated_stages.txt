@@ -1,0 +1,830 @@
+    {
+        id: "stage-3",
+        title: "Stage-3：広がる数学",
+        topics: [
+            {
+                id: "3-1",
+                title: "実解析II",
+                chapters: [
+                    { id: "1", title: "測度論の基礎", description: "σ-加法族、測度の定義、外測度", sections: [] },
+                    { id: "2", title: "可測関数", description: "可測性の定義と性質、単関数", sections: [] },
+                    { id: "3", title: "ルベーグ積分", description: "積分の定義、単調収束定理、優収束定理", sections: [] },
+                    { id: "4", title: "L^p空間", description: "ノルム、ヘルダー・ミンコフスキーの不等式、完備性", sections: [] },
+                    { id: "5", title: "積分の多重性とフビニの定理", description: "直積測度、累次積分への帰着", sections: [] },
+                    { id: "6", title: "微分と積分", description: "絶対連続関数、ルベーグの微分定理", sections: [] },
+                    { id: "7", title: "測度の分解と表現定理", description: "ラドン・ニコディム、リースの表現定理", sections: [] },
+                ],
+                prerequisites: ["2-3","2-5"]
+            },
+            {
+                id: "3-2",
+                title: "ベクトル解析",
+                chapters: [
+                    { id: "1", title: "ベクトル場の基礎", description: "スカラー場・ベクトル場と微分演算子（grad, div, rot）", sections: [] },
+                    { id: "2", title: "曲線座標系", description: "一般座標系における微分演算、円柱・球座標系", sections: [] },
+                    { id: "3", title: "線積分", description: "スカラー場・ベクトル場の線積分、保存力場", sections: [] },
+                    { id: "4", title: "グリーンの定理", description: "平面領域における積分定理", sections: [] },
+                    { id: "5", title: "面積分", description: "曲面のパラメータ表示、流束", sections: [] },
+                    { id: "6", title: "ガウスの発散定理", description: "三重積分と閉曲面上の面積分の関係", sections: [] },
+                    { id: "7", title: "ストークスの定理", description: "曲面と境界曲線に関する積分定理", sections: [] },
+                ],
+                prerequisites: ["2-1","2-2","2-3"]
+            },
+            {
+                id: "3-3",
+                title: "複素解析",
+                chapters: [
+                    { id: "1", title: "複素数の基礎", description: "複素平面、極形式、ド・モアブルの定理", sections: [] },
+                    { id: "2", title: "複素関数と微分", description: "正則関数の定義、コーシー・リーマンの方程式", sections: [] },
+                    { id: "3", title: "初等関数", description: "指数・対数・三角関数の複素拡張", sections: [] },
+                    { id: "4", title: "複素積分", description: "コーシーの積分定理", sections: [] },
+                    { id: "5", title: "正則関数の性質", description: "積分公式、テイラー展開", sections: [] },
+                    { id: "6", title: "孤立特異点とローラン展開", description: "特異点の周りでの挙動", sections: [] },
+                    { id: "7", title: "留数定理", description: "留数の計算、積分への応用", sections: [] },
+                    { id: "8", title: "等角写像", description: "幾何学的性質と応用", sections: [] },
+                ],
+                prerequisites: ["2-2","2-3"]
+            },
+            {
+                id: "3-4",
+                title: "フーリエ解析",
+                chapters: [
+                    { id: "1", title: "フーリエ級数の基礎", description: "周期関数の三角級数展開と収束理論", sections: [] },
+                    { id: "2", title: "フーリエ級数の発展", description: "一般周期・偶奇展開・多次元への拡張", sections: [] },
+                    { id: "3", title: "フーリエ変換の基礎", description: "非周期関数への拡張とL^1理論", sections: [] },
+                    { id: "4", title: "フーリエ変換の発展", description: "シュワルツ空間・超関数・不確定性原理", sections: [] },
+                    { id: "5", title: "離散フーリエ変換と高速フーリエ変換", description: "有限列のフーリエ解析とアルゴリズム", sections: [] },
+                    { id: "6", title: "ラプラス変換", description: "定義・逆変換・ODEへの応用", sections: [] },
+                    { id: "7", title: "Z変換", description: "離散時間システムの解析ツール", sections: [] },
+                    { id: "8", title: "偏微分方程式への応用", description: "フーリエ・ラプラス変換を使ったPDEの解法", sections: [] },
+                ],
+                prerequisites: ["2-3","2-6","3-3"]
+            },
+            {
+                id: "3-5",
+                title: "微分方程式II",
+                chapters: [
+                    { id: "1", title: "べき級数解法とフロベニウス法", description: "ODEの特殊解法と特殊関数への導入", sections: [] },
+                    { id: "2", title: "行列指数関数と連立ODE", description: "行列指数関数の理論と連立1階ODEの解法", sections: [] },
+                    { id: "3", title: "安定性理論", description: "リャプノフの方法、ポアンカレ・ベンディクソンの定理", sections: [] },
+                    { id: "4", title: "偏微分方程式入門", description: "PDEの分類と1階PDEの解法", sections: [] },
+                    { id: "5", title: "分離変数法とシュトゥルム・リウヴィル問題", description: "PDEを常微分方程式に帰着させる基本技法", sections: [] },
+                    { id: "6", title: "波動方程式", description: "双曲型方程式の理論と解法", sections: [] },
+                    { id: "7", title: "熱方程式", description: "放物型方程式の理論と解法", sections: [] },
+                    { id: "8", title: "ラプラス方程式とポアソン方程式", description: "楕円型方程式の理論と調和関数", sections: [] },
+                    { id: "9", title: "解の正則性と一般解論", description: "PDEの解の滑らかさと存在理論の概論", sections: [] },
+                ],
+                prerequisites: ["2-6","3-1","3-4"]
+            },
+            {
+                id: "3-6",
+                title: "確率論I",
+                chapters: [
+                    { id: "1", title: "確率空間", description: "測度論的確率の基礎 (Ω, F, P)", sections: [] },
+                    { id: "2", title: "確率変数と分布", description: "可測関数としての確率変数と各種分布", sections: [] },
+                    { id: "3", title: "期待値とモーメント", description: "ルベーグ積分としての期待値の理論", sections: [] },
+                    { id: "4", title: "独立性", description: "独立事象・独立確率変数の理論", sections: [] },
+                    { id: "5", title: "条件付き期待値", description: "σ-加法族による条件付き期待値の一般論", sections: [] },
+                    { id: "6", title: "確率変数列の収束", description: "4種の収束概念とその関係", sections: [] },
+                    { id: "7", title: "特性関数", description: "フーリエ変換と確率分布の関係", sections: [] },
+                    { id: "8", title: "大数の法則", description: "頻度と確率をつなぐ根本的な定理", sections: [] },
+                    { id: "9", title: "中心極限定理", description: "正規分布への収束の理論", sections: [] },
+                ],
+                prerequisites: ["3-1"]
+            },
+            {
+                id: "3-7",
+                title: "群論",
+                chapters: [
+                    { id: "1", title: "群の定義", description: "代数的構造への第一歩", sections: [] },
+                    { id: "2", title: "部分群", description: "群の中の群、巡回群、元の位数", sections: [] },
+                    { id: "3", title: "剰余類とラグランジュの定理", description: "群の分割", sections: [] },
+                    { id: "4", title: "正規部分群と商群", description: "正規性の条件、商群の構成", sections: [] },
+                    { id: "5", title: "準同型写像", description: "群の構造を保つ写像、核・像", sections: [] },
+                    { id: "6", title: "準同型定理", description: "第一・第二・第三同型定理", sections: [] },
+                    { id: "7", title: "群の具体例", description: "対称群、交代群、二面体群、行列群", sections: [] },
+                    { id: "8", title: "群の作用", description: "軌道、固定部分群、軌道・固定群定理", sections: [] },
+                    { id: "9", title: "バーンサイドの補題", description: "数え上げへの応用", sections: [] },
+                    { id: "10", title: "シローの定理", description: "p-シロー部分群の存在・共役性・個数", sections: [] },
+                ],
+                prerequisites: ["2-4","2-7"]
+            },
+            {
+                id: "3-8",
+                title: "環論",
+                chapters: [
+                    { id: "1", title: "環の基本概念", description: "環、部分環、整域、可逆元", sections: [] },
+                    { id: "2", title: "イデアルと剰余環・同型定理", description: "イデアルの定義、剰余環、第一〜第三同型定理", sections: [] },
+                    { id: "3", title: "素イデアルと極大イデアル", description: "重要なイデアルのクラス", sections: [] },
+                    { id: "4", title: "整域と商体", description: "分数の構成、多項式環の普遍性", sections: [] },
+                    { id: "5", title: "ユークリッド整域 (ED)", description: "整数の一般化 I", sections: [] },
+                    { id: "6", title: "単項イデアル整域 (PID)", description: "整数の一般化 II", sections: [] },
+                    { id: "7", title: "一意分解整域 (UFD)", description: "素因数分解の一意性", sections: [] },
+                    { id: "8", title: "多項式環の性質と因数分解", description: "ガウスの補題、アイゼンシュタインの判定法", sections: [] },
+                    { id: "9", title: "ネーター環", description: "昇鎖条件、ヒルベルトの基底定理", sections: [] },
+                ],
+                prerequisites: ["3-7"]
+            },
+            {
+                id: "3-9",
+                title: "体論",
+                chapters: [
+                    { id: "1", title: "体の拡大の基本", description: "拡大次数、代数拡大、最小多項式", sections: [] },
+                    { id: "2", title: "分離拡大", description: "重根のない多項式と拡大", sections: [] },
+                    { id: "3", title: "分解体と正規拡大", description: "多項式の根をすべて含む体", sections: [] },
+                    { id: "4", title: "有限体 (Galois Field)", description: "GF(p^n)の構造と一意性", sections: [] },
+                    { id: "5", title: "ガロア理論の基本定理", description: "体と群の対応", sections: [] },
+                    { id: "6", title: "円分体", description: "1のn乗根が生成する体", sections: [] },
+                    { id: "7", title: "方程式の可解性", description: "5次方程式の解の公式は存在するか", sections: [] },
+                ],
+                prerequisites: ["3-8"]
+            },
+            {
+                id: "3-10",
+                title: "多重線形代数学I",
+                chapters: [
+                    { id: "1", title: "多重線形写像", description: "複数のベクトルを変数とする線形写像", sections: [] },
+                    { id: "2", title: "テンソル代数", description: "テンソル積の普遍性、テンソル代数 T(V)", sections: [] },
+                    { id: "3", title: "外積代数 (Exterior Algebra)", description: "交代性の代数、∧^k V", sections: [] },
+                    { id: "4", title: "双対空間と双対性", description: "線形形式の空間", sections: [] },
+                    { id: "5", title: "向きと体積形式", description: "幾何学的応用", sections: [] },
+                    { id: "6", title: "テンソルとしての行列", description: "線形代数の再解釈", sections: [] },
+                ],
+                prerequisites: ["2-1","3-7","3-8"]
+            },
+            {
+                id: "3-11",
+                title: "位相空間論II",
+                chapters: [
+                    { id: "1", title: "ホモトピー", description: "連続変形とホモトピー型", sections: [] },
+                    { id: "2", title: "基本群", description: "ループのホモトピー類と群構造", sections: [] },
+                    { id: "3", title: "円周の基本群と応用", description: "最初の計算例と重要な応用", sections: [] },
+                    { id: "4", title: "ファン・カンペンの定理", description: "空間の貼り合わせと群", sections: [] },
+                    { id: "5", title: "曲面の基本群", description: "ファン・カンペンの定理の応用", sections: [] },
+                    { id: "6", title: "被覆空間", description: "被覆写像の理論", sections: [] },
+                    { id: "7", title: "被覆空間の分類", description: "ガロア対応", sections: [] },
+                ],
+                prerequisites: ["2-5","3-7"]
+            },
+            {
+                id: "3-12",
+                title: "数学基礎論",
+                chapters: [
+                    { id: "1", title: "命題論理", description: "構文・真理表・トートロジー・推論規則・健全性・完全性", sections: [] },
+                    { id: "2", title: "述語論理の構文", description: "項・論理式・量化子・自由変数・束縛変数", sections: [] },
+                    { id: "3", title: "述語論理の意味論", description: "構造（モデル）・充足関係・論理的帰結", sections: [] },
+                    { id: "4", title: "自然演繹と公理的証明", description: "証明体系、⊢と⊨の区別", sections: [] },
+                    { id: "5", title: "完全性定理", description: "ゲンツェンのカット除去、ゲーデルの完全性定理 ⊢ ⟺ ⊨", sections: [] },
+                    { id: "6", title: "コンパクト性定理", description: "非標準モデルへの応用、レーベンハイム・スコーレムの定理", sections: [] },
+                    { id: "7", title: "素朴集合論の限界", description: "ラッセルのパラドックス、ブラリ・フォルティのパラドックス", sections: [] },
+                    { id: "8", title: "ZFC公理系", description: "外延性・対・和・べき集合・無限・分出・置換・正則・選択", sections: [] },
+                    { id: "9", title: "順序数と基数", description: "超限帰納法、順序数算術、基数の定義", sections: [] },
+                    { id: "10", title: "選択公理の同値命題", description: "ツォルンの補題・整列定理・チコノフの定理との同値性", sections: [] },
+                    { id: "11", title: "連続体仮説", description: "2^{ℵ_0}=ℵ_1の主張、独立性の概説", sections: [] },
+                ],
+                prerequisites: ["2-4"]
+            },
+            {
+                id: "3-13",
+                title: "圏論",
+                chapters: [
+                    { id: "1", title: "圏の定義", description: "対象・射・合成・恒等射・公理", sections: [] },
+                    { id: "2", title: "関手", description: "共変・反変関手、忠実・充満・本質的全射", sections: [] },
+                    { id: "3", title: "自然変換", description: "自然変換の定義、関手圏", sections: [] },
+                    { id: "4", title: "米田の補題", description: "表現可能関手、米田埋め込み", sections: [] },
+                    { id: "5", title: "極限と余極限", description: "積・余積・等化子・引き戻しの普遍的定義", sections: [] },
+                    { id: "6", title: "随伴関手", description: "随伴の定義、単位・余単位、自由関手・忘却関手", sections: [] },
+                    { id: "7", title: "モナド", description: "随伴から生まれるモナド、クライスリ圏", sections: [] },
+                    { id: "8", title: "アーベル圏", description: "加法圏、カーネル・コーカーネル、完全系列", sections: [] },
+                ],
+                prerequisites: ["3-7","3-8","3-11"]
+            },
+        ]
+    },
+    {
+        id: "stage-4",
+        title: "Stage-4：より高度な数学",
+        topics: [
+            {
+                id: "4-1",
+                title: "関数解析",
+                chapters: [
+                    { id: "1", title: "ノルム空間", description: "ノルム、距離、三角不等式", sections: [] },
+                    { id: "2", title: "バナッハ空間", description: "完備ノルム空間、C[a,b]、l^p、L^p", sections: [] },
+                    { id: "3", title: "有界線形作用素", description: "作用素ノルム、連続性と有界性の同値", sections: [] },
+                    { id: "4", title: "双対空間", description: "連続線形汎関数、弱位相、弱*位相", sections: [] },
+                    { id: "5", title: "ハーン・バナッハの定理", description: "線形汎関数の拡張、分離定理", sections: [] },
+                    { id: "6", title: "バナッハの不動点定理", description: "縮小写像、完備性、応用", sections: [] },
+                    { id: "7", title: "開写像定理", description: "全射有界線形作用素の開性", sections: [] },
+                    { id: "8", title: "閉グラフ定理", description: "閉作用素の有界性", sections: [] },
+                    { id: "9", title: "一様有界性の原理", description: "バナッハ・シュタインハウスの定理", sections: [] },
+                    { id: "10", title: "内積空間", description: "内積、コーシー・シュワルツの不等式、平行四辺形の等式", sections: [] },
+                    { id: "11", title: "ヒルベルト空間", description: "完備内積空間、l^2空間、L^2空間", sections: [] },
+                    { id: "12", title: "正規直交系", description: "完全正規直交系、ベッセルの不等式、パーセバルの等式", sections: [] },
+                    { id: "13", title: "フーリエ級数", description: "ヒルベルト空間における展開", sections: [] },
+                    { id: "14", title: "射影定理", description: "凸閉部分空間への射影、最良近似", sections: [] },
+                    { id: "15", title: "リースの表現定理", description: "H*とHの同型", sections: [] },
+                    { id: "16", title: "コンパクト作用素", description: "定義、性質、フレドホルム作用素", sections: [] },
+                    { id: "17", title: "スペクトル理論", description: "スペクトル、固有値、レゾルベント、自己随伴作用素のスペクトル分解", sections: [] },
+                ],
+                prerequisites: ["3-11","2-1"]
+            },
+            {
+                id: "4-2",
+                title: "複素解析II",
+                chapters: [
+                    { id: "1", title: "解析接続の定義と一意性", description: "一致の定理、解析接続の概念", sections: [] },
+                    { id: "2", title: "モノドロミー定理", description: "単連結領域での経路依存性のなさ", sections: [] },
+                    { id: "3", title: "リーマン面の構成", description: "log z・√z のリーマン面、分枝点", sections: [] },
+                    { id: "4", title: "リーマン面の位相", description: "コンパクトリーマン面の分類、種数", sections: [] },
+                    { id: "5", title: "リーマン・ロッホの定理（概観）", description: "除数、線形系", sections: [] },
+                    { id: "6", title: "ピカールの定理", description: "大ピカール、小ピカール", sections: [] },
+                    { id: "7", title: "シュワルツ・ピック補題", description: "双曲計量、等長写像", sections: [] },
+                    { id: "8", title: "無限積とワイエルシュトラス分解定理", description: "整関数の零点の分布", sections: [] },
+                    { id: "9", title: "ハダマールの因数分解定理", description: "階数・型による分類", sections: [] },
+                ],
+                prerequisites: ["3-3","3-11"]
+            },
+            {
+                id: "4-3",
+                title: "変分法",
+                chapters: [
+                    { id: "1", title: "汎関数と変分問題", description: "汎関数の定義、最小化問題の設定", sections: [] },
+                    { id: "2", title: "オイラー=ラグランジュ方程式", description: "変分の第一変分の計算と導出", sections: [] },
+                    { id: "3", title: "境界条件とトランザーバリティ", description: "自然境界条件、各種境界設定", sections: [] },
+                    { id: "4", title: "第二変分と極値条件", description: "ヤコビ方程式、共役点", sections: [] },
+                    { id: "5", title: "ハミルトン形式", description: "ルジャンドル変換、ハミルトンの正準方程式", sections: [] },
+                    { id: "6", title: "ノーターの定理", description: "対称性と保存則", sections: [] },
+                    { id: "7", title: "等周問題", description: "制約付き変分問題", sections: [] },
+                    { id: "8", title: "直接法", description: "ソボレフ空間での弱下半連続性と存在定理", sections: [] },
+                ],
+                prerequisites: ["3-5","4-1"]
+            },
+            {
+                id: "4-4",
+                title: "凸解析",
+                chapters: [
+                    { id: "1", title: "凸集合", description: "定義・性質・分離定理", sections: [] },
+                    { id: "2", title: "凸関数", description: "定義・特徴づけ・例", sections: [] },
+                    { id: "3", title: "劣微分", description: "劣勾配、最適性条件", sections: [] },
+                    { id: "4", title: "共役関数", description: "フェンケル共役、双対性", sections: [] },
+                    { id: "5", title: "ミニマックス定理", description: "鞍点、フォン・ノイマンの定理", sections: [] },
+                    { id: "6", title: "近接作用素と凸最適化", description: "近接点法、ADMM", sections: [] },
+                    { id: "7", title: "ラグランジュ双対性", description: "KKT条件、スレーターの条件", sections: [] },
+                ],
+                prerequisites: ["3-1","2-1"]
+            },
+            {
+                id: "4-5",
+                title: "力学系理論",
+                chapters: [
+                    { id: "1", title: "力学系の基礎", description: "流れ、軌道、位相空間", sections: [] },
+                    { id: "2", title: "不変集合と安定性", description: "ω-極限集合、リャプノフ安定性", sections: [] },
+                    { id: "3", title: "線形力学系", description: "行列指数関数、安定多様体定理", sections: [] },
+                    { id: "4", title: "中心多様体理論", description: "中心多様体定理、縮約", sections: [] },
+                    { id: "5", title: "分岐理論", description: "鞍点分岐、ホップ分岐、余次元", sections: [] },
+                    { id: "6", title: "ポアンカレ写像", description: "断面、周期軌道の安定性", sections: [] },
+                    { id: "7", title: "カオスの基礎", description: "リャプノフ指数、ストレンジアトラクター", sections: [] },
+                    { id: "8", title: "エルゴード的性質", description: "カオス力学系と測度論", sections: [] },
+                ],
+                prerequisites: ["3-5","4-6"]
+            },
+            {
+                id: "4-6",
+                title: "多様体論",
+                chapters: [
+                    { id: "1", title: "位相多様体", description: "n次元位相多様体、ハウスドルフ性、第二可算性", sections: [] },
+                    { id: "2", title: "チャート", description: "局所座標系、座標近傍、座標変換", sections: [] },
+                    { id: "3", title: "アトラス", description: "チャートの集まり、極大アトラス", sections: [] },
+                    { id: "4", title: "滑らかな多様体", description: "C^∞-アトラス、微分同相", sections: [] },
+                    { id: "5", title: "多様体上の関数", description: "滑らかな関数・写像", sections: [] },
+                    { id: "6", title: "部分多様体", description: "埋め込み、はめ込み、正則値定理", sections: [] },
+                    { id: "7", title: "接空間", description: "曲線の速度ベクトル、導分としての接ベクトル", sections: [] },
+                    { id: "8", title: "接束", description: "TM、ベクトル場、リー括弧積", sections: [] },
+                    { id: "9", title: "余接空間", description: "双対空間、微分 df、余接束 T*M", sections: [] },
+                    { id: "10", title: "微分形式", description: "k-形式、外積代数、交代テンソル", sections: [] },
+                    { id: "11", title: "ウェッジ積", description: "∧の定義、反対称性", sections: [] },
+                    { id: "12", title: "外微分", description: "d の定義、d^2=0、座標不変性", sections: [] },
+                    { id: "13", title: "引き戻し", description: "写像 f による形式の引き戻し f*ω", sections: [] },
+                    { id: "14", title: "向き付け", description: "向き付け可能な多様体、体積形式", sections: [] },
+                    { id: "15", title: "積分", description: "多様体上での k-形式の積分", sections: [] },
+                    { id: "16", title: "ストークスの定理", description: "∫_M dω = ∫_{∂M} ω", sections: [] },
+                    { id: "17", title: "ド・ラームコホモロジー", description: "閉形式、完全形式、H^k_dR(M)", sections: [] },
+                    { id: "18", title: "ポアンカレの補題", description: "可縮な多様体上での完全性", sections: [] },
+                ],
+                prerequisites: ["2-5","3-2","3-11"]
+            },
+            {
+                id: "4-7",
+                title: "微分幾何",
+                chapters: [
+                    { id: "1", title: "リーマン計量", description: "内積の滑らかな族、計量テンソル g", sections: [] },
+                    { id: "2", title: "レビ・チビタ接続", description: "ねじれなし、計量的な接続", sections: [] },
+                    { id: "3", title: "共変微分", description: "ベクトル場の微分、接続に関する微分", sections: [] },
+                    { id: "4", title: "測地線", description: "自己平行曲線、測地線方程式、最短経路", sections: [] },
+                    { id: "5", title: "曲率", description: "リーマン曲率テンソル、断面曲率", sections: [] },
+                    { id: "6", title: "リッチ曲率", description: "リッチテンソル、スカラー曲率", sections: [] },
+                    { id: "7", title: "ガウス曲率", description: "曲面の固有曲率、ガウスの驚くべき定理", sections: [] },
+                    { id: "8", title: "ガウス・ボンネの定理", description: "全曲率とオイラー標数の関係", sections: [] },
+                    { id: "9", title: "ファイバー束", description: "主束、ベクトル束、構造群", sections: [] },
+                    { id: "10", title: "接続", description: "主束上の接続、接続形式、曲率形式", sections: [] },
+                    { id: "11", title: "特性類", description: "チャーン類、ポントリャーギン類、オイラー類", sections: [] },
+                    { id: "12", title: "指数定理", description: "ガウス・ボンネ・チャーンの定理、アティヤ・シンガーの指数定理", sections: [] },
+                ],
+                prerequisites: ["4-6"]
+            },
+            {
+                id: "4-8",
+                title: "微分トポロジー",
+                chapters: [
+                    { id: "1", title: "横断性", description: "横断交差、横断性定理", sections: [] },
+                    { id: "2", title: "サードの定理", description: "臨界値の集合の測度ゼロ性", sections: [] },
+                    { id: "3", title: "ホイットニーの埋め込み定理", description: "n次元多様体の R^{2n+1} への埋め込み", sections: [] },
+                    { id: "4", title: "モース関数", description: "非退化臨界点、モース補題", sections: [] },
+                    { id: "5", title: "モース理論", description: "臨界点と位相的変化、ハンドル分解", sections: [] },
+                    { id: "6", title: "コボルディズム", description: "コボルディズム群、サームの定理", sections: [] },
+                    { id: "7", title: "交差数と絡み数", description: "符号付き交差数、ポアンカレ双対性との関係", sections: [] },
+                ],
+                prerequisites: ["4-6","4-9"]
+            },
+            {
+                id: "4-9",
+                title: "代数的トポロジー",
+                chapters: [
+                    { id: "1", title: "単体複体", description: "単体、単体的複体、幾何学的実現", sections: [] },
+                    { id: "2", title: "チェイン複体", description: "境界作用素 ∂、∂^2=0", sections: [] },
+                    { id: "3", title: "ホモロジー群", description: "H_n(X) = ker ∂_n / im ∂_{n+1}", sections: [] },
+                    { id: "4", title: "特異ホモロジー", description: "特異単体、特異チェイン、特異ホモロジー群", sections: [] },
+                    { id: "5", title: "ホモロジー群の性質", description: "ホモトピー不変性、次元公理", sections: [] },
+                    { id: "6", title: "完全系列", description: "短完全系列、長完全系列", sections: [] },
+                    { id: "7", title: "マイヤー・ビエトリス完全系列", description: "ホモロジー群の計算", sections: [] },
+                    { id: "8", title: "オイラー標数", description: "交代和、ホモロジー群による定義", sections: [] },
+                    { id: "9", title: "コチェイン複体", description: "コホモロジー群 H^n(X)", sections: [] },
+                    { id: "10", title: "コホモロジー環", description: "カップ積、環構造", sections: [] },
+                    { id: "11", title: "ポアンカレ双対性", description: "向き付け可能閉多様体での双対", sections: [] },
+                    { id: "12", title: "ユニバーサル係数定理", description: "ホモロジーとコホモロジーの関係", sections: [] },
+                    { id: "13", title: "キュネットの公式", description: "積空間のコホモロジー", sections: [] },
+                ],
+                prerequisites: ["3-11","3-7"]
+            },
+            {
+                id: "4-10",
+                title: "体論II",
+                chapters: [
+                    { id: "1", title: "超越拡大", description: "代数的独立性、超越次数", sections: [] },
+                    { id: "2", title: "無限次ガロア理論", description: "クルル位相、逆極限としてのガロア群", sections: [] },
+                ],
+                prerequisites: ["3-9"]
+            },
+            {
+                id: "4-11",
+                title: "多重線形代数学II",
+                chapters: [
+                    { id: "1", title: "対称代数と多項式", description: "可換なテンソル代数、S(V*) ≅ K[x_1,...,x_n]", sections: [] },
+                    { id: "2", title: "クリフォード代数", description: "二次形式とクリフォード代数、スピノルへの道", sections: [] },
+                ],
+                prerequisites: ["3-10","3-7"]
+            },
+            {
+                id: "4-12",
+                title: "整数論II",
+                chapters: [
+                    { id: "1", title: "中国剰余定理", description: "連立合同式の解法、RSA暗号への応用", sections: [] },
+                    { id: "2", title: "原始根と指数", description: "乗法群の構造、離散対数問題", sections: [] },
+                    { id: "3", title: "平方剰余", description: "2次合同式、平方剰余の相互法則", sections: [] },
+                    { id: "4", title: "素数判定法", description: "確率的判定法と決定的判定法", sections: [] },
+                    { id: "5", title: "素因数分解アルゴリズム", description: "現代の因数分解手法", sections: [] },
+                    { id: "6", title: "楕円曲線入門", description: "楕円曲線の群構造と暗号", sections: [] },
+                ],
+                prerequisites: ["2-7","3-8"]
+            },
+            {
+                id: "4-13",
+                title: "数理統計学",
+                chapters: [
+                    { id: "1", title: "標本分布", description: "標本平均・標本分散、χ^2分布・t分布・F分布", sections: [] },
+                    { id: "2", title: "点推定", description: "不偏推定量、一致推定量、有効推定量", sections: [] },
+                    { id: "3", title: "最尤推定", description: "尤度関数、最尤推定量、漸近正規性", sections: [] },
+                    { id: "4", title: "モーメント法", description: "モーメント推定量", sections: [] },
+                    { id: "5", title: "区間推定", description: "信頼区間、信頼水準、ピボット量", sections: [] },
+                    { id: "6", title: "検定", description: "帰無仮説・対立仮説、第一種・第二種の誤り、検出力", sections: [] },
+                    { id: "7", title: "パラメトリック検定", description: "t検定、F検定、χ^2検定、分散分析", sections: [] },
+                    { id: "8", title: "ノンパラメトリック検定", description: "符号検定、ウィルコクソンの順位和検定", sections: [] },
+                    { id: "9", title: "回帰分析", description: "最小二乗法、重回帰、決定係数", sections: [] },
+                ],
+                prerequisites: ["3-6"]
+            },
+            {
+                id: "4-14",
+                title: "数理論理学",
+                chapters: [
+                    { id: "1", title: "原始再帰関数", description: "定義、例（加法・乗法・指数関数）", sections: [] },
+                    { id: "2", title: "一般再帰関数", description: "μ再帰、部分再帰関数、チューリング完全性", sections: [] },
+                    { id: "3", title: "チューリング機械", description: "形式的定義、計算の挙動、万能チューリング機械", sections: [] },
+                    { id: "4", title: "停止問題と決定不可能性", description: "対角線論法、停止問題の決定不可能性の証明", sections: [] },
+                    { id: "5", title: "再帰的可算集合", description: "半決定可能性、r.e.集合と再帰的集合", sections: [] },
+                    { id: "6", title: "ゲーデル数化", description: "記号・論理式・証明の自然数への符号化", sections: [] },
+                    { id: "7", title: "第一不完全性定理", description: "「この命題は証明不可能」の形式化、対角補題", sections: [] },
+                    { id: "8", title: "第二不完全性定理", description: "Con(PA)の形式化、ヒルベルトプログラムの限界", sections: [] },
+                    { id: "9", title: "モデル理論の基礎", description: "理論、完全理論、モデルの濃度、初等同値性", sections: [] },
+                    { id: "10", title: "超積とコンパクト性の応用", description: "超フィルター、超積構成、ロスの定理", sections: [] },
+                    { id: "11", title: "量化子消去", description: "稠密線形順序、代数的閉体、モデル完全性", sections: [] },
+                    { id: "12", title: "安定性理論入門", description: "型空間、ω安定理論、モデル分類", sections: [] },
+                    { id: "13", title: "証明論的順序数", description: "証明論的強さ、カット自由証明、ゲンツェンの無矛盾性証明", sections: [] },
+                ],
+                prerequisites: ["3-12"]
+            },
+        ]
+    },
+    {
+        id: "stage-5",
+        title: "Stage-5：専門化・研究へ（大学院レベル）",
+        topics: [
+            {
+                id: "5-1",
+                title: "可換環論",
+                chapters: [
+                    { id: "1", title: "ネーター環", description: "昇鎖条件、ヒルベルトの基底定理", sections: [] },
+                    { id: "2", title: "アルティン環", description: "降鎖条件、半単純環", sections: [] },
+                    { id: "3", title: "素イデアル分解", description: "準素イデアル、第一・第二分解定理", sections: [] },
+                    { id: "4", title: "局所化", description: "局所環、分数環、局所化の普遍性", sections: [] },
+                    { id: "5", title: "完備化", description: "進イデアル位相、p-進整数環", sections: [] },
+                    { id: "6", title: "次元論", description: "クルル次元、超越次数、正則局所環", sections: [] },
+                ],
+                prerequisites: ["3-9"]
+            },
+            {
+                id: "5-2",
+                title: "ホモロジー代数",
+                chapters: [
+                    { id: "1", title: "複体と完全系列", description: "鎖複体・コチェイン複体、完全系列", sections: [] },
+                    { id: "2", title: "ホモロジー群と関手性", description: "ホモロジー群の関手的性質", sections: [] },
+                    { id: "3", title: "蛇の補題と長完全系列", description: "蛇の補題の証明", sections: [] },
+                    { id: "4", title: "Tor関手", description: "射影分解、左導来関手", sections: [] },
+                    { id: "5", title: "Ext関手", description: "単射分解、右導来関手", sections: [] },
+                    { id: "6", title: "導来関手の一般論", description: "十分多くの射影対象・単射対象", sections: [] },
+                    { id: "7", title: "スペクトル系列", description: "Leray-Hirschスペクトル系列、収束", sections: [] },
+                    { id: "8", title: "導来圏", description: "三角圏、圏論的ホモロジー代数", sections: [] },
+                ],
+                prerequisites: ["3-13","4-9"]
+            },
+            {
+                id: "5-3",
+                title: "代数幾何",
+                chapters: [
+                    { id: "1", title: "アフィン多様体", description: "アフィン空間、ザリスキー位相、座標環", sections: [] },
+                    { id: "2", title: "ヒルベルトの零点定理", description: "弱形と強形", sections: [] },
+                    { id: "3", title: "射影多様体", description: "斉次座標、射影空間", sections: [] },
+                    { id: "4", title: "層", description: "前層、層化、茎、層の完全系列", sections: [] },
+                    { id: "5", title: "スキーム", description: "局所環付き空間、アフィンスキーム、射", sections: [] },
+                    { id: "6", title: "射影スキームと代数的多様体", description: "グロタンディーク流の定式化", sections: [] },
+                    { id: "7", title: "層のコホモロジー", description: "チェックコホモロジー、導来関手", sections: [] },
+                    { id: "8", title: "セール双対性", description: "双対定理の主張", sections: [] },
+                    { id: "9", title: "リーマン=ロッホの定理", description: "曲線上の版", sections: [] },
+                    { id: "10", title: "アーベル多様体", description: "複素トーラス、偏極", sections: [] },
+                ],
+                prerequisites: ["5-1","5-2","4-6"]
+            },
+            {
+                id: "5-4",
+                title: "表現論",
+                chapters: [
+                    { id: "1", title: "群の表現", description: "表現、既約表現、完全可約性（マシュケの定理）", sections: [] },
+                    { id: "2", title: "指標理論", description: "指標、直交関係、指標表", sections: [] },
+                    { id: "3", title: "類関数と誘導表現", description: "フロベニウスの相互律、誘導指標", sections: [] },
+                    { id: "4", title: "リー群", description: "行列群、リー括弧積、指数写像", sections: [] },
+                    { id: "5", title: "リー環", description: "リー括弧、随伴表現、キリング形式", sections: [] },
+                    { id: "6", title: "半単純リー環", description: "半単純性の判定、カルタン部分環、ルート系", sections: [] },
+                    { id: "7", title: "ワイル群と分類定理", description: "ディンキン図形、単純リー環の分類", sections: [] },
+                    { id: "8", title: "最高ウェイト理論", description: "ウェイト、最高ウェイト加群", sections: [] },
+                    { id: "9", title: "量子群入門", description: "q変形、ホップ代数", sections: [] },
+                ],
+                prerequisites: ["3-8","3-6","4-6"]
+            },
+            {
+                id: "5-5",
+                title: "代数数論",
+                chapters: [
+                    { id: "1", title: "代数的整数", description: "整数環の定義、代数的整数の和・積の閉性", sections: [] },
+                    { id: "2", title: "デデキント環", description: "デデキント整域、イデアルの一意分解、素イデアル", sections: [] },
+                    { id: "3", title: "イデアル類群", description: "分数イデアル、類数、有限性定理", sections: [] },
+                    { id: "4", title: "ミンコフスキーの定理", description: "格子点定理、類数有限性の証明", sections: [] },
+                    { id: "5", title: "単数群とディリクレの単数定理", description: "基本単数、単数群の構造", sections: [] },
+                    { id: "6", title: "分岐理論", description: "素イデアルの分岐、慣性群、フロベニウス元", sections: [] },
+                    { id: "7", title: "局所体とp-進数", description: "p-進絶対値、p-進数体 Q_p、局所体", sections: [] },
+                ],
+                prerequisites: ["3-9","3-11","2-7"]
+            },
+            {
+                id: "5-6",
+                title: "偏微分方程式論",
+                chapters: [
+                    { id: "1", title: "ソボレフ空間", description: "W^{k,p}、弱微分、ノルム", sections: [] },
+                    { id: "2", title: "埋め込み定理", description: "ソボレフの埋め込み、リリッヒ・コンドラショフの定理", sections: [] },
+                    { id: "3", title: "トレース定理", description: "境界値の意味", sections: [] },
+                    { id: "4", title: "弱解", description: "変分形式、テスト関数", sections: [] },
+                    { id: "5", title: "ラックス・ミルグラムの定理", description: "双線形形式、弱解の存在と一意性", sections: [] },
+                    { id: "6", title: "楕円型方程式", description: "正則性理論、最大値原理、固有値問題", sections: [] },
+                    { id: "7", title: "放物型方程式", description: "半群理論、熱核、最大値原理", sections: [] },
+                    { id: "8", title: "双曲型方程式", description: "エネルギー法、有限伝播速度", sections: [] },
+                ],
+                prerequisites: ["3-5","4-1"]
+            },
+            {
+                id: "5-7",
+                title: "確率過程論",
+                chapters: [
+                    { id: "1", title: "マルチンゲール", description: "条件付き期待値、停止時刻、任意抽出定理", sections: [] },
+                    { id: "2", title: "ブラウン運動", description: "ウィーナー過程、連続性、マルコフ性、強マルコフ性", sections: [] },
+                    { id: "3", title: "伊藤積分", description: "確率積分、伊藤の等長性", sections: [] },
+                    { id: "4", title: "伊藤の公式", description: "確率微分の変数変換", sections: [] },
+                    { id: "5", title: "確率微分方程式", description: "SDE、弱解と強解、存在と一意性", sections: [] },
+                    { id: "6", title: "フォッカー=プランク方程式", description: "確率分布の発展方程式", sections: [] },
+                    { id: "7", title: "ポアソン過程", description: "指数分布、待ち時間、強度関数", sections: [] },
+                ],
+                prerequisites: ["3-6","4-1"]
+            },
+            {
+                id: "5-8",
+                title: "調和解析",
+                chapters: [
+                    { id: "1", title: "フーリエ解析", description: "L^p理論、ハウスドルフ・ヤングの定理", sections: [] },
+                    { id: "2", title: "プランシュレルの定理", description: "L^2におけるフーリエ変換の等長性", sections: [] },
+                    { id: "3", title: "急減少関数", description: "シュワルツ空間 S(R^n)、テンパード超関数", sections: [] },
+                    { id: "4", title: "超関数", description: "分布、デルタ関数、フーリエ変換", sections: [] },
+                ],
+                prerequisites: ["4-1","3-5"]
+            },
+            {
+                id: "5-9",
+                title: "作用素環論",
+                chapters: [
+                    { id: "1", title: "C*-環", description: "ノルム、*-演算、C*-恒等式、スペクトル", sections: [] },
+                    { id: "2", title: "可換C*-環", description: "ゲルファント変換、コンパクト空間との対応", sections: [] },
+                    { id: "3", title: "フォン・ノイマン環", description: "弱位相、強位相、因子", sections: [] },
+                    { id: "4", title: "GNS構成", description: "状態、表現、循環ベクトル", sections: [] },
+                ],
+                prerequisites: ["4-1"]
+            },
+            {
+                id: "5-10",
+                title: "エルゴード理論",
+                chapters: [
+                    { id: "1", title: "測度保存変換", description: "不変測度、エルゴード性", sections: [] },
+                    { id: "2", title: "ビルホッフのエルゴード定理", description: "時間平均と空間平均の一致", sections: [] },
+                    { id: "3", title: "混合性", description: "弱混合、強混合、K-性", sections: [] },
+                    { id: "4", title: "エントロピー", description: "コルモゴロフ・シナイエントロピー", sections: [] },
+                ],
+                prerequisites: ["3-1","3-6"]
+            },
+            {
+                id: "5-11",
+                title: "多変数複素解析",
+                chapters: [
+                    { id: "1", title: "多変数正則関数", description: "C^n の関数、コーシー・リーマン方程式の一般化", sections: [] },
+                    { id: "2", title: "ハルトークスの拡張定理", description: "多変数では孤立特異点がない", sections: [] },
+                    { id: "3", title: "擬凸性", description: "レビ擬凸性、多重劣調和関数", sections: [] },
+                    { id: "4", title: "岡の定理", description: "連接定理、層コホモロジーの消滅", sections: [] },
+                    { id: "5", title: "ホルモルゲンのL^2定理", description: "∂-方程式の解法", sections: [] },
+                    { id: "6", title: "スタイン多様体", description: "定義と特徴づけ", sections: [] },
+                    { id: "7", title: "CR多様体", description: "実超曲面、CR構造", sections: [] },
+                ],
+                prerequisites: ["4-2","4-6"]
+            },
+            {
+                id: "5-12",
+                title: "シンプレクティック幾何学",
+                chapters: [
+                    { id: "1", title: "シンプレクティック線形代数", description: "シンプレクティック形式、ラグランジアン部分空間", sections: [] },
+                    { id: "2", title: "シンプレクティック多様体", description: "定義、例（T*M、カーラー多様体）", sections: [] },
+                    { id: "3", title: "ハミルトン力学", description: "ハミルトンベクトル場、ポアソン括弧", sections: [] },
+                    { id: "4", title: "完全可積分系", description: "リウビルの定理、アクション・アングル変数", sections: [] },
+                    { id: "5", title: "シンプレクティック簡約", description: "モーメント写像、マースデン・ワインシュタイン簡約", sections: [] },
+                    { id: "6", title: "フロアーホモロジー", description: "アーノルド予想、シンプレクティック的不変量", sections: [] },
+                    { id: "7", title: "シンプレクティック位相幾何学", description: "グロモフの非圧縮定理", sections: [] },
+                ],
+                prerequisites: ["4-6","4-7"]
+            },
+            {
+                id: "5-13",
+                title: "低次元位相幾何学",
+                chapters: [
+                    { id: "1", title: "結び目と絡み目", description: "定義、アンビエント同位体、結び目表", sections: [] },
+                    { id: "2", title: "結び目不変量", description: "三色付け、アレキサンダー多項式", sections: [] },
+                    { id: "3", title: "ジョーンズ多項式", description: "スケイン関係式、量子群との関係", sections: [] },
+                    { id: "4", title: "HOMFLY多項式", description: "多変数一般化、絡み目不変量", sections: [] },
+                    { id: "5", title: "3次元多様体論", description: "ヘガード分解、デーン手術", sections: [] },
+                    { id: "6", title: "サーストンの幾何化定理", description: "8種の幾何構造", sections: [] },
+                    { id: "7", title: "リッチフロー", description: "ペレルマンの証明概略、幾何化予想", sections: [] },
+                ],
+                prerequisites: ["4-9","4-8"]
+            },
+            {
+                id: "5-14",
+                title: "K理論",
+                chapters: [
+                    { id: "1", title: "位相的K理論の基礎", description: "ベクトル束、K^0(X)の定義", sections: [] },
+                    { id: "2", title: "縮約K群とボット周期性", description: "K^{-1}(X)、ボット周期性定理", sections: [] },
+                    { id: "3", title: "K理論の完全系列", description: "コファイバー系列、マイヤー=ビエトリス", sections: [] },
+                    { id: "4", title: "アティヤ=シンガーの指数定理", description: "楕円型微分作用素の指数とK理論", sections: [] },
+                    { id: "5", title: "代数的K理論の基礎", description: "K_0(R)、K_1(R)、グロタンディーク群", sections: [] },
+                    { id: "6", title: "高次K群", description: "クイレンのQコンストラクション", sections: [] },
+                ],
+                prerequisites: ["4-9","5-2"]
+            },
+            {
+                id: "5-15",
+                title: "解析的数論",
+                chapters: [
+                    { id: "1", title: "リーマンゼータ関数", description: "ζ(s)、オイラー積、関数等式、解析接続", sections: [] },
+                    { id: "2", title: "ディリクレL関数", description: "指標、ディリクレ級数、L関数の性質", sections: [] },
+                    { id: "3", title: "素数定理", description: "π(x) ~ x/log x、チェビシェフの関数、証明の概略", sections: [] },
+                    { id: "4", title: "ディリクレの算術級数定理", description: "等差数列中の素数の無限性", sections: [] },
+                    { id: "5", title: "リーマン予想", description: "非自明な零点の実部", sections: [] },
+                ],
+                prerequisites: ["3-3","2-7"]
+            },
+            {
+                id: "5-16",
+                title: "モジュラー形式",
+                chapters: [
+                    { id: "1", title: "上半平面とメビウス変換", description: "SL(2,R)の作用、上半平面 H の幾何学", sections: [] },
+                    { id: "2", title: "モジュラー群", description: "SL(2,Z)、基本領域、カスプ", sections: [] },
+                    { id: "3", title: "モジュラー形式の定義", description: "整数ウェイト k の形式、保型性条件", sections: [] },
+                    { id: "4", title: "アイゼンシュタイン級数", description: "E_4、E_6、モジュラー形式の空間の生成", sections: [] },
+                    { id: "5", title: "デルタ関数と判別式", description: "Δ(τ)=q∏(1-q^n)^{24}、重さ12のカスプ形式", sections: [] },
+                    { id: "6", title: "ヘッケ作用素", description: "T(n) の定義、固有形式、L関数", sections: [] },
+                    { id: "7", title: "保型形式と整数論", description: "フェルマーの最終定理の概略、谷山・志村予想", sections: [] },
+                ],
+                prerequisites: ["5-15","3-3"]
+            },
+            {
+                id: "5-17",
+                title: "超準解析",
+                chapters: [
+                    { id: "1", title: "超実数体の構成", description: "超積構成 *R = R^N / U、超フィルター", sections: [] },
+                    { id: "2", title: "移行原理", description: "一階論理の文の移行（Transfer Principle）", sections: [] },
+                    { id: "3", title: "標準部分写像", description: "有限超実数から実数への写像 st: *R_fin → R", sections: [] },
+                    { id: "4", title: "超準的微積分", description: "連続性・微分・積分の無限小による再定式化", sections: [] },
+                    { id: "5", title: "超準的位相論", description: "コンパクト性、モナド", sections: [] },
+                    { id: "6", title: "超準的確率論と測度論", description: "Loeb測度、超準的確率変数", sections: [] },
+                ],
+                prerequisites: ["4-14"]
+            },
+            {
+                id: "5-18",
+                title: "ホモトピー型理論",
+                chapters: [
+                    { id: "1", title: "型理論の基礎", description: "依存型、関数型、Π型・Σ型", sections: [] },
+                    { id: "2", title: "命題としての型", description: "カリー・ハワード対応", sections: [] },
+                    { id: "3", title: "同一性型と道", description: "等式の型、高次群様構造", sections: [] },
+                    { id: "4", title: "高次帰納型", description: "円、懸架、トーラスの型理論的定義", sections: [] },
+                    { id: "5", title: "単価公理", description: "同値と等式の同一視（Univalence Axiom）", sections: [] },
+                    { id: "6", title: "∞圏との接続", description: "∞グルポイド、Kan複体", sections: [] },
+                ],
+                prerequisites: ["3-12","3-13"]
+            },
+            {
+                id: "5-19",
+                title: "幾何学的群論",
+                chapters: [
+                    { id: "1", title: "ケイリーグラフ", description: "生成系、語距離", sections: [] },
+                    { id: "2", title: "準等長", description: "粗い同値、ゲルファント=フォーエンスの定理", sections: [] },
+                    { id: "3", title: "双曲群", description: "グロモフ双曲性、双曲空間の例", sections: [] },
+                    { id: "4", title: "境界理論", description: "双曲群の境界、収束群", sections: [] },
+                    { id: "5", title: "語の問題と決定可能性", description: "デーン関数、等周不等式", sections: [] },
+                    { id: "6", title: "CAT(0)空間と群作用", description: "CAT(0)境界、中間次元消滅定理", sections: [] },
+                ],
+                prerequisites: ["3-7","4-6"]
+            },
+        ]
+    },
+    {
+        id: "stage-applied",
+        title: "応用数学系分野",
+        topics: [
+            {
+                id: "A-1",
+                title: "グラフ理論",
+                chapters: [
+                    { id: "1", title: "基本概念", description: "頂点、辺、次数、道、閉路、連結性", sections: [] },
+                    { id: "2", title: "木", description: "全域木、最小全域木（クラスカル法、プリム法）", sections: [] },
+                    { id: "3", title: "オイラー路", description: "オイラーグラフの判定、フルーリーのアルゴリズム", sections: [] },
+                    { id: "4", title: "ハミルトン路", description: "ハミルトン閉路、ディラックの定理、TSP", sections: [] },
+                    { id: "5", title: "平面グラフ", description: "クラトフスキーの定理、オイラーの多面体定理", sections: [] },
+                    { id: "6", title: "彩色問題", description: "頂点彩色、辺彩色、四色定理", sections: [] },
+                    { id: "7", title: "マッチング", description: "二部グラフ、最大マッチング、ホール婚姻定理", sections: [] },
+                    { id: "8", title: "ネットワークフロー", description: "最大流最小カット定理、フォード・ファルカーソン法", sections: [] },
+                ],
+                prerequisites: ["基礎的な数学的思考力"]
+            },
+            {
+                id: "A-2",
+                title: "組合せ論",
+                chapters: [
+                    { id: "1", title: "数え上げ", description: "順列、組合せ、二項係数、スターリング数", sections: [] },
+                    { id: "2", title: "母関数", description: "指数型母関数、ベル数、カタラン数", sections: [] },
+                    { id: "3", title: "包除原理", description: "容斥の原理、メビウスの反転公式", sections: [] },
+                    { id: "4", title: "ポリアの計数定理", description: "バーンサイドの補題の一般化", sections: [] },
+                    { id: "5", title: "ラムゼー理論", description: "ラムゼー数、無限ラムゼーの定理", sections: [] },
+                ],
+                prerequisites: ["基礎的な数学的思考力"]
+            },
+            {
+                id: "A-3",
+                title: "最適化理論",
+                chapters: [
+                    { id: "1", title: "線形計画問題", description: "目的関数、制約条件、実行可能領域", sections: [] },
+                    { id: "2", title: "単体法", description: "ピボット演算、基底解、最適性条件", sections: [] },
+                    { id: "3", title: "双対理論", description: "双対問題、強双対定理、相補性定理", sections: [] },
+                    { id: "4", title: "感度分析", description: "パラメータ変化に対する最適解の変化", sections: [] },
+                    { id: "5", title: "凸最適化", description: "凸関数、凸集合、凸計画問題", sections: [] },
+                    { id: "6", title: "制約付き最適化", description: "ラグランジュ関数、KKT条件", sections: [] },
+                    { id: "7", title: "勾配法と共役勾配法", description: "最急降下法、収束性", sections: [] },
+                    { id: "8", title: "ニュートン法と準ニュートン法", description: "ヘッセ行列、BFGS法", sections: [] },
+                    { id: "9", title: "内点法", description: "障壁関数、パス追跡法", sections: [] },
+                ],
+                prerequisites: ["1-1","1-2"]
+            },
+            {
+                id: "A-4",
+                title: "数値解析",
+                chapters: [
+                    { id: "1", title: "数値誤差", description: "丸め誤差、打ち切り誤差、誤差の伝播", sections: [] },
+                    { id: "2", title: "非線形方程式", description: "二分法、ニュートン法、割線法、収束次数", sections: [] },
+                    { id: "3", title: "連立1次方程式の直接法", description: "ガウス消去法、LU分解、ピボット選択", sections: [] },
+                    { id: "4", title: "連立1次方程式の反復法", description: "ヤコビ法、ガウス・ザイデル法、SOR法", sections: [] },
+                    { id: "5", title: "補間法", description: "ラグランジュ補間、ニュートン補間、スプライン補間", sections: [] },
+                    { id: "6", title: "数値積分", description: "台形公式、シンプソン公式、ガウス積分", sections: [] },
+                    { id: "7", title: "数値微分", description: "前進・後退・中心差分、高次精度公式", sections: [] },
+                    { id: "8", title: "常微分方程式の初期値問題（1段法）", description: "オイラー法、ルンゲ・クッタ法", sections: [] },
+                    { id: "9", title: "常微分方程式の初期値問題（多段法）", description: "アダムス・バッシュフォース法", sections: [] },
+                    { id: "10", title: "安定性解析", description: "絶対安定性、A-安定性、剛性方程式", sections: [] },
+                    { id: "11", title: "境界値問題", description: "差分法、有限要素法の概要", sections: [] },
+                    { id: "12", title: "固有値問題の数値解法", description: "べき乗法、QR法", sections: [] },
+                ],
+                prerequisites: ["1-2","2-1","2-6"]
+            },
+            {
+                id: "A-5",
+                title: "制御理論",
+                chapters: [
+                    { id: "1", title: "線形システム", description: "状態方程式、伝達関数、状態空間表現", sections: [] },
+                    { id: "2", title: "安定性", description: "リアプノフの安定性、極配置、フィードバック制御", sections: [] },
+                    { id: "3", title: "可制御性と可観測性", description: "カルマンの階数条件、双対性", sections: [] },
+                    { id: "4", title: "最適制御", description: "LQR問題、リカッチ方程式、ポントリャーギンの最大原理", sections: [] },
+                    { id: "5", title: "カルマンフィルタ", description: "状態推定、最適フィルタ", sections: [] },
+                ],
+                prerequisites: ["1-1","2-1","2-6"]
+            },
+            {
+                id: "A-6",
+                title: "符号理論",
+                chapters: [
+                    { id: "1", title: "線形符号", description: "生成行列、検査行列、ハミング距離、最小距離", sections: [] },
+                    { id: "2", title: "巡回符号", description: "多項式表現、生成多項式", sections: [] },
+                    { id: "3", title: "BCH符号", description: "ボーズ・チョードリ・ホッケンヘムの構成", sections: [] },
+                    { id: "4", title: "リード・ソロモン符号", description: "有限体上の多項式、誤り訂正能力", sections: [] },
+                    { id: "5", title: "誤り訂正", description: "シンドローム復号、限界定理（ハミング限界・シングルトン限界）", sections: [] },
+                ],
+                prerequisites: ["1-1","3-9"]
+            },
+            {
+                id: "A-7",
+                title: "暗号理論",
+                chapters: [
+                    { id: "1", title: "古典暗号", description: "シーザー暗号、換字式暗号、暗号解読", sections: [] },
+                    { id: "2", title: "公開鍵暗号", description: "RSA暗号、離散対数問題、楕円曲線暗号", sections: [] },
+                    { id: "3", title: "暗号学的ハッシュ関数", description: "一方向性、衝突困難性、SHA-2・SHA-3", sections: [] },
+                    { id: "4", title: "デジタル署名", description: "RSA署名、ElGamal署名、DSA", sections: [] },
+                    { id: "5", title: "暗号プロトコル", description: "鍵交換（ディフィー・ヘルマン）、秘密分散", sections: [] },
+                ],
+                prerequisites: ["2-7","3-9"]
+            },
+            {
+                id: "A-8",
+                title: "数理ファイナンス",
+                chapters: [
+                    { id: "1", title: "オプション価格理論", description: "コール、プット、ペイオフ、無裁定価格", sections: [] },
+                    { id: "2", title: "ブラック・ショールズ方程式", description: "熱方程式への変換、解の公式", sections: [] },
+                    { id: "3", title: "リスク中立測度", description: "マルチンゲール測度、ギルサノフの定理", sections: [] },
+                    { id: "4", title: "デリバティブ", description: "ヨーロピアン・アメリカン・エキゾチックオプション", sections: [] },
+                ],
+                prerequisites: ["3-6","5-7"]
+            },
+            {
+                id: "A-9",
+                title: "ゲーム理論",
+                chapters: [
+                    { id: "1", title: "戦略形ゲーム", description: "利得行列、支配戦略、ナッシュ均衡", sections: [] },
+                    { id: "2", title: "混合戦略", description: "混合拡大、ナッシュの均衡存在定理", sections: [] },
+                    { id: "3", title: "展開形ゲーム", description: "ゲーム木、後退帰納法、部分ゲーム完全均衡", sections: [] },
+                    { id: "4", title: "協力ゲーム", description: "提携関数、コア、シャープレイ値", sections: [] },
+                    { id: "5", title: "繰り返しゲーム", description: "フォーク定理", sections: [] },
+                    { id: "6", title: "進化ゲーム理論", description: "進化的安定戦略、レプリケーター動学", sections: [] },
+                    { id: "7", title: "メカニズムデザイン", description: "顕示原理、オークション理論", sections: [] },
+                ],
+                prerequisites: ["2-1","3-6"]
+            },
+        ]
+    },

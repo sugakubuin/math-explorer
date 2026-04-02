@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border) / <alpha-value>);
+  --color-input: hsl(var(--input) / <alpha-value>);
+  --color-ring: hsl(var(--ring) / <alpha-value>);
+  --color-background: hsl(var(--background) / <alpha-value>);
+  --color-foreground: hsl(var(--foreground) / <alpha-value>);
+
+  --color-primary: hsl(var(--primary) / <alpha-value>);
+  --color-primary-foreground: hsl(var(--primary-foreground) / <alpha-value>);
+
+  --color-secondary: hsl(var(--secondary) / <alpha-value>);
+  --color-secondary-foreground: hsl(var(--secondary-foreground) / <alpha-value>);
+
+  --color-destructive: hsl(var(--destructive) / <alpha-value>);
+  --color-destructive-foreground: hsl(var(--destructive-foreground) / <alpha-value>);
+
+  --color-muted: hsl(var(--muted) / <alpha-value>);
+  --color-muted-foreground: hsl(var(--muted-foreground) / <alpha-value>);
+
+  --color-accent: hsl(var(--accent) / <alpha-value>);
+  --color-accent-foreground: hsl(var(--accent-foreground) / <alpha-value>);
+
+  --color-popover: hsl(var(--popover) / <alpha-value>);
+  --color-popover-foreground: hsl(var(--popover-foreground) / <alpha-value>);
+
+  --color-card: hsl(var(--card) / <alpha-value>);
+  --color-card-foreground: hsl(var(--card-foreground) / <alpha-value>);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: "Inter", "Noto Sans JP", sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Base: Light Blueish White */
+    --background: 210 40% 98%;
+    /* Text: Deep Navy */
+    --foreground: 222.2 84% 12%;
+
+    /* Card: White with slight blue tint */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 12%;
+
+    /* Primary: Navy Blue (Trust, Academic) */
+    --primary: 221.2 83% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Soft Sky Blue */
+    --secondary: 199 89% 90%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Muted: Gray-Blue */
+    --muted: 217 33% 94%;
+    --muted-foreground: 215.4 16.3% 40%;
+
+    /* Accent: Vibrant Cyan for highlights */
+    --accent: 199 89% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 32% 90%;
+    --input: 214.3 32% 90%;
+    --ring: 221.2 83% 40%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Base: Deep Navy */
+    --background: 222.2 47% 11%;
+    /* Text: White/Light Blue */
+    --foreground: 210 40% 98%;
+
+    /* Card: Slightly lighter Navy */
+    --card: 217.2 32.6% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217.2 32.6% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Bright Cyan/Blue for dark mode contrast */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 75%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(222, 80%, 95%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(200, 80%, 95%, 0.5) 0px, transparent 50%);
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(at 0% 0%, hsla(222, 50%, 20%, 0.3) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(200, 50%, 20%, 0.3) 0px, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  /* Math overflow handling */
+  .katex-display {
+    @apply py-2;
+    max-width: 100%;
+    overflow-x: auto;
+    /* Custom thin scrollbar for math */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-muted-foreground) transparent;
+  }
+
+  .katex-display::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .katex-display::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .katex-display::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+}

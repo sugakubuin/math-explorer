@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>線形代数学 I — 1.2 ベクトルの演算</title>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #f5f0e8;
+      --ink: #1a1208;
+      --ink-light: #3d2e10;
+      --ink-muted: #6b5a3e;
+      --amber: #c8860a;
+      --amber-light: #e8a820;
+      --amber-pale: #fdf3e0;
+      --amber-border: #e8c97a;
+      --blue-ink: #1a3a5c;
+      --blue-pale: #eaf1f8;
+      --blue-border: #a8c4dc;
+      --green-pale: #eaf5ec;
+      --green-border: #8bbf94;
+      --green-ink: #1a4a24;
+      --red-pale: #fdf0ee;
+      --red-border: #d4908a;
+      --red-ink: #5c1a18;
+      --purple-pale: #f3eef8;
+      --purple-ink: #3a1a5c;
+      --rule: #d4c4a8;
+      --shadow: rgba(60, 40, 10, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 17px;
+      background: #e8e0d0;
+    }
+
+    body {
+      font-family: 'Noto Serif JP', 'EB Garamond', Georgia, serif;
+      color: var(--ink);
+      background: var(--cream);
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+      min-height: 100vh;
+    }
+
+    /* ── ヘッダー ── */
+    .page-header {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 2.8rem 3rem 2.2rem;
+      border-bottom: 4px solid var(--amber);
+    }
+
+    .page-header .course-label {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-header h1 {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .page-header .subtitle {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #c8b898;
+      font-style: italic;
+    }
+
+    /* ── 本文エリア ── */
+    .content {
+      padding: 3rem 3.2rem 5rem;
+    }
+
+    /* ── 節タイトル ── */
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .subsection-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 2.6rem 0 0.9rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── 本文テキスト ── */
+    p {
+      line-height: 1.95;
+      margin-bottom: 1.1rem;
+      font-size: 0.97rem;
+      color: var(--ink-light);
+    }
+
+    /* ── ボックス類 ── */
+    .box {
+      border-radius: 3px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.6rem 0;
+      position: relative;
+    }
+
+    .box-label {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+
+    /* Definition */
+    .box-definition {
+      background: var(--blue-pale);
+      border-left: 4px solid var(--blue-ink);
+    }
+
+    .box-definition .box-label {
+      color: var(--blue-ink);
+    }
+
+    /* Proposition / Theorem */
+    .box-proposition {
+      background: var(--amber-pale);
+      border-left: 4px solid var(--amber);
+    }
+
+    .box-proposition .box-label {
+      color: var(--amber);
+    }
+
+    /* Example */
+    .box-example {
+      background: var(--green-pale);
+      border-left: 4px solid #4a9955;
+    }
+
+    .box-example .box-label {
+      color: var(--green-ink);
+    }
+
+    /* Remark */
+    .box-remark {
+      background: var(--warm-white);
+      border-left: 4px solid var(--rule);
+    }
+
+    .box-remark .box-label {
+      color: var(--ink-muted);
+    }
+
+    /* Proof */
+    .box-proof {
+      background: var(--purple-pale);
+      border-left: 4px solid #7a5a9a;
+    }
+
+    .box-proof .box-label {
+      color: var(--purple-ink);
+    }
+
+    .box-proof .qed {
+      text-align: right;
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+    }
+
+    .box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── 数式ブロック ── */
+    .math-display {
+      overflow-x: auto;
+      padding: 0.9rem 0;
+      text-align: center;
+    }
+
+    /* ── 図 ── */
+    .figure {
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .figure svg {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .figure-caption {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ── 強調 ── */
+    strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    /* ── 水平区切り ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5rem 0;
+    }
+
+    /* ── 性質リスト ── */
+    .prop-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    .prop-list li {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: 0.2rem 0.5rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.85;
+    }
+
+    .prop-list li .pnum {
+      font-family: 'EB Garamond', serif;
+      color: var(--amber);
+      font-weight: 600;
+      padding-top: 0.05rem;
+    }
+
+    /* ── フッター ── */
+    .page-footer {
+      padding: 1.5rem 3.2rem;
+      border-top: 1px solid var(--rule);
+      background: var(--warm-white);
+      color: var(--ink-muted);
+      font-size: 0.78rem;
+      font-family: 'EB Garamond', serif;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── アニメーション ── */
+    .content>* {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ヘッダー -->
+  <header class="page-header">
+    <div class="course-label">大学数学 · 線形代数学 I &nbsp;·&nbsp; Chapter 1: ベクトル</div>
+    <h1>§1.2 &nbsp; ベクトルの演算</h1>
+    <div class="subtitle">Vector Operations</div>
+  </header>
+
+  <main class="content">
+
+    <p>
+      前節では \(\mathbb{R}^n\) のベクトルを「実数を縦に並べたもの」として定義しました。
+      本節では、ベクトル同士の<strong>和・差</strong>、およびベクトルと実数との<strong>スカラー倍</strong>を定義し、
+      その計算規則と幾何学的な意味を確認します。
+      これらの演算は線形代数のあらゆる計算の出発点となります。
+    </p>
+
+    <hr>
+
+    <!-- ──────────────────────────────
+       ベクトルの和
+  ────────────────────────────── -->
+    <h2 class="section-title">ベクトルの和と差</h2>
+
+    <!-- Definition 1.2-1 -->
+    <div class="box box-definition">
+      <div class="box-label">Definition 1.2-1 &nbsp;（ベクトルの和・差）</div>
+      <p>
+        \(\mathbf{a}, \mathbf{b} \in \mathbb{R}^n\) を
+      </p>
+      <div class="math-display">
+        \[
+        \mathbf{a} = \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}, \qquad
+        \mathbf{b} = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix}
+        \]
+      </div>
+      <p>
+        とする。このとき <strong>和</strong> \(\mathbf{a} + \mathbf{b}\) および <strong>差</strong> \(\mathbf{a} - \mathbf{b}\)
+        を次で定める：
+      </p>
+      <div class="math-display">
+        \[
+        \mathbf{a} + \mathbf{b}
+        = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\ \vdots \\ a_n + b_n \end{pmatrix}, \qquad
+        \mathbf{a} - \mathbf{b}
+        = \begin{pmatrix} a_1 - b_1 \\ a_2 - b_2 \\ \vdots \\ a_n - b_n \end{pmatrix}.
+        \]
+      </div>
+      <p>
+        すなわち、<strong>対応する成分どうしを足す（引く）</strong>ことで和（差）を計算する。
+      </p>
+    </div>
+
+    <div class="box box-remark">
+      <div class="box-label">Remark &nbsp;（次元の一致）</div>
+      <p>
+        和・差は<strong>同じ次元</strong>のベクトル同士にしか定義されません。
+        たとえば \(\mathbb{R}^2\) のベクトルと \(\mathbb{R}^3\) のベクトルを足すことはできません。
+      </p>
+    </div>
+
+    <!-- Example 1.2-1 -->
+    <div class="box box-example">
+      <div class="box-label">Example 1.2-1</div>
+      <p>
+        次の計算をせよ。
+      </p>
+      <div class="math-display">
+        \[
+        \mathbf{a} = \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix}, \quad
+        \mathbf{b} = \begin{pmatrix} 1 \\ 4 \\ -3 \end{pmatrix}
+        \]
+      </div>
+      <p>
+        <strong>（1）</strong> \(\mathbf{a} + \mathbf{b}\) &nbsp;&nbsp;
+        <strong>（2）</strong> \(\mathbf{a} - \mathbf{b}\)
+      </p>
+      <p><strong>解．</strong></p>
+      <div class="math-display">
+        \[
+        (1)\quad \mathbf{a} + \mathbf{b}
+        = \begin{pmatrix} 3+1 \\ -1+4 \\ 2+(-3) \end{pmatrix}
+        = \begin{pmatrix} 4 \\ 3 \\ -1 \end{pmatrix}.
+        \]
+      </div>
+      <div class="math-display">
+        \[
+        (2)\quad \mathbf{a} - \mathbf{b}
+        = \begin{pmatrix} 3-1 \\ -1-4 \\ 2-(-3) \end{pmatrix}
+        = \begin{pmatrix} 2 \\ -5 \\ 5 \end{pmatrix}.
+        \]
+      </div>
+    </div>
+
+    <!-- 図：和の平行四辺形法則 -->
+    <h3 class="subsection-title">和の幾何学的意味（\(\mathbb{R}^2\) の場合）</h3>
+    <p>
+      \(\mathbb{R}^2\) では、ベクトルの和は<strong>平行四辺形の法則</strong>として図示できます。
+      2つのベクトル \(\mathbf{a}, \mathbf{b}\) を辺とする平行四辺形を描いたとき、
+      その対角線が \(\mathbf{a} + \mathbf{b}\) に対応します。
+    </p>
+
+    <div class="figure">
+      <svg width="340" height="280" viewBox="-10 -15 340 280">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#1a1208" />
+          </marker>
+          <marker id="arr-a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#1a3a5c" />
+          </marker>
+          <marker id="arr-b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#4a9955" />
+          </marker>
+          <marker id="arr-s" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#b03030" />
+          </marker>
+        </defs>
+
+        <!-- グリッド -->
+        <g stroke="#e8e0d0" stroke-width="1">
+          <line x1="60" y1="10" x2="60" y2="245" />
+          <line x1="120" y1="10" x2="120" y2="245" />
+          <line x1="180" y1="10" x2="180" y2="245" />
+          <line x1="240" y1="10" x2="240" y2="245" />
+          <line x1="300" y1="10" x2="300" y2="245" />
+          <line x1="10" y1="60" x2="320" y2="60" />
+          <line x1="10" y1="120" x2="320" y2="120" />
+          <line x1="10" y1="180" x2="320" y2="180" />
+          <line x1="10" y1="240" x2="320" y2="240" />
+        </g>
+
+        <!-- 軸 -->
+        <line x1="0" y1="240" x2="318" y2="240" stroke="#1a1208" stroke-width="1.5" marker-end="url(#arr)" />
+        <line x1="60" y1="255" x2="60" y2="5" stroke="#1a1208" stroke-width="1.5" marker-end="url(#arr)" />
+        <text x="322" y="244" font-family="EB Garamond,serif" font-size="15" fill="#1a1208" font-style="italic">x</text>
+        <text x="52" y="2" font-family="EB Garamond,serif" font-size="15" fill="#1a1208" font-style="italic">y</text>
+        <text x="50" y="256" font-family="EB Garamond,serif" font-size="13" fill="#6b5a3e">O</text>
+
+        <!-- 目盛り -->
+        <g font-family="EB Garamond,serif" font-size="11" fill="#6b5a3e">
+          <text x="116" y="256">1</text>
+          <text x="176" y="256">2</text>
+          <text x="236" y="256">3</text>
+          <text x="296" y="256">4</text>
+          <text x="44" y="184">1</text>
+          <text x="44" y="124">2</text>
+          <text x="44" y="64">3</text>
+        </g>
+
+        <!-- 平行四辺形の補助線（薄い破線） -->
+        <!-- a から a+b へ（bと平行） -->
+        <line x1="180" y1="120" x2="300" y2="60" stroke="#4a9955" stroke-width="1.2" stroke-dasharray="6,4"
+          opacity="0.55" />
+        <!-- b から a+b へ（aと平行） -->
+        <line x1="180" y1="60" x2="300" y2="60" stroke="#1a3a5c" stroke-width="1.2" stroke-dasharray="6,4"
+          opacity="0.55" />
+
+        <!-- ベクトル a = (2, 2) : 原点(60,240) → (180,120) -->
+        <line x1="60" y1="240" x2="175" y2="125" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#arr-a)" />
+        <!-- ベクトル b = (2, 1) : 原点 → (180,60) ... wait let me recalc -->
+        <!-- origin px: (60, 240). scale: 60px per unit. -->
+        <!-- a=(2,2): endpoint = (60+2*60, 240-2*60) = (180,120) -->
+        <!-- b=(2,1): endpoint = (60+2*60, 240-1*60) = (180,180) -->
+        <!-- a+b=(4,3): endpoint = (60+4*60,240-3*60)=(300,60) -->
+
+        <!-- redo with correct coords -->
+        <!-- a=(2,2): (60,240)->(180,120) DONE above -->
+        <!-- b=(2,1): (60,240)->(180,180) -->
+        <line x1="60" y1="240" x2="175" y2="185" stroke="#4a9955" stroke-width="2.5" marker-end="url(#arr-b)" />
+
+        <!-- a+b = (4,3): (60,240)->(300,60) -->
+        <line x1="60" y1="240" x2="294" y2="66" stroke="#b03030" stroke-width="2.5" marker-end="url(#arr-s)" />
+
+        <!-- redo dashes with correct b endpoint -->
+        <!-- from tip of a (180,120) parallel to b (goes +120,+60 in px... b=(2,1) => +120,-60px) -->
+        <!-- from (180,120) + (120,-60) = (300,60): already drawn above -->
+        <!-- from tip of b (180,180) parallel to a (a=(2,2)=>+120,-120px) -->
+        <!-- (180,180)+(120,-120)=(300,60): -->
+
+        <!-- 点 -->
+        <circle cx="60" cy="240" r="4" fill="#1a1208" />
+        <circle cx="180" cy="120" r="4" fill="#1a3a5c" />
+        <circle cx="180" cy="180" r="4" fill="#4a9955" />
+        <circle cx="300" cy="60" r="4" fill="#b03030" />
+
+        <!-- ラベル -->
+        <text x="185" y="115" font-family="EB Garamond,serif" font-size="13" fill="#1a3a5c" font-style="italic">(2,
+          2)</text>
+        <text x="185" y="185" font-family="EB Garamond,serif" font-size="13" fill="#4a9955" font-style="italic">(2,
+          1)</text>
+        <text x="305" y="60" font-family="EB Garamond,serif" font-size="13" fill="#b03030" font-style="italic">(4,
+          3)</text>
+
+        <!-- ベクトル名ラベル -->
+        <text x="96" y="168" font-family="EB Garamond,serif" font-size="16" fill="#1a3a5c" font-style="italic"
+          font-weight="600">a</text>
+        <text x="96" y="216" font-family="EB Garamond,serif" font-size="16" fill="#4a9955" font-style="italic"
+          font-weight="600">b</text>
+        <text x="172" y="148" font-family="EB Garamond,serif" font-size="16" fill="#b03030" font-style="italic"
+          font-weight="600">a+b</text>
+      </svg>
+      <div class="figure-caption">
+        図 1.2 &nbsp; \(\mathbf{a} = \begin{pmatrix}2\\2\end{pmatrix},\ \mathbf{b} = \begin{pmatrix}2\\1\end{pmatrix}\)
+        の和。
+        2つのベクトルを辺とする平行四辺形の対角線が \(\mathbf{a}+\mathbf{b}\) を与える。
+      </div>
+    </div>
+
+    <p>
+      差 \(\mathbf{a} - \mathbf{b}\) は \(\mathbf{b}\) の矢印の先端から \(\mathbf{a}\) の矢印の先端へ向かうベクトルと解釈できます。
+      これは \(\mathbf{a} + (-\mathbf{b})\) と同じであり、\(-\mathbf{b}\) は \(\mathbf{b}\) と逆向きの同じ長さのベクトルです。
+    </p>
+
+    <hr>
+
+    <!-- ──────────────────────────────
+       スカラー倍
+  ────────────────────────────── -->
+    <h2 class="section-title">スカラー倍</h2>
+
+    <!-- Definition 1.2-2 -->
+    <div class="box box-definition">
+      <div class="box-label">Definition 1.2-2 &nbsp;（スカラー倍）</div>
+      <p>
+        \(\mathbf{a} \in \mathbb{R}^n\) および実数（<strong>スカラー</strong>）\(c \in \mathbb{R}\) に対し、
+        <strong>スカラー倍</strong> \(c\mathbf{a}\) を次で定める：
+      </p>
+      <div class="math-display">
+        \[
+        c\mathbf{a}
+        = c \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}
+        = \begin{pmatrix} c a_1 \\ c a_2 \\ \vdots \\ c a_n \end{pmatrix}.
+        \]
+      </div>
+      <p>
+        すなわち、<strong>各成分を \(c\) 倍する</strong>ことでスカラー倍を計算する。
+      </p>
+    </div>
+
+    <div class="box box-remark">
+      <div class="box-label">Remark &nbsp;（「スカラー」とは）</div>
+      <p>
+        線形代数では、ベクトルに対して「ただの実数」を<strong>スカラー（scalar）</strong>と呼んで区別します。
+        本テキストの範囲ではスカラー \(= \mathbb{R}\) の元と考えてください。
+        また \(c = -1\) のとき \((-1)\mathbf{a}\) を \(-\mathbf{a}\) と書き、
+        \(\mathbf{a}\) の<strong>逆ベクトル</strong>といいます。
+      </p>
+    </div>
+
+    <!-- Example 1.2-2 -->
+    <div class="box box-example">
+      <div class="box-label">Example 1.2-2</div>
+      <p>
+        \(\mathbf{a} = \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix}\) に対し、次を計算せよ。
+      </p>
+      <p>
+        <strong>（1）</strong> \(3\mathbf{a}\) &nbsp;&nbsp;
+        <strong>（2）</strong> \(-2\mathbf{a}\) &nbsp;&nbsp;
+        <strong>（3）</strong> \(0\mathbf{a}\)
+      </p>
+      <p><strong>解．</strong></p>
+      <div class="math-display">
+        \[
+        (1)\quad 3\mathbf{a}
+        = \begin{pmatrix} 6 \\ -9 \\ 3 \end{pmatrix}, \qquad
+        (2)\quad -2\mathbf{a}
+        = \begin{pmatrix} -4 \\ 6 \\ -2 \end{pmatrix}, \qquad
+        (3)\quad 0\mathbf{a}
+        = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+        = \mathbf{0}.
+        \]
+      </div>
+      <p>
+        （3）は任意のベクトルを \(0\) 倍すると零ベクトルになることを示しています。
+      </p>
+    </div>
+
+    <!-- 図：スカラー倍の幾何学的意味 -->
+    <h3 class="subsection-title">スカラー倍の幾何学的意味</h3>
+
+    <p>
+      スカラー倍はベクトルの<strong>向きを保ちながら長さを変える</strong>操作です。
+      \(c > 1\) なら伸び、\(0 < c < 1\) なら縮み、\(c < 0\) なら向きが反転します。 </p>
+
+        <div class="figure">
+          <svg width="340" height="200" viewBox="-10 -15 340 200">
+            <defs>
+              <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#1a1208" />
+              </marker>
+              <marker id="arr-orig" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#6b5a3e" />
+              </marker>
+              <marker id="arr-2x" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#1a3a5c" />
+              </marker>
+              <marker id="arr-half" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#4a9955" />
+              </marker>
+              <marker id="arr-neg" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#b03030" />
+              </marker>
+            </defs>
+
+            <!-- 軸 -->
+            <line x1="20" y1="100" x2="318" y2="100" stroke="#ccc" stroke-width="1" />
+
+            <!-- origin dot -->
+            <circle cx="80" cy="100" r="3.5" fill="#1a1208" />
+            <text x="72" y="117" font-family="EB Garamond,serif" font-size="12" fill="#6b5a3e">O</text>
+
+            <!-- a (unit = 80px, a方向を右向きとする) -->
+            <!-- a: 原点 → +80 = (80→160) -->
+            <line x1="80" y1="100" x2="154" y2="100" stroke="#6b5a3e" stroke-width="2" marker-end="url(#arr-orig)" />
+            <text x="112" y="91" font-family="EB Garamond,serif" font-size="15" fill="#6b5a3e" font-style="italic"
+              font-weight="600">a</text>
+
+            <!-- 2a: 0→+160 = (80→240) -->
+            <line x1="80" y1="78" x2="234" y2="78" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr-2x)" />
+            <text x="152" y="70" font-family="EB Garamond,serif" font-size="15" fill="#1a3a5c" font-style="italic"
+              font-weight="600">2a</text>
+
+            <!-- 0.5a: 0→+40 = (80→120) -->
+            <line x1="80" y1="122" x2="114" y2="122" stroke="#4a9955" stroke-width="2" marker-end="url(#arr-half)" />
+            <text x="90" y="137" font-family="EB Garamond,serif" font-size="15" fill="#4a9955" font-style="italic"
+              font-weight="600">&#x00BD;a</text>
+
+            <!-- -a: 0→-80 = (80→0)... avoid going off screen, shift right -->
+            <!-- -a goes left: (80→4), clip. Use from 80 to 10 -->
+            <line x1="80" y1="100" x2="12" y2="100" stroke="#b03030" stroke-width="2" marker-end="url(#arr-neg)" />
+            <text x="28" y="91" font-family="EB Garamond,serif" font-size="15" fill="#b03030" font-style="italic"
+              font-weight="600">&#x2212;a</text>
+
+            <!-- 目盛り線 -->
+            <line x1="160" y1="95" x2="160" y2="105" stroke="#aaa" stroke-width="1" />
+            <line x1="240" y1="95" x2="240" y2="105" stroke="#aaa" stroke-width="1" />
+          </svg>
+          <div class="figure-caption">
+            図 1.3 &nbsp; スカラー倍の効果。\(2\mathbf{a}\) は \(\mathbf{a}\) を2倍に伸ばし、
+            \(\tfrac{1}{2}\mathbf{a}\) は半分に縮め、\(-\mathbf{a}\) は逆向きにする。
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- ──────────────────────────────
+       演算の性質
+  ────────────────────────────── -->
+        <h2 class="section-title">演算の基本性質</h2>
+
+        <p>
+          和とスカラー倍について、計算に役立つ基本的な性質をまとめます。
+          これらはすべて成分計算から直接確かめることができます。
+        </p>
+
+        <!-- Proposition 1.2-1 -->
+        <div class="box box-proposition">
+          <div class="box-label">Proposition 1.2-1 &nbsp;（ベクトル演算の基本性質）</div>
+          <p>
+            \(\mathbf{a}, \mathbf{b}, \mathbf{c} \in \mathbb{R}^n\)、\(\lambda, \mu \in \mathbb{R}\) に対し、以下が成り立つ。
+          </p>
+          <ul class="prop-list">
+            <li><span class="pnum">(1)</span><span>\(\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}\)
+                &nbsp;&nbsp;（和の交換法則）</span></li>
+            <li><span class="pnum">(2)</span><span>\((\mathbf{a} + \mathbf{b}) + \mathbf{c} = \mathbf{a} + (\mathbf{b} +
+                \mathbf{c})\) &nbsp;&nbsp;（和の結合法則）</span></li>
+            <li><span class="pnum">(3)</span><span>\(\mathbf{a} + \mathbf{0} = \mathbf{a}\)
+                &nbsp;&nbsp;（零ベクトルの性質）</span></li>
+            <li><span class="pnum">(4)</span><span>\(\mathbf{a} + (-\mathbf{a}) = \mathbf{0}\)
+                &nbsp;&nbsp;（逆ベクトルの性質）</span></li>
+            <li><span class="pnum">(5)</span><span>\(\lambda(\mathbf{a} + \mathbf{b}) = \lambda\mathbf{a} +
+                \lambda\mathbf{b}\) &nbsp;&nbsp;（スカラー倍の分配法則 I）</span></li>
+            <li><span class="pnum">(6)</span><span>\((\lambda + \mu)\mathbf{a} = \lambda\mathbf{a} + \mu\mathbf{a}\)
+                &nbsp;&nbsp;（スカラー倍の分配法則 II）</span></li>
+            <li><span class="pnum">(7)</span><span>\((\lambda\mu)\mathbf{a} = \lambda(\mu\mathbf{a})\)
+                &nbsp;&nbsp;（スカラー倍の結合法則）</span></li>
+            <li><span class="pnum">(8)</span><span>\(1 \cdot \mathbf{a} = \mathbf{a}\) &nbsp;&nbsp;（スカラー \(1\)
+                の性質）</span></li>
+          </ul>
+        </div>
+
+        <p>
+          証明は (1) を例に示します。残りも同様に成分を書き下して確認できます。
+        </p>
+
+        <!-- Proof of (1) -->
+        <div class="box box-proof">
+          <div class="box-label">Proof &nbsp;（(1) の証明）</div>
+          <p>
+            Definition 1.2-1 より、
+          </p>
+          <div class="math-display">
+            \[
+            \mathbf{a} + \mathbf{b}
+            = \begin{pmatrix} a_1 + b_1 \\ \vdots \\ a_n + b_n \end{pmatrix}.
+            \]
+          </div>
+          <p>
+            実数の加法では \(a_i + b_i = b_i + a_i\) が成り立つ（実数の交換法則）から、
+          </p>
+          <div class="math-display">
+            \[
+            \begin{pmatrix} a_1 + b_1 \\ \vdots \\ a_n + b_n \end{pmatrix}
+            = \begin{pmatrix} b_1 + a_1 \\ \vdots \\ b_n + a_n \end{pmatrix}
+            = \mathbf{b} + \mathbf{a}.
+            \]
+          </div>
+          <p class="qed">\(\square\)</p>
+        </div>
+
+        <div class="box box-remark">
+          <div class="box-label">Remark &nbsp;（これらの性質の重要性）</div>
+          <p>
+            Proposition 1.2-1 の (1)〜(8) は、\(\mathbb{R}^n\) が<em>ベクトル空間</em>の公理を満たすことを意味します。
+            ベクトル空間の概念は線形代数 II（Lv.2）で厳密に定義しますが、
+            この段階では「これらの計算規則を自由に使ってよい」ということを確認しておいてください。
+          </p>
+        </div>
+
+        <!-- Example 1.2-3 -->
+        <div class="box box-example">
+          <div class="box-label">Example 1.2-3</div>
+          <p>
+            次の式を計算せよ。
+          </p>
+          <div class="math-display">
+            \[
+            3\left(\begin{pmatrix}1\\-2\\0\end{pmatrix} + \begin{pmatrix}2\\1\\3\end{pmatrix}\right)
+            - 2\begin{pmatrix}4\\0\\-1\end{pmatrix}
+            \]
+          </div>
+          <p><strong>解．</strong></p>
+          <p>
+            まず括弧内の和を計算し、次にスカラー倍を施す。
+          </p>
+          <div class="math-display">
+            \[
+            = 3\begin{pmatrix}3\\-1\\3\end{pmatrix}
+            - 2\begin{pmatrix}4\\0\\-1\end{pmatrix}
+            = \begin{pmatrix}9\\-3\\9\end{pmatrix}
+            - \begin{pmatrix}8\\0\\-2\end{pmatrix}
+            = \begin{pmatrix}1\\-3\\11\end{pmatrix}.
+            \]
+          </div>
+          <p>
+            Proposition 1.2-1 の (5)〜(7) を用いれば、スカラー倍を先に展開する方法でも同じ結果が得られます。
+          </p>
+        </div>
+
+        <hr>
+
+        <!-- まとめ -->
+        <div class="box box-remark">
+          <div class="box-label">§1.2 のまとめ</div>
+          <p>
+            <strong>・</strong> ベクトルの和・差は対応する成分どうしを足し引きする（Definition 1.2-1）。<br>
+            <strong>・</strong> スカラー倍は各成分を \(c\) 倍する（Definition 1.2-2）。<br>
+            <strong>・</strong> 幾何学的には、和は平行四辺形の法則、スカラー倍は長さの伸縮・方向の反転に対応する。<br>
+            <strong>・</strong> 和とスカラー倍は交換・結合・分配などの基本法則を満たす（Proposition 1.2-1）。
+          </p>
+        </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <span>線形代数学 I — Chapter 1</span>
+    <span>§ 1.2 ベクトルの演算</span>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "\\[", right: "\\]", display: true },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "$", right: "$", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+
+</html>
