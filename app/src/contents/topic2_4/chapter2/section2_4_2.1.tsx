@@ -92,7 +92,7 @@ export default function MappingDefinitionsAndProperties() {
                         <strong>値域（終域） <InlineMath math="B" /></strong>：写像を定める際に「出力先として用意した集合」全体。<InlineMath math="f" /> の定義の一部であり、<InlineMath math="f" /> の「宣言」に含まれる情報である。
                     </li>
                     <li>
-                        <strong>像 <InlineMath math="f(A)" /></strong>：実際に <InlineMath math="f" /> によって送られた元が作る集合（§2.1 Definition 2.1-2 で定義）。一般に <InlineMath math="f(A) \subset B" /> であるが、<InlineMath math="f(A) = B" /> とは限らない。
+                        <strong>像 <InlineMath math="f(A)" /></strong>：実際に <InlineMath math="f" /> によって送られた元が作る集合（以下の Definition 2.1-2 で定義）。一般に <InlineMath math="f(A) \subset B" /> であるが、<InlineMath math="f(A) = B" /> とは限らない。
                     </li>
                 </ul>
                 <p className="mt-4">
@@ -146,7 +146,7 @@ export default function MappingDefinitionsAndProperties() {
                     <li>
                         <InlineMath math="S = [-2, 3]" /> とすると、
                         <BlockMath math="f(S) = \{x^2 \mid x \in [-2, 3]\} = [0, 9]" />
-                        （<InlineMath math="x \in [-2, 3]" /> のとき <InlineMath math="x^2" /> の最小値は <InlineMath math="0"  />、最大値は <InlineMath math="9" />）
+                        （<InlineMath math="x \in [-2, 3]" /> のとき <InlineMath math="x^2" /> の最小値は <InlineMath math="0" />、最大値は <InlineMath math="9" />）
                     </li>
                     <li>
                         <InlineMath math="S = \{-1, 0, 2\}" /> とすると、
@@ -253,7 +253,7 @@ export default function MappingDefinitionsAndProperties() {
                     <li>対応則が等しい：<InlineMath math="\forall a \in A,\ f(a) = g(a)" /></li>
                 </ol>
                 <p className="mt-4">
-                    同値な言い方をすれば、<InlineMath math="f = g \iff \Gamma_f = \Gamma_g"  />（グラフが等しい）ことである。
+                    同値な言い方をすれば、<InlineMath math="f = g \iff \Gamma_f = \Gamma_g" />（グラフが等しい）ことである。
                 </p>
             </ContentBox>
 

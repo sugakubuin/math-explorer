@@ -2,12 +2,12 @@ import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import ContentBox from '../../../components/content/ContentBox';
 
-export default function Section2_3_1_3() {
+export default function CauchySequencesAndCompletion() {
     return (
         <section className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200">
             <p>
                 デデキント切断による実数の構成法とは全く異なるアプローチで、カントール（Georg Cantor）やメーレー（Charles Méray）によってほぼ同時期に定式化されたのが、<strong>「コーシー列の同値類」</strong>による実数の構成法です。<br />
-                このアプローチは、「行き先のないコーシー列」に対して「その列自体を新しい数（行き先）とみなしてしまおう」という非常に現代的で洗練された思想に基づいています。
+                このアプローチは、「行き先のないコーシー列」に対して「その列自体を新しい数（行き先）とみなしてしまおう」という思想に基づいています。
             </p>
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
@@ -15,20 +15,28 @@ export default function Section2_3_1_3() {
             <h2 className="text-2xl font-bold mt-8 mb-6">有理数のコーシー列</h2>
 
             <p>
-                「行き先（極限値）をまだ持たない」可能性のある有理数列が、それでも「収束しようとして詰まっている」という事実だけを、数列の各項の間の距離だけで記述します。
+                数列が「ある一点（極限値）に収束する」ことを定義するには、収束先の数が存在しなければなりませんが、コーシー列の定義は収束先を使わずに、数列の項同士の関係だけで完結します。
             </p>
 
             <ContentBox type="definition" title="Definition 1.3-1 (有理数列のコーシー列)">
                 <p>
-                    有理数の数列 <InlineMath math="\{a_n\}_{n=1}^\infty" /> （各 <InlineMath math="a_n \in \mathbb{Q}" />）が<strong>コーシー列（Cauchy sequence）</strong>、あるいは<strong>基本列</strong>であるとは、任意の有理数 <InlineMath math="\varepsilon > 0" /> に対して、ある自然数 <InlineMath math="N" /> が存在し、<InlineMath math="m, n \ge N" /> となるすべての <InlineMath math="m, n" /> について次が成り立つことである：
+                    有理数の数列 <InlineMath math="\{a_n\}_{n=1}^\infty" /> が<strong>コーシー列（Cauchy sequence）</strong>であるとは、任意の有理数 <InlineMath math="\varepsilon > 0" /> に対して、ある自然数 <InlineMath math="N" /> が存在し、<InlineMath math="m, n \ge N" /> となるすべての <InlineMath math="m, n" /> について次が成り立つことである：
                 </p>
                 <BlockMath math="|a_m - a_n| < \varepsilon" />
             </ContentBox>
 
-            <p>
-                この段階では <InlineMath math="\varepsilon" /> も「正の有理数」であることに注意してください。「実数」はまだ存在していない世界（<InlineMath math="\mathbb{Q}" /> の世界）だけで議論が完結しています。
-            </p>
-
+            <ContentBox type="example" title="Example 1.3-1">
+                <p>
+                    有理数列 <InlineMath math="\{a_n\} = \{1/n\}" /> は、
+                </p>
+                <BlockMath math="|a_m - a_n| = |1/m - 1/n| \le 1/m + 1/n" />
+                <p>
+                    であり、十分大きな <InlineMath math="m, n" /> に対してこの値は任意に小さくできるため、コーシー列である。
+                </p>
+                <p className="mt-4">
+                    一方、<InlineMath math="\sqrt{2}" /> の小数展開による数列 <InlineMath math="\{1, 1.4, 1.41, 1.414, \dots\}" /> もコーシー列であるが、有理数の世界 <InlineMath math="\mathbb{Q}" /> にはその収束先が存在しない。
+                </p>
+            </ContentBox>
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
@@ -51,6 +59,11 @@ export default function Section2_3_1_3() {
                 <BlockMath math="|a_n - b_n| < \varepsilon \quad (\text{i.e., } \lim_{n \to \infty} (a_n - b_n) = 0)" />
             </ContentBox>
 
+            <ContentBox type="example" title="Example 1.3-2">
+                <p>
+                    数列 <InlineMath math="a_n = 0" />（すべて <InlineMath math="0" />）と数列 <InlineMath math="b_n = 1/n" /> は、<InlineMath math="\lim_{n \to \infty} (a_n - b_n) = \lim_{n \to \infty} (0 - 1/n) = 0" /> となるため、同値である。この2つは実数としての「<InlineMath math="0" />」に対応する。
+                </p>
+            </ContentBox>
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
@@ -62,12 +75,18 @@ export default function Section2_3_1_3() {
 
             <ContentBox type="definition" title="Definition 1.3-3 (同値類による実数の定義)">
                 <p>
-                    有理コーシー列 <InlineMath math="\{a_n\}" /> 全体の集合を <InlineMath math="C" /> とする。同値関係 <InlineMath math="\sim" /> による <InlineMath math="C" /> の商集合 <InlineMath math="C / \sim" /> （すなわち同値類の集合全体）を、<strong>実数全体の集合 <InlineMath math="\mathbb{R}" /></strong> と定義する。
+                    有理コーシー列 <InlineMath math="\{a_n\}" /> 全体の集合を <InlineMath math="C" /> とし、同値関係 <InlineMath math="\sim" /> による商集合 <InlineMath math="C / \sim" /> を、<strong>実数全体の集合 <InlineMath math="\mathbb{R}" /></strong> と定義する。
                 </p>
                 <BlockMath math="\mathbb{R} = C / \sim" />
                 <p className="mt-2">
                     コーシー列 <InlineMath math="\{a_n\}" /> が属する同値類（実数）を <InlineMath math="[\{a_n\}]" /> と書く。
                     特に、すべての <InlineMath math="n" /> で <InlineMath math="a_n = q" /> （定数 <InlineMath math="q \in \mathbb{Q}" />）であるような定数数列の同値類 <InlineMath math="[\{q\}]" /> は、有理数 <InlineMath math="q" /> 自身と同一視する。
+                </p>
+            </ContentBox>
+
+            <ContentBox type="example" title="Example 1.3-3">
+                <p>
+                    実数 <InlineMath math="\sqrt{2}" /> は、<InlineMath math="\mathbb{Q}" /> 内の極限を持たないが、<InlineMath math="\sqrt{2}" /> に（形式的に）収束するあらゆる有理コーシー列の同値類として厳密に定義される。
                 </p>
             </ContentBox>
 
@@ -90,11 +109,15 @@ export default function Section2_3_1_3() {
                 </p>
             </ContentBox>
 
-            <p className="mt-4 text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 p-4 rounded border-l-4 border-l-blue-500">
-                この「コーシー列の同値類による完備化（Completion）」という手法の最大の利点は、デデキント切断が「大小関係（順序）」に強く依存していたのに対し、<strong>「項と項の距離」さえ定義できる空間であれば、どんな空間にも適用できる</strong>という極めて高い汎用性を持つことです。
-                これは後に、距離空間論や関数解析学における「バナッハ空間」や「ヒルベルト空間」といった無限次元空間の完備化へとそのまま拡張される、数学上最も重要なアイディアの一つです。
-            </p>
-
+            {/* Summary Box */}
+            <ContentBox type="note" title="§1.3 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>有理コーシー列とは、項同士が互いに近づいていく数列である (Definition 1.3-1)。</li>
+                    <li>同じ極限を持つ可能性のある数列同士に同値関係を定義する (Definition 1.3-2)。</li>
+                    <li>コーシー列の同値類を一つの「実数」として定義することで、実数全体を構成する (Definition 1.3-3)。</li>
+                    <li>この手法は一般の距離空間の「完備化」へと応用される。</li>
+                </ul>
+            </ContentBox>
         </section>
     );
 }

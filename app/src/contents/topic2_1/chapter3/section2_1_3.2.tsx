@@ -29,6 +29,29 @@ export default function KernelAndImage() {
                 <BlockMath math="\mathrm{Im}\, f = \{ f(\boldsymbol{v}) \in W \mid \boldsymbol{v} \in V \}" />
             </ContentBox>
 
+            <p>
+                これらの定義を理解するために、具体例を確認しましょう。
+            </p>
+
+            <ContentBox type="example" title="Example 3.2-1">
+                <p>
+                    線形写像 <InlineMath math="f: \mathbb{R}^3 \to \mathbb{R}^2" /> を次のように定義する。
+                </p>
+                <BlockMath math="f \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} x + y \\ y + z \end{pmatrix}" />
+                <p>
+                    このとき、核 <InlineMath math="\ker f" /> は <InlineMath math="x + y = 0" /> かつ <InlineMath math="y + z = 0" /> を満たすベクトル <InlineMath math="(x, y, z)" /> の集合である。
+                    これより <InlineMath math="y = -x" />、<InlineMath math="z = -y = x" /> となるため、任意の <InlineMath math="t \in \mathbb{R}" /> を用いて次のように表される。
+                </p>
+                <BlockMath math="\ker f = \left\{ t \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} \;\middle|\; t \in \mathbb{R} \right\}" />
+                <p>
+                    一方、像 <InlineMath math="\mathrm{Im}\, f" /> については、任意の <InlineMath math="\begin{pmatrix} a \\ b \end{pmatrix} \in \mathbb{R}^2" /> に対して <InlineMath math="f(a, 0, b) = \begin{pmatrix} a \\ b \end{pmatrix}" /> となるため、
+                </p>
+                <BlockMath math="\mathrm{Im}\, f = \mathbb{R}^2" />
+                <p>
+                    となり、この写像は全射であることがわかる。
+                </p>
+            </ContentBox>
+
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
             <h2 className="text-2xl font-bold mt-8 mb-6">核と像は部分空間になる</h2>
@@ -147,6 +170,29 @@ export default function KernelAndImage() {
                 <div className="text-right text-slate-500 dark:text-slate-400">
                     <InlineMath math="\square" />
                 </div>
+            </ContentBox>
+
+            <p>
+                Proposition 3.2-3 を用いると、方程式を解くことなく核の次元や構成要素を見るだけで単射性が判定できます。
+            </p>
+
+            <ContentBox type="example" title="Example 3.2-2">
+                <p>
+                    再び Example 3.2-1 の写像 <InlineMath math="f: \mathbb{R}^3 \to \mathbb{R}^2" /> を考える。
+                </p>
+                <BlockMath math="f \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} x + y \\ y + z \end{pmatrix}" />
+                <p>
+                    前述の通り、この写像の核は次のように計算された。
+                </p>
+                <BlockMath math="\ker f = \left\{ t \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} \;\middle|\; t \in \mathbb{R} \right\} \neq \{ \boldsymbol{0} \}" />
+                <p>
+                    核に零ベクトル以外のベクトル（例：<InlineMath math="(1, -1, 1)" />）が含まれているため、Proposition 3.2-3 より <InlineMath math="f" /> は単射ではない。
+                </p>
+                <p className="mt-4">
+                    一方、写像 <InlineMath math="g: \mathbb{R}^2 \to \mathbb{R}^3" /> を <InlineMath math="g(x, y) = (x, y, 0)" /> と定義すると、
+                    <InlineMath math="g(x, y) = \boldsymbol{0}" /> となるのは <InlineMath math="x=0, y=0" /> のときに限られる。
+                    したがって <InlineMath math="\ker g = \{ \boldsymbol{0} \}" /> であり、<InlineMath math="g" /> は単射である。
+                </p>
             </ContentBox>
 
             {/* まとめ */}

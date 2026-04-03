@@ -2,7 +2,7 @@ import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import ContentBox from '../../../components/content/ContentBox';
 
-export default function Section2_3_1_1() {
+export default function RationalNumbersAndCompleteness() {
     return (
         <section className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200">
             <p>
@@ -28,7 +28,7 @@ export default function Section2_3_1_1() {
                 </p>
             </ContentBox>
 
-            <ContentBox type="proof" title="Proof [背理法による証明]">
+            <ContentBox type="proof" title="Proof">
                 <p>
                     背理法で証明する。<InlineMath math="\sqrt{2}" /> が有理数であると仮定すると、互いに素な（これ以上約分できない）2つの自然数 <InlineMath math="p, q" /> を用いて次のように表すことができる。
                 </p>
@@ -90,6 +90,16 @@ export default function Section2_3_1_1() {
                 そこで、19世紀の数学者たちは、この有理数直線の「隙間」を完全に埋め尽くし、極限操作が必ずその世界の中で完結するような新しい数の体系、すなわち<strong>実数（<InlineMath math="\mathbb{R}" />）</strong>を厳密に構成する方法を考案しました。
                 次節以降で、その代表的な2つのアプローチ（デデキント切断とコーシー列）を見ていきます。
             </p>
+
+            {/* Summary Box */}
+            <ContentBox type="note" title="§1.1 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>有理数体 <InlineMath math="\mathbb{Q}" /> は稠密であるが、数直線上に「隙間（穴）」が存在する。</li>
+                    <li><InlineMath math="\sqrt{2}" /> のような無理数は有理数ではない (Theorem 1.1-1)。</li>
+                    <li>有理数の世界だけでは、極限が有限な値に収束する保証がない（完備性の欠如）。</li>
+                    <li>解析学の基礎として、穴のない連続的な数の体系である実数 <InlineMath math="\mathbb{R}" /> の構成が必要となる。</li>
+                </ul>
+            </ContentBox>
         </section>
     );
 }

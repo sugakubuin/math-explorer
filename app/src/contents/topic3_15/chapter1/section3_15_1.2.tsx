@@ -80,10 +80,10 @@ export default function ExamplesOfCategories() {
                     <li><strong>射：</strong> 位相構造を保存する写像、すなわち<strong>連続写像</strong> <InlineMath math="f : X \to Y" />。</li>
                 </ul>
                 <p>
-                    連続写像の合成は再び連続写像であり（Topic 2-5 参照）、恒等写像は常に連続であるため、これも圏の公理を満たす。
+                    連続写像の合成は再び連続写像であり（2-5 位相空間論I参照）、恒等写像は常に連続であるため、これも圏の公理を満たす。
                 </p>
                 <p>
-                    Topic 3-12 で学んだ「基本群 <InlineMath math="\pi_1" />」は、まさにこの位相空間の圏 <InlineMath math="\mathbf{Top}" />（より正確には基点付きの <InlineMath math="\mathbf{Top}_*" />）の対象から、群の圏 <InlineMath math="\mathbf{Grp}" /> の対象へ空間を「変換」する操作であった。圏論ではこのような圏と圏の間の変換を「関手（Functor）」と呼び、次章で詳しく扱う。
+                    3-12 位相空間論IIの「基本群 <InlineMath math="\pi_1" />」は、まさにこの位相空間の圏 <InlineMath math="\mathbf{Top}" />（より正確には基点付きの <InlineMath math="\mathbf{Top}_*" />）の対象から、群の圏 <InlineMath math="\mathbf{Grp}" /> の対象へ空間を「変換」する操作であった。圏論ではこのような圏と圏の間の変換を「関手（Functor）」と呼び、次章で詳しく扱う。
                 </p>
             </ContentBox>
 

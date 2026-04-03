@@ -2,7 +2,7 @@ import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import ContentBox from '../../../components/content/ContentBox';
 
-export default function Section2_3_1_4() {
+export default function EquivalenceOfRealNumberConstructions() {
     return (
         <section className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200">
             <p>
@@ -88,12 +88,12 @@ export default function Section2_3_1_4() {
             <h2 className="text-2xl font-bold mt-8 mb-6">同型の意味する「実数の一意性」</h2>
 
             <p>
-                この「2つの構成法が同型である」という事実は、現代数学において極めて深遠で哲学的な意味を持っています。
+                この「2つの構成法が同型である」という事実に触れることは、数学的な一意性を論じる上で欠かせません。
             </p>
 
             <ContentBox type="remark" title="完備順序体としての実数体の一意性">
                 <p>
-                    数学的な構造の分類において、以下の3つの性質を同時に満たす体系（集合）は「完備順序体（Complete ordered field）」と呼ばれます。
+                    数学的な構造の分類において、以下の3つの性質を同時に満たす体系は「完備順序体（Complete ordered field）」と呼ばれます。
                 </p>
                 <ol className="list-decimal list-inside space-y-1 mt-2 mb-2 font-bold text-slate-700 dark:text-slate-300">
                     <li>体である（和・差・積・商が自由に定まる）</li>
@@ -113,6 +113,14 @@ export default function Section2_3_1_4() {
                 次章では、この実数が持つ最も重要な性質、解析学の全ての礎となる<strong>「完備性（Completeness）」</strong>の様々な同値な表現について深く学んでいきます。
             </p>
 
+            {/* Summary Box */}
+            <ContentBox type="note" title="§1.4 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>デデキント切断とコーシー列の完備化による構成は、数学的に同型である (Theorem 1.4-1)。</li>
+                    <li>完備順序体としての実数は、一意的な構造である (Remark)。</li>
+                    <li>構成の細部に依らず、実数体 <InlineMath math="\mathbb{R}" /> は解析学を行うための普遍的な舞台を提供する。</li>
+                </ul>
+            </ContentBox>
         </section>
     );
 }
