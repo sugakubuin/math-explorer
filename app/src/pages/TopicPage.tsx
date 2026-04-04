@@ -1,9 +1,10 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, GitBranch } from 'lucide-react';
+import { ChevronRight, GitBranch, Construction } from 'lucide-react';
 import { roadmapData, getTopicById, getStageByTopicId } from '../data/roadmapData';
 import { hasTopicContent } from '../data/contentAvailability';
 import SEO from '../components/seo/SEO';
+import AdSense from '../components/ads/AdSense';
 
 const getStageTheme = (stageId: string | undefined) => {
     switch (stageId) {
@@ -69,10 +70,7 @@ export default function TopicPage() {
         );
     }
 
-    // コンテンツが存在しないトピックはロードマップにリダイレクト
-    if (!hasTopicContent(topic.id)) {
-        return <Navigate to="/roadmap" replace />;
-    }
+    const hasContent = hasTopicContent(topic.id);
 
     const theme = getStageTheme(stage?.id);
 
@@ -165,6 +163,13 @@ export default function TopicPage() {
                         </div>
                     </motion.div>
 
+                    <div className="mb-8 text-center relative z-0">
+                        <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Advertisement</div>
+                        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[100px] flex items-center justify-center">
+                            <AdSense slot="" format="auto" responsive={true} />
+                        </div>
+                    </div>
+
                     <div className="grid gap-4 md:grid-cols-1">
                         {topic.chapters.map((chapter, index) => (
                             <motion.div
@@ -172,37 +177,76 @@ export default function TopicPage() {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.05 }}
+                                className="relative overflow-hidden rounded-xl"
                             >
-                                <Link
-                                    to={`/roadmap/${topic.id}/${chapter.id}`}
-                                    className="group block bg-white rounded-xl border border-blue-100 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all dark:bg-slate-900 dark:border-slate-800"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors dark:text-slate-200">
-                                                <span className="text-slate-400 dark:text-slate-500 mr-2">Chapter {chapter.id}.</span>
-                                                {chapter.title}
-                                            </h3>
-                                            {chapter.description && (
-                                                <p className="mt-1 text-slate-500 text-sm dark:text-slate-400 mb-3">
-                                                    {chapter.description}
-                                                </p>
-                                            )}
-                                            {/* Sections List */}
-                                            {chapter.sections && chapter.sections.length > 0 && (
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
-                                                    {chapter.sections.map(section => (
-                                                        <div key={section.id} className="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-100 dark:border-slate-700 flex items-center">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2 shrink-0"></div>
-                                                            <span className="truncate">§{section.id} {section.title}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
+                                {!hasContent && (
+                                    <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+                                        <div className="w-full flex items-center justify-center gap-1.5 py-1.5 border-y-2 border-red-400/80 dark:border-red-500/60 bg-red-50/90 dark:bg-red-950/50 backdrop-blur-sm">
+                                            <Construction className="w-4 h-4 text-red-500 shrink-0" />
+                                            <span className="text-xs font-bold text-red-500 tracking-[0.15em] uppercase">
+                                                Coming Soon
+                                            </span>
                                         </div>
-                                        <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-primary transition-colors" />
                                     </div>
-                                </Link>
+                                )}
+                                {hasContent ? (
+                                    <Link
+                                        to={`/roadmap/${topic.id}/${chapter.id}`}
+                                        className="group block bg-white rounded-xl border border-blue-100 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all dark:bg-slate-900 dark:border-slate-800"
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex-1">
+                                                <h3 className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors dark:text-slate-200">
+                                                    <span className="text-slate-400 dark:text-slate-500 mr-2">Chapter {chapter.id}.</span>
+                                                    {chapter.title}
+                                                </h3>
+                                                {chapter.description && (
+                                                    <p className="mt-1 text-slate-500 text-sm dark:text-slate-400 mb-3">
+                                                        {chapter.description}
+                                                    </p>
+                                                )}
+                                                {/* Sections List */}
+                                                {chapter.sections && chapter.sections.length > 0 && (
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+                                                        {chapter.sections.map(section => (
+                                                            <div key={section.id} className="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-100 dark:border-slate-700 flex items-center">
+                                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2 shrink-0"></div>
+                                                                <span className="truncate">§{section.id} {section.title}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-primary transition-colors" />
+                                        </div>
+                                    </Link>
+                                ) : (
+                                    <div className="group block bg-slate-50/50 rounded-xl border border-slate-200 p-6 dark:bg-slate-900/30 dark:border-slate-800 opacity-60">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex-1">
+                                                <h3 className="text-xl font-bold text-slate-500 dark:text-slate-400">
+                                                    <span className="mr-2">Chapter {chapter.id}.</span>
+                                                    {chapter.title}
+                                                </h3>
+                                                {chapter.description && (
+                                                    <p className="mt-1 text-slate-400 text-sm dark:text-slate-500 mb-3">
+                                                        {chapter.description}
+                                                    </p>
+                                                )}
+                                                {chapter.sections && chapter.sections.length > 0 && (
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+                                                        {chapter.sections.map(section => (
+                                                            <div key={section.id} className="text-sm text-slate-400 dark:text-slate-500 bg-slate-100/50 dark:bg-slate-800/50 px-3 py-2 rounded-lg border border-slate-100 dark:border-slate-700 flex items-center">
+                                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-400/50 mr-2 shrink-0"></div>
+                                                                <span className="truncate">§{section.id} {section.title}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </motion.div>
                         ))}
                     </div>

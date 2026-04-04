@@ -247,10 +247,11 @@ export default function Roadmap() {
                                                 </div>
                                             </Link>
                                             ) : (
-                                            <div
-                                                className={`group block relative overflow-hidden rounded-xl border h-full flex flex-col cursor-default ${theme.card.replace(/hover:\S+/g, '')}`}
+                                            <Link
+                                                to={`/roadmap/${topic.id}`}
+                                                className={`group block relative overflow-hidden rounded-xl border transition-all hover:shadow-lg h-full flex flex-col ${theme.card}`}
                                             >
-                                                <div className="absolute top-0 right-0 p-2 opacity-10 transition-opacity">
+                                                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
                                                     {getTopicIcon(topic.title, `w-12 h-12 rotate-12 ${theme.icon}`)}
                                                 </div>
 
@@ -264,14 +265,14 @@ export default function Roadmap() {
                                                     </div>
                                                 </div>
 
-                                                <div className="p-4 relative z-10 flex-1 flex flex-col">
+                                                <div className="p-4 relative z-10 flex-1 flex flex-col opacity-70 group-hover:opacity-100 transition-opacity">
                                                     <div className="mb-2 flex flex-wrap items-center gap-1">
                                                         <span className={`inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-mono font-bold ${theme.badge}`}>
                                                             {topic.id}
                                                         </span>
                                                     </div>
 
-                                                    <h3 className="mb-2 text-base font-bold text-slate-400 dark:text-slate-500 line-clamp-2">
+                                                    <h3 className={`mb-2 text-base font-bold text-slate-800 dark:text-white transition-colors line-clamp-2 ${theme.title}`}>
                                                         {topic.title}
                                                     </h3>
 
@@ -293,9 +294,10 @@ export default function Roadmap() {
                                                     </div>
                                                 </div>
 
-                                                <div className="px-3 py-2 flex justify-end items-center bg-white/30">
+                                                <div className={`px-3 py-2 flex justify-end items-center transition-colors bg-white/30 opacity-70 group-hover:opacity-100 ${theme.footer}`}>
+                                                    <ChevronRight className={`h-4 w-4 text-slate-300 transition-colors ${theme.icon}`} />
                                                 </div>
-                                            </div>
+                                            </Link>
                                             )}
                                         </motion.div>
                                     );

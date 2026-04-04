@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useParams, Link, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ArrowRight } from 'lucide-react';
 import {
     ReactFlow,
@@ -14,7 +14,6 @@ import {
 import '@xyflow/react/dist/style.css';
 import dagre from 'dagre';
 import { roadmapData, getTopicById } from '../data/roadmapData';
-import { hasTopicContent } from '../data/contentAvailability';
 import RoadmapNode from '../components/roadmap/RoadmapNode';
 
 const nodeTypes = {
@@ -177,13 +176,10 @@ export default function PrerequisiteFlowPage() {
         );
     }
 
-    // コンテンツが存在しないトピックはロードマップにリダイレクト
-    if (!hasTopicContent(targetTopic.id)) {
-        return <Navigate to="/roadmap" replace />;
-    }
+
 
     return (
-        <div className="flex flex-col h-screen bg-slate-50 dark:bg-slate-950">
+        <div className="flex flex-col h-[calc(100dvh-4rem)] md:h-[calc(100dvh-5rem)] bg-slate-50 dark:bg-slate-950">
             {/* Header / Breadcrumb */}
             <div className="bg-white border-b border-blue-100 shadow-sm z-30 dark:bg-slate-900 dark:border-slate-800 shrink-0 relative">
                 <div className="container mx-auto px-6 md:px-8 py-4">
@@ -213,7 +209,7 @@ export default function PrerequisiteFlowPage() {
                     nodesConnectable={false}
                     elementsSelectable={false}
                 >
-                    <Controls className="bg-white shadow-xl border-gray-100 rounded-lg overflow-hidden" />
+                    <Controls className="bg-white shadow-xl border-gray-100 rounded-lg overflow-hidden mb-8 md:mb-4" />
                     <Background color="#cbd5e1" gap={16} />
                 </ReactFlow>
             </div>

@@ -46,11 +46,10 @@ function createSitemap() {
         return fs.existsSync(topicDir);
     };
 
-    // トピック、チャプター、セクションの全URLを列挙（コンテンツがあるもののみ）
+    // トピック、チャプター、セクションの全URLを列挙
     roadmapData.forEach(stage => {
         stage.topics.forEach(topic => {
-            // コンテンツが存在しないトピックはスキップ
-            if (!hasTopicContent(topic.id)) return;
+            const hasContent = hasTopicContent(topic.id);
 
             // トピックのURL
             urls += `
@@ -60,6 +59,18 @@ function createSitemap() {
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>`;
+
+            // フローページのURL
+            urls += `
+    <url>
+        <loc>${SITE_URL}/roadmap/${topic.id}/flow</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>`;
+
+            // 以下のチャプターやセクションのコンテンツは、存在しない場合はスキップ
+            if (!hasContent) return;
 
             topic.chapters.forEach(chapter => {
                 // チャプターのURL
