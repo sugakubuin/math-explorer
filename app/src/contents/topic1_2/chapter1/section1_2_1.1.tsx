@@ -17,8 +17,8 @@ export default function LimitOfSequence() {
                 <p className="mt-2">
                     その根底にある概念が<strong>極限</strong>（limit）です。
                     「限りなく近づく」という直感を数学的に厳密に扱う道具を、本章で整えます。
-                    Chapter 1 では <InlineMath math="\varepsilon\text{-}\delta" /> 論法は用いず、計算と直感を重視します。
-                    厳密な理論は微分積分学II、実解析で扱います。
+                    1-2 微分積分学Iでは <InlineMath math="\varepsilon\text{-}\delta" /> 論法は用いず、計算と直感を重視します。
+                    厳密な理論は2-2 微分積分学II、2-3 実解析で扱います。
                 </p>
             </div>
 

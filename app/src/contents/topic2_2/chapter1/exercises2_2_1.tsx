@@ -230,49 +230,56 @@ export default function Exercises2_2_Chapter1() {
 
                 <ExerciseProblem chapterId="1" number={9}>
                     <p>
-                        関数 <InlineMath math="f(x)" /> と <InlineMath math="g(x)" /> が点 <InlineMath math="a" /> において極限を持ち、<InlineMath math="\lim_{x \to a} f(x) = L" />、<InlineMath math="\lim_{x \to a} g(x) = M" /> であるとする。<br />
-                        このとき、<InlineMath math="\varepsilon" />-<InlineMath math="\delta" /> 論法を用いて、和の極限 <InlineMath math="\lim_{x \to a} (f(x) - g(x)) = L - M" /> を証明せよ。
+                        関数 <InlineMath math="f(x)" /> と <InlineMath math="g(x)" /> が点 <InlineMath math="a" /> において極限を持ち、<InlineMath math="\lim_{x \to a} f(x) = L" />、<InlineMath math="\lim_{x \to a} g(x) = M" /> であるとする。ただし <InlineMath math="M \neq 0" /> とする。<br />
+                        このとき、<InlineMath math="\varepsilon" />-<InlineMath math="\delta" /> 論法を用いて、商の極限 <InlineMath math="\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}" /> を証明せよ（Theorem 1.2-2 (4)）。
                     </p>
                 <ExerciseSolution>
                     <p>
                         任意の <InlineMath math="\varepsilon > 0" /> が与えられたとする。
                     </p>
-                    <p>
-                        <InlineMath math="\lim_{x \to a} f(x) = L" /> であるから、ある <InlineMath math="\delta_1 > 0" /> が存在して、
+                    <p className="mt-2">
+                        まず、分母 <InlineMath math="g(x)" /> が <InlineMath math="0" /> から遠ざかるように評価する。<InlineMath math="\lim_{x \to a} g(x) = M" /> より、<InlineMath math="\varepsilon_0 = \frac{|M|}{2} > 0" /> に対してある <InlineMath math="\delta_0 > 0" /> が存在して、
+                        <InlineMath math="0 < |x - a| < \delta_0 \implies |g(x) - M| < \frac{|M|}{2}" />
+                        が成り立つ。このとき、三角不等式より
+                        <InlineMath math="|M| = |M - g(x) + g(x)| \leq |g(x) - M| + |g(x)|" /> であるから、
+                        <BlockMath math="|g(x)| \geq |M| - |g(x) - M| > |M| - \frac{|M|}{2} = \frac{|M|}{2}" />
+                        となり、<InlineMath math="\frac{1}{|g(x)|} < \frac{2}{|M|}" /> と評価できる。
                     </p>
-                    <BlockMath math="0 < |x - a| < \delta_1 \implies |f(x) - L| < \frac{\varepsilon}{2}" />
-                    <p>
-                        が成り立つ。
-                    </p>
-                    <p>
-                        同様に、<InlineMath math="\lim_{x \to a} g(x) = M" /> であるから、ある <InlineMath math="\delta_2 > 0" /> が存在して、
-                    </p>
-                    <BlockMath math="0 < |x - a| < \delta_2 \implies |g(x) - M| < \frac{\varepsilon}{2}" />
-                    <p>
-                        が成り立つ。
-                    </p>
-                    <p>
-                        ここで、<InlineMath math="\delta = \min(\delta_1, \delta_2)" /> とおく。<InlineMath math="\delta > 0" /> である。<br />
-                        <InlineMath math="0 < |x - a| < \delta" /> なる任意の <InlineMath math="x" /> について、上の2つの条件が同時に満たされる。
-                    </p>
-                    <p>
-                        目標とする差の絶対値を三角不等式を用いて評価する。
+                    <p className="mt-2">
+                        次に、目標とする差の絶対値を評価する。
                     </p>
                     <BlockMath math="
                         \begin{aligned}
-                        |(f(x) - &g(x)) - (L - M)| \\
-                        &= |(f(x) - L) - (g(x) - M)| \\
-                        &\leq |f(x) - L| + |- (g(x) - M)| \\
-                        &= |f(x) - L| + |g(x) - M| \\
+                        \left| \frac{f(x)}{g(x)} - \frac{L}{M} \right| &= \frac{|f(x)M - Lg(x)|}{|g(x)M|} \\
+                        &= \frac{|(f(x) - L)M + L(M - g(x))|}{|g(x)||M|} \\
+                        &\leq \frac{|f(x) - L||M| + |L||g(x) - M|}{\frac{|M|}{2} \cdot |M|} \quad (\because 0 < |x-a| < \delta_0) \\
+                        &= \frac{2|M||f(x) - L| + 2|L||g(x) - M|}{M^2}
+                        \end{aligned}
+                    " />
+                    <p className="mt-2">
+                        ここで、<InlineMath math="\lim f(x) = L" /> および <InlineMath math="\lim g(x) = M" /> より、それぞれ次の条件を満たす <InlineMath math="\delta_1, \delta_2 > 0" /> を選ぶことができる。
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><InlineMath math="0 < |x - a| < \delta_1 \implies |f(x) - L| < \frac{M^2 \varepsilon}{4|M|}" /></li>
+                        <li><InlineMath math="0 < |x - a| < \delta_2 \implies |g(x) - M| < \frac{M^2 \varepsilon}{4(|L| + 1)}" />（<InlineMath math="|L| + 1" /> としているのは <InlineMath math="L=0" /> の場合を考慮するため）</li>
+                    </ul>
+                    <p className="mt-2">
+                        これらを用いて、<InlineMath math="\delta = \min(\delta_0, \delta_1, \delta_2)" /> とおくと、<InlineMath math="0 < |x - a| < \delta" /> なる任意の <InlineMath math="x" /> に対して、
+                    </p>
+                    <BlockMath math="
+                        \begin{aligned}
+                        \left| \frac{f(x)}{g(x)} - \frac{L}{M} \right| &< \frac{2|M|}{M^2} \cdot \frac{M^2 \varepsilon}{4|M|} + \frac{2|L|}{M^2} \cdot \frac{M^2 \varepsilon}{4(|L| + 1)} \\
+                        &= \frac{\varepsilon}{2} + \frac{|L|}{2(|L| + 1)} \cdot \varepsilon \\
                         &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
                         \end{aligned}
                     " />
-                    <p>
-                        したがって、任意の <InlineMath math="\varepsilon > 0" /> に対して適当な <InlineMath math="\delta > 0" /> を選ぶことで条件が満たされたので、<InlineMath math="\lim_{x \to a} (f(x) - g(x)) = L - M" /> が示された。
+                    <p className="mt-2">
+                        したがって、定義より <InlineMath math="\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}" /> が示された。
                     </p>
                     <p className="text-right"><InlineMath math="\square" /></p>
                 </ExerciseSolution>
                 </ExerciseProblem>
+
 
                 <ExerciseProblem chapterId="1" number={10}>
                     <p>

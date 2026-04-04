@@ -53,15 +53,103 @@ export default function SimpleGroups() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h2 className="text-2xl font-bold mt-8 mb-6">単純群と群の「素因数分解」</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-6">組成列と Jordan-Hölder の定理</h2>
 
             <p className="leading-relaxed">
-                整数が素数の積に分解できるように、有限群も単純群を積み重ねることで構成されていると考えることができます（Jordan-Hölder 定理）。
+                有限群を正規部分群で次々と割っていくプロセスは、最終的に「それ以上分解できない部品」である単純群に行き着きます。この分解のプロセスを厳密に定式化したものが組成列です。
             </p>
 
-            <ContentBox type="note" title="用語の背景：有限単純群の分類">
+            <ContentBox type="definition" title="Definition 4.3-2 (組成列)">
                 <p>
-                    20世紀後半にかけて、世界中の数学者の協力によって「すべての有限単純群をリストアップする」という壮大なプロジェクトが完遂されました。
+                    有限群 <InlineMath math="G" /> の部分群の列
+                    <BlockMath math="G = G_0 \triangleright G_1 \triangleright G_2 \triangleright \dots \triangleright G_n = \{e\}" />
+                    において、すべての因子群 <InlineMath math="G_i / G_{i+1} \ (i=0, 1, \dots, n-1)" /> が単純群であるとき、この列を <InlineMath math="G" /> の<strong>組成列 (Composition series)</strong> と呼び、各因子群を<strong>組成因子 (Composition factor)</strong> と呼ぶ。
+                </p>
+            </ContentBox>
+
+            <p className="leading-relaxed">
+                ある群に対して、組成列の作り方は一通りとは限りません。しかし、どのような順序で分解したとしても、最終的に得られる「部品（単純群）」のセットは本質的に同じになることが保証されています。
+            </p>
+
+            <ContentBox type="theorem" title="Theorem 4.3-1 (Jordan-Hölder の定理)">
+                <p>
+                    有限群 <InlineMath math="G" /> について、以下のことが成り立つ。
+                </p>
+                <ol className="list-decimal pl-5 space-y-2 mt-2">
+                    <li><InlineMath math="G" /> は必ず組成列を持つ。</li>
+                    <li>
+                        <InlineMath math="G" /> の任意の 2 つの組成列に対して、それらの長さ（項数）は等しく、かつ出現する組成因子の集合は同型を除いて（順序を入れ替えれば）一致する。
+                    </li>
+                </ol>
+            </ContentBox>
+
+            <ContentBox type="proof" title="Proof">
+                <p className="font-semibold">1. 存在の証明</p>
+                <p>
+                    群の位数 <InlineMath math="|G|" /> に関する数学的帰納法を用いる。<br />
+                    <InlineMath math="|G| = 1" /> のときは自明である。<InlineMath math="|G| > 1" /> とし、<InlineMath math="|G|" /> より小さな位数の群に対しては組成列が存在すると仮定する。
+                </p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                    <li><InlineMath math="G" /> が単純群ならば、列 <InlineMath math="G \triangleright \{e\}" /> が組成列である。</li>
+                    <li><InlineMath math="G" /> が単純群でないならば、自明でない正規部分群を持つ。有限群であるから、包含関係に関して極大な正規部分群 <InlineMath math="G_1 \subsetneq G" /> が存在する。
+                        このとき、<InlineMath math="G_1" /> は極大であるから、対応定理より <InlineMath math="G/G_1" /> は単純群である。
+                        帰納法の仮定より <InlineMath math="G_1" /> には組成列 <InlineMath math="G_1 \triangleright G_2 \triangleright \dots \triangleright \{e\}" /> が存在する。
+                        これに <InlineMath math="G \triangleright G_1" /> を繋げれば、<InlineMath math="G" /> の組成列が得られる。
+                    </li>
+                </ul>
+
+                <p className="font-semibold mt-4">2. 一意性の証明</p>
+                <p>
+                    組成列の長さ <InlineMath math="n" /> に関する帰納法を用いる。<InlineMath math="n=1" />（単純群）のときは明らかである。
+                    2 つの組成列
+                    <BlockMath math="(1) \ G = G_0 \triangleright G_1 \triangleright \dots \triangleright G_n = \{e\}" />
+                    <BlockMath math="(2) \ G = H_0 \triangleright H_1 \triangleright \dots \triangleright H_m = \{e\}" />
+                    を考える。<InlineMath math="G_1 = H_1" /> ならば、帰納法の仮定より残りの部分（<InlineMath math="G_1" /> の組成列）に関して一意性が示される。
+                </p>
+                <p className="mt-2">
+                    <InlineMath math="G_1 \neq H_1" /> の場合を考える。
+                    <InlineMath math="K = G_1 \cap H_1" /> とおくと、<InlineMath math="G_1, H_1" /> が極大正規部分群であることから <InlineMath math="G_1 H_1 = G" /> となり、第二同型定理より次が成り立つ：
+                    <BlockMath math="G/G_1 \cong H_1/K, \quad G/H_1 \cong G_1/K" />
+                    これらが単純群であることから、<InlineMath math="K" /> もそれぞれの極大正規部分群となる。
+                    ここで <InlineMath math="K" /> の組成列をひとつ選び、それを経由する 2 つの「仮想的な組成列」を考えると、帰納法の仮定により、列(1)と列(2)の組成因子が（順序を除いて）同一のセットに収束することが示される。
+                </p>
+                <div className="text-right text-slate-500 dark:text-slate-400 mt-4">
+                    <InlineMath math="\square" />
+                </div>
+            </ContentBox>
+
+
+            <p className="leading-relaxed">
+                この定理は、群における「素因数分解の一意性」に相当する極めて重要な結果です。例えば、整数 <InlineMath math="12" /> を <InlineMath math="(2 \times 2) \times 3" /> と分解しても <InlineMath math="2 \times (2 \times 3)" /> と分解しても現れる素数は同じであるように、群も分解の経路に依存しない固有の構造を持っているのです。
+            </p>
+
+            <ContentBox type="example" title="Example 4.3-3 (組成因子の一意性)">
+                <p>
+                    位数 6 の巡回群 <InlineMath math="\mathbb{Z}_6" /> を例にとる。
+                </p>
+                <ul className="list-disc pl-5 mt-2 space-y-2">
+                    <li>列1：<InlineMath math="\mathbb{Z}_6 \triangleright \mathbb{Z}_3 \triangleright \{0\}" /> <br />
+                        組成因子は <InlineMath math="\mathbb{Z}_6/\mathbb{Z}_3 \cong \mathbb{Z}_2" /> と <InlineMath math="\mathbb{Z}_3/\{0\} \cong \mathbb{Z}_3" />。
+                    </li>
+                    <li>列2：<InlineMath math="\mathbb{Z}_6 \triangleright \mathbb{Z}_2 \triangleright \{0\}" /> <br />
+                        組成因子は <InlineMath math="\mathbb{Z}_6/\mathbb{Z}_2 \cong \mathbb{Z}_3" /> と <InlineMath math="\mathbb{Z}_2/\{0\} \cong \mathbb{Z}_2" />。
+                    </li>
+                </ul>
+                <p className="mt-2">
+                    分解の順序は異なりますが、得られる部品のセットはどちらも <InlineMath math="\{\mathbb{Z}_2, \mathbb{Z}_3\}" /> で一致していることがわかる。
+                </p>
+            </ContentBox>
+
+            <hr className="my-8 border-slate-200 dark:border-slate-700" />
+            <h2 className="text-2xl font-bold mt-8 mb-6">有限単純群の分類：数学の「周期表」</h2>
+
+            <p className="leading-relaxed">
+                Jordan-Hölder の定理により、「世の中のすべての有限単純群をリストアップできれば、理論上すべての有限群をその部品から理解できる」という見通しが立ちました。
+            </p>
+
+            <ContentBox type="note" title="有限単純群の分類定理">
+                <p>
+                    20世紀後半、世界中の数学者の協力によって「すべての有限単純群の分類」が完遂されました。それは以下の 4 つのカテゴリーに集約されます。
                 </p>
                 <ul className="list-disc list-inside space-y-2 mt-2">
                     <li>素数位数の巡回群</li>
@@ -70,17 +158,18 @@ export default function SimpleGroups() {
                     <li>26個の<b>散在型単純群 (Sporadic groups)</b>：モンスター群などの例外的な群</li>
                 </ul>
                 <p className="mt-2 font-semibold">
-                    世の中のあらゆる有限群は、本質的にはこれらの「部品」の組み合わせでできているのです。
+                    これは化学における「周期表」のようなものであり、数学史上最も巨大な定理の一つと言われています。
                 </p>
             </ContentBox>
+
 
             {/* まとめ */}
             <ContentBox type="note" title="§4.3 のまとめ">
                 <ul className="list-disc list-inside space-y-1">
-                    <li>非自明な正規部分群を持たない群を単純群という。</li>
-                    <li>素数位数の群や、<InlineMath math="n \geq 5" /> の交代群がその代表例である。</li>
-                    <li>単純群は、群を構成するための「最小単位（素数のような部品）」とみなせる。</li>
-                    <li>有限単純群は完全に分類されており、すべての有限群の構造の基礎となっている。</li>
+                    <li>非自明な正規部分群を持たない群を<strong>単純群</strong>という。</li>
+                    <li>因子群がすべて単純群となるような部分群の列を<strong>組成列</strong>と呼ぶ。</li>
+                    <li>組成列に現れる組成因子のセットは、列の作り方によらず一意的である（<strong>Jordan-Hölder の定理</strong>）。</li>
+                    <li>有限単純群は完全に分類されており、すべての有限群の構造を支える基礎的な「部品」となっている。</li>
                 </ul>
             </ContentBox>
         </section>
