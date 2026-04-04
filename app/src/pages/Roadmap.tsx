@@ -180,7 +180,7 @@ export default function Roadmap() {
                             {stage.id === 'stage-4' && (
                                 <div className="mb-16 text-center relative z-0">
                                     <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Advertisement</div>
-                                    <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[100px] flex items-center justify-center">
+                                    <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[280px] flex items-center justify-center">
                                         <AdSense slot="" format="auto" responsive={true} />
                                     </div>
                                 </div>

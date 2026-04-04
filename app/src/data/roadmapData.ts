@@ -939,7 +939,7 @@ export const roadmapData: Stage[] = [
                             { id: "5.1", title: "コーシーの積分公式", description: "コーシーの積分公式とグルサの公式" },
                             { id: "5.2", title: "正則関数の諸定理", description: "モレラの定理、リュービルの定理、代数学の基本定理" },
                             { id: "5.3", title: "最大値原理", description: "領域内部で絶対値が最大とならない性質" },
-                            { id: "5.4", title: "テイラー展開", description: "正則関数の冪級数展開可能性、収束半径" }
+                            { id: "5.4", title: "テイラー展開と一致の定理", description: "正則関数の冪級数展開可能性、収束半径、一致の定理" }
                         ]
                     },
                     {

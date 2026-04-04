@@ -8,7 +8,6 @@ import SectionPage from './pages/SectionPage';
 import ExercisePage from './pages/ExercisePage';
 import PrerequisiteFlowPage from './pages/PrerequisiteFlowPage';
 import AboutPage from './pages/AboutPage';
-import VisualRoadmapPage from './pages/VisualRoadmapPage';
 import { roadmapData } from './data/roadmapData';
 import { hasTopicContent } from './data/contentAvailability';
 
@@ -99,10 +98,6 @@ export const routes: RouteRecord[] = [
                 path: 'roadmap/:topicId/:chapterId/:sectionId',
                 element: <SectionPage />,
                 getStaticPaths: getSectionPaths,
-            },
-            {
-                path: 'visual-roadmap',
-                element: <VisualRoadmapPage />,
             },
             {
                 path: 'about',

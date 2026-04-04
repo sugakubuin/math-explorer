@@ -8,7 +8,6 @@ import SectionPage from './pages/SectionPage.tsx';
 import ExercisePage from './pages/ExercisePage.tsx';
 import PrerequisiteFlowPage from './pages/PrerequisiteFlowPage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
-import VisualRoadmapPage from './pages/VisualRoadmapPage.tsx';
 import ScrollManager from './components/layout/ScrollManager.tsx';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
           <Route path="roadmap/:topicId/:chapterId" element={<ChapterPage />} />
           <Route path="roadmap/:topicId/:chapterId/exercises" element={<ExercisePage />} />
           <Route path="roadmap/:topicId/:chapterId/:sectionId" element={<SectionPage />} />
-          <Route path="visual-roadmap" element={<VisualRoadmapPage />} />
           <Route path="about" element={<AboutPage />} />
         </Route>
       </Routes>
