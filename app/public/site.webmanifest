@@ -1,0 +1,22 @@
+{
+  "name": "Math Explorer",
+  "short_name": "Math Explorer",
+  "description": "大学数学の学習ロードマップ",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/og-image-square.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

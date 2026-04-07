@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 
 interface SEOProps {
     title: string;
@@ -20,7 +20,7 @@ export default function SEO({ title, description, url, imageUrl, type = 'website
     const metaImage = imageUrl ? `${SITE_URL}${imageUrl}` : `${SITE_URL}/og-image-square.png`;
 
     return (
-        <Helmet>
+        <Head>
             {/* 基本設定 */}
             <title>{formattedTitle}</title>
             <meta name="description" content={formattedDescription} />
@@ -52,6 +52,6 @@ export default function SEO({ title, description, url, imageUrl, type = 'website
                     })}
                 </script>
             )}
-        </Helmet>
+        </Head>
     );
 }
