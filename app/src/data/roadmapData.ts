@@ -2016,10 +2016,10 @@ export const roadmapData: Stage[] = [
                         ]
                     },
                     {
-                        id: "4", title: "関数解析の基本定理", description: "ハーン-バナッハ定理・一様有界性原理・開写像定理・閉グラフ定理",
+                        id: "4", title: "関数解析の基本定理", description: "ハーン-バナッハの定理・一様有界性原理・開写像定理・閉グラフ定理",
                         sections: [
-                            { id: "4.1", title: "ハーン-バナッハ定理（拡張定理）", description: "劣線形汎関数による線形汎関数の拡張" },
-                            { id: "4.2", title: "ハーン-バナッハ定理の系（分離定理）", description: "点と閉部分空間の分離、双対空間の豊富さ" },
+                            { id: "4.1", title: "ハーン-バナッハの定理（拡張定理）", description: "劣線形汎関数による線形汎関数の拡張" },
+                            { id: "4.2", title: "ハーン-バナッハの定理の系（分離定理）", description: "点と閉部分空間の分離、双対空間の豊富さ" },
                             { id: "4.3", title: "一様有界性定理（バナッハ-スタインハウスの定理）", description: "ベールのカテゴリー定理に基づく証明" },
                             { id: "4.4", title: "開写像定理", description: "全射な有界線形作用素の開写像性" },
                             { id: "4.5", title: "閉グラフ定理と逆作用素定理", description: "グラフの閉性と有界性の同値関係、全単射の逆作用素" }
@@ -2029,7 +2029,7 @@ export const roadmapData: Stage[] = [
                         id: "5", title: "双対空間と弱位相", description: "連続線形汎関数、双対ノルム、弱収束、反射空間",
                         sections: [
                             { id: "5.1", title: "双対空間 X* と双対ノルム", description: "連続線形汎関数全体の空間と双対ノルム" },
-                            { id: "5.2", title: "双対空間の具体例", description: "l^p の双対 l^q と C[a,b]* のリース-マルコフ表現" },
+                            { id: "5.2", title: "双対空間の具体例", description: "l^p の双対 l^q* と C[a,b]* のリース-マルコフ表現" },
                             { id: "5.3", title: "弱収束と強収束の比較", description: "弱収束の定義と強収束との違い" },
                             { id: "5.4", title: "弱位相と反射的空間", description: "弱位相、アラオグルの定理、L^p の反射性" }
                         ]

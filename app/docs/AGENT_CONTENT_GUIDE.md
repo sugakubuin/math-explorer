@@ -183,6 +183,8 @@ export default function DescriptiveSectionName() {
   - **MANDATORY**: **Immediately following a Definition, you MUST place a concrete Example to help understand the concept.** At this time, you may ignore the numbering order of Examples in the syllabus. Prioritize a structure that allows readers to immediately connect abstract definitions with concrete images.
 - **Cross-Referencing**: When referring to a specific definition, proposition, theorem, or example by its number, use the English label (e.g., "Proposition X.X-X", "Definition Y.Y", "Example Z.Z") rather than the Japanese equivalent (e.g., "命題 X.X-X", "定義 Y.Y"). 
   - **IMPORTANT**: When referring to an item using its English label and number (e.g., "Theorem X.X-X"), do **NOT** add redundant explanatory phrases like "§X.X の" (in Section X.X) or "前節の" (in the previous section). The number itself already provides the necessary context. Simply write "Theorem X.X-X より、" instead of "前節の Theorem X.X-X より、" or "§X.X の Theorem X.X-X より、". However, if you are referring to the concept generally without a specific number, use natural Japanese (e.g., "この命題からわかるように").
+  - **Referencing Topics**: When referring to another topic, use the format `X-Y TopicName` (e.g., "2-3 実解析", "3-12 位相空間論II"). Do **NOT** use phrases like "Chapter 2-3" or "実解析（Chapter 2-3）" because the number represents the Topic ID, not a Chapter.
+- **Term Definitions**: When defining a new term inside a `definition` ContentBox, the term being defined MUST be bolded using `<b>` tags. If the term is followed by its English translation in parentheses, include the parentheses and English term within the bold tag (e.g., `<b>ノルム（norm）</b>`).
 - **Terminology**: Use "well-defined" or "well-definedness" instead of Katakana like "ウェルディファインド".
 - **Counterexamples**: When discussing properties (e.g., commutativity), provide counterexamples if the property does not hold in general.
 - **Prose Between ContentBoxes (地の文)**: ContentBox components (definition, theorem, proof, example, etc.) MUST NOT be placed directly one after another without connecting prose. Between each pair of ContentBoxes, include at least one `<p>` paragraph that:
@@ -191,7 +193,9 @@ export default function DescriptiveSectionName() {
   - Offers intuitive interpretation or context (e.g., "直感的には〜ということです")
   - **IMPORTANT**: Consciously reference previous or upcoming sections and chapters to create a cohesive learning experience (e.g., "Chapter X で学んだ〜の概念を応用して", "この結果は次節 §Y.Y で不可欠になります"). This ensures the content reads like a continuous textbook rather than disjointed articles.
   Refer to Chapter 13 (`topic2_1/chapter13/`) as the gold standard for prose density.
-- **Columns and Remarks (コラム)**: Each section file SHOULD include at least one `<ContentBox type="remark">` that provides supplementary context beyond the core mathematics. Good candidates include:
+- **Columns and Remarks (コラム)**: Each section file SHOULD include at least one `<ContentBox type="remark">` that provides supplementary context beyond the core mathematics. 
+  - **IMPORTANT**: The title of the remark box MUST be descriptive of its content (e.g., `title="バナッハ空間との違い"` or `title="物理学への応用"`). Do NOT use simply `title="Remark"` or `title="Remark (内容)"`.
+  Good candidates include:
   - Historical notes (e.g., who developed the concept, when, and why)
   - Connections to other fields (e.g., physics, data science, engineering)
   - Intuitive or geometric interpretations
