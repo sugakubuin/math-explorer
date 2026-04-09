@@ -72,6 +72,42 @@ function createSitemap() {
             // 以下のチャプターやセクションのコンテンツは、存在しない場合はスキップ
             if (!hasContent) return;
 
+            // 定義一覧のURL
+            urls += `
+    <url>
+        <loc>${SITE_URL}/roadmap/${topic.id}/definitions</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>`;
+
+            // 定義クイズのURL
+            urls += `
+    <url>
+        <loc>${SITE_URL}/roadmap/${topic.id}/definitions/quiz</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>`;
+
+            // 命題一覧のURL
+            urls += `
+    <url>
+        <loc>${SITE_URL}/roadmap/${topic.id}/propositions</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>`;
+
+            // 命題クイズのURL
+            urls += `
+    <url>
+        <loc>${SITE_URL}/roadmap/${topic.id}/propositions/quiz</loc>
+        <lastmod>${currentDate}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>`;
+
             topic.chapters.forEach(chapter => {
                 // チャプターのURL
                 urls += `

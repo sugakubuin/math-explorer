@@ -8,6 +8,9 @@ import SectionPage from './pages/SectionPage';
 import ExercisePage from './pages/ExercisePage';
 import PrerequisiteFlowPage from './pages/PrerequisiteFlowPage';
 import AboutPage from './pages/AboutPage';
+import DefinitionListPage from './pages/DefinitionListPage';
+import PropositionListPage from './pages/PropositionListPage';
+import ContentQuizPage from './pages/ContentQuizPage';
 import { roadmapData } from './data/roadmapData';
 import { hasTopicContent } from './data/contentAvailability';
 
@@ -28,6 +31,34 @@ function getFlowPaths(): string[] {
         .flatMap(stage => stage.topics)
         .filter(topic => hasTopicContent(topic.id))
         .map(topic => `roadmap/${topic.id}/flow`);
+}
+
+function getDefinitionPaths(): string[] {
+    return roadmapData
+        .flatMap(stage => stage.topics)
+        .filter(topic => hasTopicContent(topic.id))
+        .map(topic => `roadmap/${topic.id}/definitions`);
+}
+
+function getDefinitionQuizPaths(): string[] {
+    return roadmapData
+        .flatMap(stage => stage.topics)
+        .filter(topic => hasTopicContent(topic.id))
+        .map(topic => `roadmap/${topic.id}/definitions/quiz`);
+}
+
+function getPropositionPaths(): string[] {
+    return roadmapData
+        .flatMap(stage => stage.topics)
+        .filter(topic => hasTopicContent(topic.id))
+        .map(topic => `roadmap/${topic.id}/propositions`);
+}
+
+function getPropositionQuizPaths(): string[] {
+    return roadmapData
+        .flatMap(stage => stage.topics)
+        .filter(topic => hasTopicContent(topic.id))
+        .map(topic => `roadmap/${topic.id}/propositions/quiz`);
 }
 
 function getChapterPaths(): string[] {
@@ -85,6 +116,26 @@ export const routes: RouteRecord[] = [
                 getStaticPaths: getFlowPaths,
             },
             {
+                path: 'roadmap/:topicId/definitions',
+                element: <DefinitionListPage />,
+                getStaticPaths: getDefinitionPaths,
+            },
+            {
+                path: 'roadmap/:topicId/definitions/quiz',
+                element: <ContentQuizPage mode="definitions" />,
+                getStaticPaths: getDefinitionQuizPaths,
+            },
+            {
+                path: 'roadmap/:topicId/propositions',
+                element: <PropositionListPage />,
+                getStaticPaths: getPropositionPaths,
+            },
+            {
+                path: 'roadmap/:topicId/propositions/quiz',
+                element: <ContentQuizPage mode="propositions" />,
+                getStaticPaths: getPropositionQuizPaths,
+            },
+            {
                 path: 'roadmap/:topicId/:chapterId',
                 element: <ChapterPage />,
                 getStaticPaths: getChapterPaths,
@@ -106,3 +157,4 @@ export const routes: RouteRecord[] = [
         ],
     },
 ];
+

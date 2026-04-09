@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, GitBranch, Construction } from 'lucide-react';
+import { ChevronRight, GitBranch, Construction, BookText, ScrollText } from 'lucide-react';
 import { roadmapData, getTopicById, getStageByTopicId } from '../data/roadmapData';
 import { hasTopicContent } from '../data/contentAvailability';
 import SEO from '../components/seo/SEO';
@@ -76,9 +76,9 @@ export default function TopicPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
-            <SEO 
-                title={`${topic.title} | Math Explorer`} 
-                description={`${topic.title}について学ぶ。収録チャプター数: ${topic.chapters.length}`} 
+            <SEO
+                title={`${topic.title} | Math Explorer`}
+                description={`${topic.title}について学ぶ。収録チャプター数: ${topic.chapters.length}`}
                 url={`/roadmap/${topic.id}`}
                 jsonLd={{
                     '@type': 'Course',
@@ -163,6 +163,50 @@ export default function TopicPage() {
                         </div>
                     </motion.div>
 
+                    {/* Table of Contents */}
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-6 mb-8 border border-slate-100 dark:border-slate-800">
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-4">
+                            Contents
+                        </h3>
+                        <nav className="flex flex-col gap-2">
+                            {topic.chapters.map((chapter) => (
+                                <button
+                                    key={chapter.id}
+                                    onClick={() => {
+                                        const el = document.getElementById(`topic-chapter-${chapter.id}`);
+                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }}
+                                    className="text-left text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-primary"
+                                >
+                                    Chapter {chapter.id}. {chapter.title}
+                                </button>
+                            ))}
+                            {hasContent && (
+                                <>
+                                    <div className="border-t border-slate-200 dark:border-slate-700 my-1" />
+                                    <button
+                                        onClick={() => {
+                                            const el = document.getElementById('topic-list-nav');
+                                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }}
+                                        className="text-left text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-blue-500"
+                                    >
+                                        定義一覧
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            const el = document.getElementById('topic-list-nav');
+                                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }}
+                                        className="text-left text-sm text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-purple-500"
+                                    >
+                                        命題一覧
+                                    </button>
+                                </>
+                            )}
+                        </nav>
+                    </div>
+
                     <div className="mb-8 text-center relative z-0">
                         <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Advertisement</div>
                         <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[100px] flex items-center justify-center">
@@ -174,6 +218,7 @@ export default function TopicPage() {
                         {topic.chapters.map((chapter, index) => (
                             <motion.div
                                 key={chapter.id}
+                                id={`topic-chapter-${chapter.id}`}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.05 }}
@@ -250,6 +295,54 @@ export default function TopicPage() {
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Definition & Proposition List Navigation */}
+                    {hasContent && (
+                        <div id="topic-list-nav" className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <Link
+                                to={`/roadmap/${topic.id}/definitions`}
+                                className="group block"
+                            >
+                                <div className="bg-white dark:bg-slate-900 border border-blue-200 dark:border-blue-800/50 rounded-xl p-6 hover:shadow-md transition-all hover:border-blue-300 dark:hover:border-blue-700">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400">
+                                            <BookText className="h-5 w-5" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                                定義一覧
+                                            </h3>
+                                            <p className="text-slate-500 dark:text-slate-400 mt-0.5 text-sm">
+                                                定義をまとめて閲覧 & クイズで確認
+                                            </p>
+                                        </div>
+                                        <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                                    </div>
+                                </div>
+                            </Link>
+                            <Link
+                                to={`/roadmap/${topic.id}/propositions`}
+                                className="group block"
+                            >
+                                <div className="bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800/50 rounded-xl p-6 hover:shadow-md transition-all hover:border-purple-300 dark:hover:border-purple-700">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400">
+                                            <ScrollText className="h-5 w-5" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                                命題一覧
+                                            </h3>
+                                            <p className="text-slate-500 dark:text-slate-400 mt-0.5 text-sm">
+                                                定理・命題・補題・系をまとめて閲覧 & クイズで確認
+                                            </p>
+                                        </div>
+                                        <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-purple-500 transition-colors" />
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
