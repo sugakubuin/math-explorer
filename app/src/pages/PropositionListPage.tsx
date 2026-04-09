@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, ScrollText } from 'lucide-react';
 import { roadmapData, getStageByTopicId } from '../data/roadmapData';
@@ -30,6 +30,7 @@ function SectionBoxExtractor({ topicId, chapterId, sectionId, filterBorderClasse
     const hiddenRef = useRef<HTMLDivElement>(null);
     const displayRef = useRef<HTMLDivElement>(null);
     const [isReady, setIsReady] = useState(false);
+    const navigate = useNavigate();
 
     const SectionComponent = useMemo(() => {
         const loader = getSectionLoader(topicId, chapterId, sectionId);
@@ -49,18 +50,36 @@ function SectionBoxExtractor({ topicId, chapterId, sectionId, filterBorderClasse
             const display = displayRef.current;
             if (!hidden || !display) return false;
 
-            const boxes = hidden.querySelectorAll('div.border-l-4');
+            const boxes = Array.from(hidden.querySelectorAll('div.border-l-4'));
             let found = false;
-            for (const box of boxes) {
+            boxes.forEach((box, index) => {
                 const hasMatch = filterBorderClasses.some(cls => box.classList.contains(cls));
                 if (hasMatch) {
                     const clone = box.cloneNode(true) as HTMLElement;
-                    clone.style.marginTop = '0.75rem';
-                    clone.style.marginBottom = '0.75rem';
-                    display.appendChild(clone);
+                    clone.style.marginTop = '0';
+                    clone.style.marginBottom = '0';
+                    
+                    const container = document.createElement('div');
+                    container.className = 'mb-10';
+                    container.appendChild(clone);
+                    
+                    const linkWrapper = document.createElement('div');
+                    linkWrapper.className = 'flex justify-end mt-2 mr-2';
+                    const link = document.createElement('a');
+                    link.href = `/roadmap/${topicId}/${chapterId}/${sectionId}#content-box-${index}`;
+                    link.className = 'text-sm font-medium text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-purple-400 transition-colors flex items-center gap-1 cursor-pointer';
+                    link.innerHTML = `<span>§${sectionId} で確認する</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+                    link.onclick = (e) => {
+                        e.preventDefault();
+                        navigate(`/roadmap/${topicId}/${chapterId}/${sectionId}#content-box-${index}`);
+                    };
+                    linkWrapper.appendChild(link);
+                    container.appendChild(linkWrapper);
+
+                    display.appendChild(container);
                     found = true;
                 }
-            }
+            });
             return found;
         };
 

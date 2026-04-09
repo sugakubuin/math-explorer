@@ -63,7 +63,7 @@ export default function PowerSetsAndCartesianProducts() {
 
             <ContentBox type="definition" title="Definition 1.3-2 (順序対・直積集合)">
                 <p>
-                    <span className="font-bold">順序对（順序対、Ordered Pair）</span>とは、順番を考慮した2つの元の組 <InlineMath math="(a, b)" /> のことである。集合の表記 <InlineMath math="\{a, b\}" /> であれば <InlineMath math="\{a, b\} = \{b, a\}" /> であるが、順序対においては <InlineMath math="(a, b) = (c, d)" /> となるのは、<strong><InlineMath math="a = c" /> かつ <InlineMath math="b = d" /> のときに限る</strong>。
+                    <span className="font-bold">順序対（Ordered Pair）</span>とは、順番を考慮した2つの元の組 <InlineMath math="(a, b)" /> のことである。集合の表記 <InlineMath math="\{a, b\}" /> であれば <InlineMath math="\{a, b\} = \{b, a\}" /> であるが、順序対においては <InlineMath math="(a, b) = (c, d)" /> となるのは、<strong><InlineMath math="a = c" /> かつ <InlineMath math="b = d" /> のときに限る</strong>。
                 </p>
                 <p className="mt-4">
                     2つの集合 <InlineMath math="A, B" /> について、<InlineMath math="A" /> の元 <InlineMath math="a" /> と <InlineMath math="B" /> の元 <InlineMath math="b" /> からなる順序対 <InlineMath math="(a, b)" /> 全体の集合を、<InlineMath math="A" /> と <InlineMath math="B" /> の<strong>直積（Cartesian Product）</strong>と呼び、<InlineMath math="A \times B" /> と表す。

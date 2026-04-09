@@ -10,11 +10,13 @@ export default function ScrollManager() {
             window.history.scrollRestoration = 'manual';
         }
 
+        const hasHash = !!window.location.hash;
+
         // 1. Restore scroll position for the current path
         const savedPosition = sessionStorage.getItem(`scroll_position_${pathname}`);
-        const targetScroll = savedPosition ? parseInt(savedPosition, 10) : 0;
+        const targetScroll = savedPosition && !hasHash ? parseInt(savedPosition, 10) : 0;
 
-        let isRestoring = true;
+        let isRestoring = !hasHash;
         // Track when we first reached the target, to allow a grace period for layout shifts
         let reachedTargetAt: number | null = null;
 

@@ -50,6 +50,11 @@ export default function SectionPage() {
     // Table of Contents Logic
     const [toc, setToc] = React.useState<{ id: string; text: string }[]>([]);
     const contentRef = React.useRef<HTMLDivElement>(null);
+    const hasScrolledToHash = React.useRef(false);
+
+    React.useEffect(() => {
+        hasScrolledToHash.current = false;
+    }, [topicId, chapterId, sectionId]);
 
     React.useEffect(() => {
         const updateToc = () => {
@@ -71,6 +76,28 @@ export default function SectionPage() {
                 }
                 return tocData;
             });
+
+            // ContentBox に ID を付与 (一覧ページなどからのハッシュリンク用)
+            const boxes = Array.from(contentRef.current.querySelectorAll('div.border-l-4'));
+            boxes.forEach((box, index) => {
+                if (!box.id) {
+                    box.id = `content-box-${index}`;
+                }
+            });
+
+            // URLにハッシュがあり、かつまだスクロールしていない場合はスクロールする
+            if (window.location.hash && !hasScrolledToHash.current) {
+                const targetId = window.location.hash.substring(1);
+                const element = document.getElementById(targetId);
+                if (element) {
+                    hasScrolledToHash.current = true;
+                    // レイアウト崩れ防止と、上部ナビゲーション（100px以上）に被らないようオフセットを大きく取る
+                    setTimeout(() => {
+                        const y = element.getBoundingClientRect().top + window.scrollY - 160;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }, 100);
+                }
+            }
         };
 
         // Initial update
