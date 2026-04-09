@@ -419,16 +419,23 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
                                                                     group cursor-pointer"
                                                             >
                                                                 <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1 mb-0.5">
-                                                                    <span>Chapter {r.chapterId}</span>
+                                                                    <span className="truncate">{r.topicTitle}</span>
+                                                                    <ChevronRight className="h-3 w-3 flex-shrink-0" />
+                                                                    <span className="truncate">Ch.{r.chapterId} {r.chapterTitle}</span>
                                                                 </div>
                                                                 <div className="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors leading-tight">
-                                                                    §{r.sectionId} {highlight(r.sectionTitle)}
+                                                                    §{r.sectionId}　{highlight(r.sectionTitle)}
                                                                 </div>
+                                                                {r.matchField === 'description' && r.sectionDescription && (
+                                                                    <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                                                                        {highlight(r.sectionDescription)}
+                                                                    </div>
+                                                                )}
                                                                 {r.matchField === 'tag' && r.matchTags && (
                                                                     <div className="flex flex-wrap gap-1 mt-1 text-[9px]">
-                                                                        {r.matchTags.slice(0, 2).map((tag, idx) => (
+                                                                        {r.matchTags.slice(0, 3).map((tag, idx) => (
                                                                             <span key={idx} className="bg-blue-50/50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 px-1 rounded border border-blue-100/50 dark:border-blue-800/50">
-                                                                                #{tag}
+                                                                                #{highlight(tag)}
                                                                             </span>
                                                                         ))}
                                                                     </div>
