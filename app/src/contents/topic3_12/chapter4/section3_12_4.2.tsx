@@ -6,7 +6,7 @@ export default function SectionVanKampenTheorem() {
     return (
         <section className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200">
             <p className="leading-relaxed">
-                複雑な空間の基本群を計算するためには、空間をより単純な部分空間に分割し、それぞれの基本群の情報を「貼り合わせる」というアプローチが極めて有効です。これを実現するのが「ファン・カンペンの定理（Seifert–van Kampen theorem）」です。
+                複雑な空間の基本群を計算するためには、空間をより単純な部分空間に分割し、それぞれの基本群の情報を「貼り合わせる」というアプローチが極めて有効です。これを実現するのが「<b>ファン・カンペンの定理（Seifert–van Kampen theorem）</b>」です。
             </p>
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />

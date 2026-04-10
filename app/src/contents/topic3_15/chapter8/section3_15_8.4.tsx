@@ -19,26 +19,30 @@ export default function HomologyAndChainComplexes() {
                 <p>
                     アーベル圏 <InlineMath math="\mathcal{A}" /> における対象と射の列
                     <BlockMath math="\cdots \to C_{n+1} \xrightarrow{d_{n+1}} C_n \xrightarrow{d_n} C_{n-1} \to \cdots" />
-                    が<strong>鎖複体（Chain Complex）</strong> <InlineMath math="C_\bullet" /> であるとは、すべての <InlineMath math="n" /> について、連続する境界射の合成がゼロになることである。
+                    が<b>鎖複体（Chain Complex）</b> <InlineMath math="C_\bullet" /> であるとは、すべての <InlineMath math="n" /> について、連続する境界射の合成がゼロになることである。
                     <BlockMath math="d_n \circ d_{n+1} = 0 \quad (\text{すなわち } \mathrm{Im}\, d_{n+1} \subseteq \ker d_n)" />
                 </p>
                 <p>
-                    ※添字が上に上がり、矢印の方向が <InlineMath math="C^{n-1} \to C^n \to C^{n+1}" /> となるものを<strong>コホモロジー複体（Cochain Complex）</strong>と呼ぶ。
+                    ※添字が上に上がり、矢印の方向が <InlineMath math="C^{n-1} \to C^n \to C^{n+1}" /> となるものを<b>コホモロジー複体（Cochain Complex）</b>と呼ぶ。
                 </p>
             </ContentBox>
+
+            <p className="leading-relaxed">
+                ここで、各 <InlineMath math="C_n" /> はアーベル群（あるいは加群）としての構造を持っており、境界射 <InlineMath math="d_n" /> は群の構造を保つ「準同型写像」です。この代数的な性質が、ホモロジーを「群」として定義することを可能にします。
+            </p>
 
             <ContentBox
                 type="definition"
                 title="Definition 8.4-2 (ホモロジー群 / Homology Group)"
             >
                 <p>
-                    鎖複体 <InlineMath math="C_\bullet" /> が与えられたとき、条件 <InlineMath math="\mathrm{Im}\, d_{n+1} \subseteq \ker d_n" /> により、アーベル圏において商をとることができる。
-                    この商対象を <InlineMath math="n" /> 次の<strong>ホモロジー（Homology）</strong>と呼び、<InlineMath math="H_n(C_\bullet)" /> と書く。
+                    鎖複体 <InlineMath math="C_\bullet" /> が与えられたとき、条件 <InlineMath math="d_n \circ d_{n+1} = 0" /> により、<InlineMath math="n" />-境界の像 <InlineMath math="\mathrm{Im}\, d_{n+1}" /> は常に <InlineMath math="n" />-サイクルの核 <InlineMath math="\ker d_n" /> の部分群（部分対象）となる。
+                    アーベル群において部分群は常に正規部分群であるため、この商をとって新しい群を定義できる。これを <InlineMath math="n" /> 次の<b>ホモロジー群（Homology Group）</b>と呼び、<InlineMath math="H_n(C_\bullet)" /> と書く。
                     <BlockMath math="H_n(C_\bullet) = \ker d_n / \mathrm{Im}\, d_{n+1}" />
                 </p>
                 <p>
-                    <InlineMath math="H_n(C_\bullet) = 0" /> であることは、<InlineMath math="\ker d_n = \mathrm{Im}\, d_{n+1}" />、すなわち列がその位置 <InlineMath math="C_n" /> において<strong>完全（Exact）</strong>であることと同値である。
-                    つまりホモロジーとは「完全性からのズレ（欠落）」を測る量である。
+                    <InlineMath math="H_n(C_\bullet) = 0" /> であることは、<InlineMath math="\ker d_n = \mathrm{Im}\, d_{n+1}" />、すなわち列がその位置 <InlineMath math="C_n" /> において<b>完全（Exact）</b>であることと同値である。
+                    つまりホモロジーとは、各次数においてどれくらい情報の欠落（非完全性）があるかを群のサイズとして測る量である。
                 </p>
             </ContentBox>
 
@@ -47,7 +51,7 @@ export default function HomologyAndChainComplexes() {
                 title="Example 8.4-1 (単体ホモロジーの導入)"
             >
                 <p>
-                    代数的トポロジー（Topic 4-8）において、位相空間 <InlineMath math="X" /> を三角形（単体）で分割したとする。
+                    代数的トポロジー（4-8）において、位相空間 <InlineMath math="X" /> を三角形（単体）で分割したとする。
                 </p>
                 <ul className="list-disc list-inside space-y-1 mt-2 mb-2">
                     <li><InlineMath math="C_n" /> を「<InlineMath math="n" /> 次元単体の形式的整数結合（<InlineMath math="\mathbb{Z}" />-係数加群）」とする。</li>
@@ -58,7 +62,7 @@ export default function HomologyAndChainComplexes() {
                 </p>
                 <p>
                     このとき、<InlineMath math="\ker d_n" /> は「境界を持たない閉じた図形（サイクル）」であり、<InlineMath math="\mathrm{Im}\, d_{n+1}" /> は「中身が詰まった図形の表面（バウンダリ）」である。
-                    したがってホモロジー <InlineMath math="H_n = \ker / \mathrm{Im}" /> は、「閉じているが、中身が空洞の図形」の数を測る群、すなわち<strong>「空間の <InlineMath math="n" /> 次元の穴の数」</strong>となる。
+                    したがってホモロジー <InlineMath math="H_n = \ker / \mathrm{Im}" /> は、「閉じているが、中身が空洞の図形」の数を測る群、すなわち<b>「空間の <InlineMath math="n" /> 次元の穴の数」</b>となる。
                 </p>
             </ContentBox>
 
@@ -79,7 +83,7 @@ export default function HomologyAndChainComplexes() {
                     が与えられたとする。（すべての次数 <InlineMath math="n" /> で <InlineMath math="0 \to A_n \to B_n \to C_n \to 0" /> が完全であるという意味。）
                 </p>
                 <p>
-                    このとき、これらのホモロジー群を結ぶ以下の<strong>ホモロジーの長完全系列</strong>が存在する。
+                    このとき、これらのホモロジー群を結ぶ以下の<b>ホモロジーの長完全系列</b>が存在する。
                     <BlockMath math="\cdots \to H_n(A) \to H_n(B) \to H_n(C) \\ \xrightarrow{\partial} H_{n-1}(A) \to H_{n-1}(B) \to \cdots" />
                     ここで <InlineMath math="\partial" /> は次数を1つ下げる連結準同型である。
                 </p>
@@ -90,7 +94,7 @@ export default function HomologyAndChainComplexes() {
                 title="Proof (概略)"
             >
                 <p>
-                    各次数 <InlineMath math="n" /> における <InlineMath math="A_n, B_n, C_n" /> と、境界射 <InlineMath math="d_n" /> によって構成される巨大な可換図式に、前節の<strong>スネークの補題</strong>を適用する。
+                    各次数 <InlineMath math="n" /> における <InlineMath math="A_n, B_n, C_n" /> と、境界射 <InlineMath math="d_n" /> によって構成される巨大な可換図式に、前節の<b>スネークの補題</b>を適用する。
                 </p>
                 <p>
                     スネークの補題が与える <InlineMath math="\ker d_n / \mathrm{Im} d_{n+1}" /> 等の商空間が、まさにホモロジー群の定義と一致する。
@@ -111,7 +115,7 @@ export default function HomologyAndChainComplexes() {
                     （<InlineMath math="U \cap V" /> の単体は <InlineMath math="U" /> と <InlineMath math="V" /> 両方に引き算で埋め込まれ、<InlineMath math="U, V" /> の単体は足し算で <InlineMath math="X" /> の単体となる。）
                 </p>
                 <p>
-                    ここに先ほどの定理を適用すると、位相幾何学で最も重要な計算ツールである<strong>マイヤー・ビエトリス（Mayer-Vietoris）完全系列</strong>が得られる。
+                    ここに先ほどの定理を適用すると、位相幾何学で最も重要な計算ツールである<b>マイヤー・ビエトリス（Mayer-Vietoris）完全系列</b>が得られる。
                     <BlockMath math="\begin{aligned} \cdots \to H_n(U\cap V) \to H_n(U) &\oplus H_n(V) \to H_n(X) \\ &\xrightarrow{\partial} H_{n-1}(U\cap V) \to \cdots \end{aligned}" />
                     これにより、「複雑な空間 <InlineMath math="X" /> の穴の数」を、「簡単な空間 <InlineMath math="U, V" /> とその共通部分 <InlineMath math="U \cap V" /> の穴の数」から代数的に計算することが可能になる。
                 </p>
@@ -131,8 +135,9 @@ export default function HomologyAndChainComplexes() {
 
             <ContentBox type="note" title="§8.4 のまとめ">
                 <ul className="list-disc list-inside space-y-2">
-                    <li><InlineMath math="d \circ d = 0" /> を満たす列を<strong>鎖複体</strong>と呼び、その不完全さを測る商 <InlineMath math="\ker / \mathrm{Im}" /> を<strong>ホモロジー群</strong>と呼ぶ。</li>
-                    <li>鎖複体の短完全系列からは、スネークの補題によって、ホモロジー群を繋ぐ<strong>長完全系列</strong>が必ず得られる。</li>
+                    <li><InlineMath math="d \circ d = 0" /> を満たす列を<b>鎖複体</b>と呼び、その不完全さを測る商 <InlineMath math="\ker / \mathrm{Im}" /> を<b>ホモロジー群</b>と呼ぶ。</li>
+                    <li>鎖複体において「核が像を包んでいる」という構造そのものが、演算可能な群としての定義を支えている。</li>
+                    <li>鎖複体の短完全系列からは、スネークの補題によって、ホモロジー群を繋ぐ<b>長完全系列</b>が必ず得られる。</li>
                     <li>アーベル圏の理論は、幾何学的な「空間の形」と代数的な「方程式の解」を、ホモロジーという共通の言語で計算可能にする基礎である。</li>
                 </ul>
             </ContentBox>

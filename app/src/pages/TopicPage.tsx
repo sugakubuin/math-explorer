@@ -174,7 +174,10 @@ export default function TopicPage() {
                                     key={chapter.id}
                                     onClick={() => {
                                         const el = document.getElementById(`topic-chapter-${chapter.id}`);
-                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        if (el) {
+                                            const y = el.getBoundingClientRect().top + window.scrollY - 160;
+                                            window.scrollTo({ top: y, behavior: 'smooth' });
+                                        }
                                     }}
                                     className="text-left text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-primary"
                                 >
@@ -187,7 +190,10 @@ export default function TopicPage() {
                                     <button
                                         onClick={() => {
                                             const el = document.getElementById('topic-list-nav');
-                                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                            if (el) {
+                                                const y = el.getBoundingClientRect().top + window.scrollY - 160;
+                                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                            }
                                         }}
                                         className="text-left text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-blue-500"
                                     >
@@ -196,7 +202,10 @@ export default function TopicPage() {
                                     <button
                                         onClick={() => {
                                             const el = document.getElementById('topic-list-nav');
-                                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                            if (el) {
+                                                const y = el.getBoundingClientRect().top + window.scrollY - 160;
+                                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                            }
                                         }}
                                         className="text-left text-sm text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-purple-500"
                                     >
@@ -334,7 +343,7 @@ export default function TopicPage() {
                                                 命題一覧
                                             </h3>
                                             <p className="text-slate-500 dark:text-slate-400 mt-0.5 text-sm">
-                                                定理・命題・補題・系をまとめて閲覧 & クイズで確認
+                                                定理・命題などをまとめて閲覧 & クイズで確認
                                             </p>
                                         </div>
                                         <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-purple-500 transition-colors" />

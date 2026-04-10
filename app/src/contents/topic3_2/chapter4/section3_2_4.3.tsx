@@ -20,7 +20,7 @@ export default function CauchyIntegralTheorem() {
 
             <ContentBox type="theorem" title="Theorem 4.3-1 (コーシーの積分定理)">
                 <p>
-                    関数 <InlineMath math="f(z)" /> が <strong>単連結領域</strong> <InlineMath math="U" /> 上で正則であるとする。
+                    関数 <InlineMath math="f(z)" /> が <b>単連結領域</b> <InlineMath math="U" /> 上で正則であるとする。
                     このとき、<InlineMath math="U" /> 内の任意の閉曲線 <InlineMath math="\gamma" /> に対して、
                 </p>
                 <BlockMath math="\oint_\gamma f(z) \, dz = 0" />
@@ -49,7 +49,7 @@ export default function CauchyIntegralTheorem() {
 
             <ContentBox type="remark" title="証明の拡張とグルサの貢献">
                 <p>
-                    実用上はグリーンの定理による理解で十分ですが、数学的には <InlineMath math="f'(z)" /> の連続性を仮定せずに証明することが極めて重要です。この難問を解決したのが <strong>グルサ（Goursat）</strong> であり、その証明の核となるのが次に示す「グルサの補題」です。
+                    実用上はグリーンの定理による理解で十分ですが、数学的には <InlineMath math="f'(z)" /> の連続性を仮定せずに証明することが極めて重要です。この難問を解決したのが <b>グルサ（Goursat）</b> であり、その証明の核となるのが次に示す「グルサの補題」です。
                 </p>
             </ContentBox>
 
@@ -62,41 +62,61 @@ export default function CauchyIntegralTheorem() {
             <ContentBox type="lemma" title="Lemma 4.3-1 (グルサの補題)">
                 <p>
                     関数 <InlineMath math="f(z)" /> が領域 <InlineMath math="U" /> 内で正則であるとする。
-                    <InlineMath math="U" /> 内の任意の三角形 <InlineMath math="\Delta" /> に対して、次が成立する。
+                    <InlineMath math="U" /> 内に含まれる任意の三角形 <InlineMath math="\Delta" />（内部を含む）に対して、次が成立する。
                 </p>
                 <BlockMath math="\oint_{\partial \Delta} f(z) \, dz = 0" />
             </ContentBox>
 
+            <ContentBox type="remark" title="グルサの補題と単連結性">
+                <p>
+                    よくある疑問として「この補題に単連結性の仮定は不要か？」というものがあります。結論として、<b>三角形に対しては不要</b>です。
+                </p>
+                <p>
+                    「三角形 <InlineMath math="\Delta" /> が領域 <InlineMath math="U" /> 内に含まれる」と仮定した時点で、その三角形の内部に穴がないことが保証されるため（三角形はそれ自身が単連結）、領域全体のトポロジーを気にする必要がないのです。
+                </p>
+            </ContentBox>
+
+            <p>
+                では、グルサによる技巧的かつ鮮やかな証明を見てみましょう。この証明は、複素微分可能性という極限の性質を積分へとつなげるための「網」を絞っていくような構成になっています。
+            </p>
+
             <ContentBox type="proof" title="Proof">
                 <p>
-                    三角形 <InlineMath math="\Delta_0" /> を、各辺の中点を結ぶことで 4 つの小三角形 <InlineMath math="\Delta^{(1)}, \dots, \Delta^{(4)}" /> に分割する。
+                    まず、三角形 <InlineMath math="\Delta_0" /> の各辺の中点を結び、4 つの小三角形 <InlineMath math="\Delta^{(1)}, \Delta^{(2)}, \Delta^{(3)}, \Delta^{(4)}" /> に分割する。
+                    全体の境界 <InlineMath math="\partial \Delta_0" /> に沿った積分と、各小三角形の境界に沿った積分の和を比較すると、
+                    <BlockMath math="\oint_{\partial \Delta_0} f(z) \, dz = \sum_{j=1}^4 \oint_{\partial \Delta^{(j)}} f(z) \, dz" />
+                    が成り立つ。これは、内部に追加された境界線（中点どうしを結ぶ線）が、隣り合う小三角形どうしで<b>互いに逆向きに 1 回ずつ計算されるため、打ち消し合う</b>からである。
                 </p>
-                <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq \sum_{j=1}^4 \left| \oint_{\partial \Delta^{(j)}} f(z) \, dz \right|" />
                 <p>
-                    右辺の 4 つの積分のうち、絶対値が最大のもの（またはその一つ）を <InlineMath math="\Delta_1" /> とすると、
+                    ここで、三角不等式を用いると、
+                    <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq \sum_{j=1}^4 \left| \oint_{\partial \Delta^{(j)}} f(z) \, dz \right|" />
+                    となる。右辺の 4 つの積分のうち、その絶対値が最大であるものを <InlineMath math="\oint_{\partial \Delta_1} f(z) \, dz" /> とおくと、明らかに
+                    <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq 4 \left| \oint_{\partial \Delta_1} f(z) \, dz \right|" />
+                    が導かれる。
                 </p>
-                <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq 4 \left| \oint_{\partial \Delta_1} f(z) \, dz \right|" />
                 <p>
-                    この操作を繰り返すことで、一連の三角形の列 <InlineMath math="\Delta_0 \supset \Delta_1 \supset \dots" /> を得る。
-                    <InlineMath math="\Delta_n" /> の周囲の長さを <InlineMath math="L_n" />、面積を <InlineMath math="S_n" /> とすると、<InlineMath math="L_n = L_0 / 2^n" /> である。
-                     Cantor の区間縮小法の 2 次元版により、これらの三角形の内部に唯一の点 <InlineMath math="z_*" /> が存在する。
+                    この分割を繰り返し、三角形の列 <InlineMath math="\Delta_0 \supset \Delta_1 \supset \dots \supset \Delta_n \supset \dots" /> を作成する。このとき、
+                    <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq 4^n \left| \oint_{\partial \Delta_1} f(z) \, dz \right|" />
+                    であり、<InlineMath math="\Delta_n" /> の周囲の長さ <InlineMath math="L_n" /> は <InlineMath math="L_n = L_0 / 2^n" /> となる。
+                    これらの三角形は唯一の点 <InlineMath math="z_*" /> に収束する。
+                </p>
+                <p>
                     <InlineMath math="f(z)" /> は <InlineMath math="z_*" /> で微分可能であるから、
+                    <BlockMath math="f(z) = f(z_*) + f'(z_*)(z - z_*) + \eta(z)(z - z_*)" />
+                    （ただし <InlineMath math="z \to z_*" /> で <InlineMath math="\eta(z) \to 0" />）
+                    と書ける。定数関数および一次関数 <InlineMath math="z" /> の閉路積分は、経路の形状に関わらず 0 である（§4.2 参照）。
+                    したがって、
+                    <BlockMath math="\oint_{\partial \Delta_n} f(z) \, dz = \oint_{\partial \Delta_n} \eta(z)(z - z_*) \, dz" />
+                    となる。
                 </p>
-                <BlockMath math="f(z) = f(z_*) + f'(z_*)(z - z_*) + \eta(z)(z - z_*)" />
                 <p>
-                    ここで <InlineMath math="\lim_{z \to z_*} \eta(z) = 0" /> である。定数関数と <InlineMath math="z" /> の複素積分は 0 であるため（§4.2 参照）、
-                </p>
-                <BlockMath math="\oint_{\partial \Delta_n} f(z) \, dz = \oint_{\partial \Delta_n} \eta(z)(z - z_*) \, dz" />
-                <p>
-                    <InlineMath math="\epsilon > 0" /> を任意にとると、十分大きな <InlineMath math="n" /> に対して <InlineMath math="|\eta(z)| < \epsilon" /> とでき、さらに <InlineMath math="|z - z_*| \leq L_n" /> である。ML 不等式を用いると、
-                </p>
-                <BlockMath math="\begin{aligned} \left| \oint_{\partial \Delta_n} f(z) \, dz \right| &\leq \epsilon \cdot L_n \cdot L_n \\ &= \epsilon \frac{L_0^2}{4^n} \end{aligned}" />
-                <p>
-                    最初の不等式 <InlineMath math="|\oint_{\partial \Delta_0}| \leq 4^n |\oint_{\partial \Delta_n}|" /> と合わせると、
-                </p>
-                <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq \epsilon \cdot L_0^2" />
-                <p>
-                    これが任意の <InlineMath math="\epsilon > 0" /> で成り立つため、積分の値は <InlineMath math="0" /> でなければならない。
+                    任意の <InlineMath math="\epsilon > 0" /> に対し、十分大きな <InlineMath math="n" /> を取れば、<InlineMath math="\Delta_n" /> 内部で <InlineMath math="|\eta(z)| < \epsilon" /> とできる。
+                    また、<InlineMath math="\Delta_n" /> 上の点において <InlineMath math="|z - z_*| \leq L_n" /> である。
+                    これらを ML 不等式に適用すると、
+                    <BlockMath math="\left| \oint_{\partial \Delta_n} f(z) \, dz \right| \leq \epsilon \cdot L_n \cdot L_n = \epsilon \frac{L_0^2}{4^n}" />
+                    を得る。最後に、初めの 4 倍の不等式と組み合わせると、
+                    <BlockMath math="\left| \oint_{\partial \Delta_0} f(z) \, dz \right| \leq 4^n \cdot \epsilon \frac{L_0^2}{4^n} = \epsilon \cdot L_0^2" />
+                    となり、これが任意の <InlineMath math="\epsilon" /> で成り立つため、積分の値は 0 である。
                 </p>
                 <div className="text-right text-slate-500 dark:text-slate-400">
                     <InlineMath math="\square" />
@@ -105,7 +125,7 @@ export default function CauchyIntegralTheorem() {
 
             <ContentBox type="theorem" title="Theorem 4.3-2 (コーシー・グルサの定理)">
                 <p>
-                    関数 <InlineMath math="f(z)" /> が <strong>単連結領域</strong> <InlineMath math="U" /> 上で正則（微分可能）であれば、<InlineMath math="f'(z)" /> の連続性を仮定しなくとも、
+                    関数 <InlineMath math="f(z)" /> が <b>単連結領域</b> <InlineMath math="U" /> 上で正則（微分可能）であれば、<InlineMath math="f'(z)" /> の連続性を仮定しなくとも、
                 </p>
                 <BlockMath math="\oint_\gamma f(z) \, dz = 0" />
                 <p>
@@ -115,7 +135,17 @@ export default function CauchyIntegralTheorem() {
 
             <ContentBox type="proof" title="Proof">
                 <p>
-                    任意の閉曲線 <InlineMath math="\gamma" /> は、細かな三角形の和として近似（多角形近似）できる。各三角形の上での積分が 0 である（Lemma 4.3-1）ことから、その和である閉曲線上の積分も 0 に収束する。
+                    任意の閉曲線 <InlineMath math="\gamma" /> を、直線の線分からなる<b>多角形軌跡</b>で近似することを考える（多角形近似）。
+                </p>
+                <p>
+                    領域 <InlineMath math="U" /> が単連結であるとき、閉曲線 <InlineMath math="\gamma" /> で囲まれた内部領域はすべて <InlineMath math="U" /> に含まれる。この内部領域を細かな三角形の網（メッシュ）で敷き詰める（<b>三角形分割, Triangulation</b>）。
+                    このとき、多角形上の積分は、内部にあるすべての三角形の境界（反時計回り）に沿った積分の合計に等しくなる。
+                </p>
+                <p>
+                    各三角形の境界に沿った積分は、グルサの補題（Lemma 4.3-1）によりすべて 0 である。また、三角形どうしが接する内側の辺の積分は、互いに逆方向に 1 回ずつ計算されるため、Lemma 4.3-1 の証明と同様にすべて相殺される。
+                </p>
+                <p>
+                    最後に残るのは多角形の外周（もともとの <InlineMath math="\gamma" /> の近似）だけとなり、その値は 0 である。近似を細かくしていくことで、もとの閉曲線 <InlineMath math="\gamma" /> 自体についても積分値が 0 であることが示される。
                 </p>
                 <div className="text-right text-slate-500 dark:text-slate-400">
                     <InlineMath math="\square" />
@@ -136,7 +166,7 @@ export default function CauchyIntegralTheorem() {
                 </p>
                 <BlockMath math="\oint_\gamma (z^2 + e^z) \, dz" />
                 <p>
-                    <strong>解答：</strong> 関数 <InlineMath math="f(z) = z^2 + e^z" /> は複素平面全体で微分可能（整関数）である。
+                    <b>解答：</b> 関数 <InlineMath math="f(z) = z^2 + e^z" /> は複素平面全体で微分可能（整関数）である。
                     複素平面全体は単連結領域であるため、コーシーの積分定理（Theorem 4.3-1）により、任意の閉曲線に対して
                 </p>
                 <BlockMath math="\oint_\gamma (z^2 + e^z) \, dz = 0" />
@@ -151,7 +181,7 @@ export default function CauchyIntegralTheorem() {
                 </p>
                 <BlockMath math="\oint_C \frac{1}{z^2 + 1} \, dz" />
                 <p>
-                    <strong>解答：</strong> 被積分関数 <InlineMath math="f(z) = \frac{1}{(z-i)(z+i)}" /> は <InlineMath math="z = \pm i" /> に特異点を持つ。
+                    <b>解答：</b> 被積分関数 <InlineMath math="f(z) = \frac{1}{(z-i)(z+i)}" /> は <InlineMath math="z = \pm i" /> に特異点を持つ。
                     円 <InlineMath math="C" /> は中心が <InlineMath math="2" />、半径が <InlineMath math="1" /> であるため、その内部および境界は複素数 <InlineMath math="z" /> のうち <InlineMath math="1 \leq \text{Re}(z) \leq 3" /> を満たす領域の一部に含まれる。
                 </p>
                 <p>
