@@ -18,8 +18,8 @@ export default function GaussianEliminationInverse() {
             ────────────────────────────── */}
             <h2 className="text-2xl font-bold mt-8 mb-6">掃き出し法による逆行列の計算</h2>
 
-            {/* Method 5.3-1 */}
-            <ContentBox type="definition" title="Method 5.3-1 （掃き出し法の手順）">
+            {/* Proposition 5.3-1 */}
+            <ContentBox type="proposition" title="Proposition 5.3-1 （掃き出し法の手順）">
                 <p>
                     <InlineMath math="n \times n" /> 行列 <InlineMath math="A" /> の右側に単位行列 <InlineMath math="I" /> を並べた
                     <InlineMath math="n \times 2n" /> の拡大行列 <InlineMath math="[A | I]" /> を作る。

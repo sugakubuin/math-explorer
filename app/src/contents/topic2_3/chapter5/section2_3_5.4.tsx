@@ -33,6 +33,22 @@ export default function LipschitzContinuity() {
                 これは、微分可能な関数であれば「導関数が有界であること（すべての <InlineMath math="x" /> で <InlineMath math="|f'(x)| \leq L" />）」と強い関連があります（後の Chapter 6 で平均値定理により厳密に示されます）。
             </p>
 
+            <ContentBox type="example" title="Example 5.4-1 (リプシッツ連続な関数の例)">
+                <p>次の関数はいずれもリプシッツ連続である。</p>
+                <div className="mt-4 font-semibold">(1) 1次関数</div>
+                <p className="mt-2">
+                    <InlineMath math="f(x) = ax + b" /> （<InlineMath math="a, b" /> は定数）とする。任意の <InlineMath math="x, y" /> に対して
+                    <BlockMath math="\begin{aligned} |f(x) - f(y)| &= |(ax + b) - (ay + b)| \\ &= |a(x - y)| \\ &= |a||x - y| \end{aligned}" />
+                    が成り立つ。したがって、リプシッツ定数 <InlineMath math="L = |a|" /> としてリプシッツ連続である。
+                </p>
+                <div className="mt-4 font-semibold">(2) 正弦関数・余弦関数</div>
+                <p className="mt-2">
+                    <InlineMath math="f(x) = \sin x" /> とする。和積の公式、あるいは平均値の定理（後述）を用いると
+                    <BlockMath math="|\sin x - \sin y| \leq |x - y|" />
+                    がすべての <InlineMath math="x, y \in \mathbb{R}" /> で成り立つことが示せる。したがって、リプシッツ定数 <InlineMath math="L = 1" /> としてリプシッツ連続である。
+                </p>
+            </ContentBox>
+
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
             <h2 className="text-2xl font-bold mt-8 mb-6">包含関係</h2>
@@ -93,7 +109,7 @@ export default function LipschitzContinuity() {
                 Proposition 5.4-1 で「逆は必ずしも成立しない」と述べました。ここでは、「一様連続であるが、リプシッツ連続ではない」関数の代表的な反例を紹介します。
             </p>
 
-            <ContentBox type="example" title="Example 5.4-1 (一様連続だがリプシッツ連続でない関数)">
+            <ContentBox type="example" title="Example 5.4-2 (一様連続だがリプシッツ連続でない関数)">
                 <p>
                     関数 <InlineMath math="f(x) = \sqrt{x}" /> は閉区間 <InlineMath math="[0, 1]" /> 上で一様連続であるが、リプシッツ連続ではない。
                 </p>

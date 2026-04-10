@@ -135,7 +135,7 @@ export default function ChapterPage() {
                                             <span className="sm:hidden">Prev</span>
                                             <span className="hidden sm:inline">Previous Chapter</span>
                                         </div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {prev.id}. {prev.title}
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@ export default function ChapterPage() {
                                             <span className="sm:hidden">Next</span>
                                             <span className="hidden sm:inline">Next Chapter</span>
                                         </div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {next.id}. {next.title}
                                         </div>
                                     </div>

@@ -18,7 +18,7 @@ export default function GaussianElimination() {
             ────────────────────────────── */}
             <h2 className="text-2xl font-bold mt-8 mb-6">ガウスの消去法のアルゴリズム</h2>
 
-            <ContentBox type="definition" title="Algorithm 3.3-1 （ガウスの消去法）">
+            <ContentBox type="proposition" title="Proposition 3.3-1 （ガウスの消去法）">
                 <ol className="list-decimal list-inside space-y-2">
                     <li>
                         <strong>拡大係数行列を作る</strong>: 与えられた連立方程式から行列 <InlineMath math="[A \mid \mathbf{b}]" /> を作る。

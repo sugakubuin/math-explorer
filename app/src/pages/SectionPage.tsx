@@ -122,7 +122,8 @@ export default function SectionPage() {
     const scrollToHeader = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const y = element.getBoundingClientRect().top + window.scrollY - 160;
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
     };
 
@@ -225,7 +226,7 @@ export default function SectionPage() {
                             </div>
                         </div>
 
-                        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 dark:text-white">
+                        <h1 id="section-title" className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 dark:text-white">
                             §{section.id} {section.title}
                         </h1>
                         {section.description && (
@@ -248,7 +249,7 @@ export default function SectionPage() {
                                         </div>
                                         <div className="min-w-0">
                                             <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
-                                            <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                            <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                                 §{prev.section.id} {prev.section.title}
                                             </div>
                                         </div>
@@ -264,7 +265,7 @@ export default function SectionPage() {
                                     >
                                         <div className="min-w-0">
                                             <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
-                                            <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                            <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                                 §{next.section.id} {next.section.title}
                                             </div>
                                         </div>
@@ -353,7 +354,7 @@ export default function SectionPage() {
                                     </div>
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             §{prev.section.id} {prev.section.title}
                                         </div>
                                     </div>
@@ -369,7 +370,7 @@ export default function SectionPage() {
                                 >
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             §{next.section.id} {next.section.title}
                                         </div>
                                     </div>

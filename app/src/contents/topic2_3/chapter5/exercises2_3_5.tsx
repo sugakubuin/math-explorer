@@ -168,7 +168,7 @@ export default function Exercises2_3_Chapter5() {
                     </p>
                     <ExerciseSolution>
                         <p>
-                            Example 5.4-1 の証明を再現する。
+                            Example 5.4-2 の証明を再現する。
                         </p>
                         <ol className="list-decimal list-inside ml-4 mt-2 space-y-4 text-slate-700 dark:text-slate-300">
                             <li>

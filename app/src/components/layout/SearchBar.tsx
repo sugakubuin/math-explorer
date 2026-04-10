@@ -135,7 +135,7 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
     const handleSelect = useCallback(
         (r: SearchResult) => {
             close();
-            navigate(`/roadmap/${r.topicId}/${r.chapterId}/${r.sectionId}`);
+            navigate(`/roadmap/${r.topicId}/${r.chapterId}/${r.sectionId}#section-title`);
         },
         [close, navigate],
     );

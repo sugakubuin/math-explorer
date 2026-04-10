@@ -26,7 +26,7 @@ export default function Home() {
                 jsonLd={{
                     '@type': 'WebSite',
                     name: 'Math Explorer',
-                    alternateName: ['MathExplorer'],
+                    alternateName: ['MathExplorer', 'Math Explorers', 'マスエクスプローラー', 'ますえくすぷろーらー', '数学エクスプローラー'],
                     url: 'https://mathematics-explorer.netlify.app/',
                     description: '大学で学ぶ数学の全体像を可視化。基礎から応用まで、迷わずに学習を進めるためのガイドマップです。',
                 }}

@@ -165,7 +165,8 @@ export default function PropositionListPage() {
     const scrollToChapter = (chapterId: string) => {
         const element = document.getElementById(`prop-chapter-${chapterId}`);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const y = element.getBoundingClientRect().top + window.scrollY - 160;
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
     };
 

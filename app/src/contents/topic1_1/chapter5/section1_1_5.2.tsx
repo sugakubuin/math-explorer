@@ -18,8 +18,8 @@ export default function InverseMatrixCalculation() {
             ────────────────────────────── */}
             <h2 className="text-2xl font-bold mt-8 mb-6">2次正方行列の逆行列公式</h2>
 
-            {/* Formula 5.2-1 */}
-            <ContentBox type="proposition" title="Formula 5.2-1 （2次逆行列の公式）">
+            {/* Proposition 5.2-1 */}
+            <ContentBox type="proposition" title="Proposition 5.2-1 （2次逆行列の公式）">
                 <p>
                     <InlineMath math="2 \times 2" /> 行列 <InlineMath math="A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}" /> が <InlineMath math="ad-bc \neq 0" /> のとき、
                     その逆行列は次の式で与えられる。
@@ -64,8 +64,8 @@ export default function InverseMatrixCalculation() {
                 <InlineMath math="3 \times 3" /> 以上の行列についても、余因子を使った公式が存在します。
             </p>
 
-            {/* Definition 5.2-2 */}
-            <ContentBox type="definition" title="Definition 5.2-2 （余因子行列）">
+            {/* Definition 5.2-1 */}
+            <ContentBox type="definition" title="Definition 5.2-1 （余因子行列）">
                 <p>
                     行列 <InlineMath math="A" /> の各成分 <InlineMath math="a_{ij}" /> を余因子 <InlineMath math="C_{ij}" /> に置き換えて転置した行列
                     <InlineMath math="{}^t C" /> を、<InlineMath math="A" /> の<strong>余因子行列</strong>（adjugate matrix）といい、<InlineMath math="\tilde{A}" /> や <InlineMath math="\text{adj}(A)" /> で表す。

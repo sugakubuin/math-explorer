@@ -26,12 +26,12 @@ export default function Exercises1_1_Chapter5() {
 
                 <ExerciseProblem chapterId="5" number={2}>
                     <p>
-                        次の行列 <InlineMath math="A" /> の逆行列を、2次正方行列の逆行列の公式（Formula 5.2-1）を用いて求めよ。
+                        次の行列 <InlineMath math="A" /> の逆行列を、2次正方行列の逆行列の公式（Proposition 5.2-1）を用いて求めよ。
                     </p>
                     <BlockMath math="A = \begin{pmatrix} 4 & 7 \\ 1 & 2 \end{pmatrix}" />
                     <ExerciseSolution>
                         <p>
-                            Formula 5.2-1 より、<InlineMath math="A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}" /> の逆行列は
+                            Proposition 5.2-1 より、<InlineMath math="A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}" /> の逆行列は
                             <InlineMath math="A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}" /> である。
                         </p>
                         <p>
@@ -48,7 +48,7 @@ export default function Exercises1_1_Chapter5() {
 
                 <ExerciseProblem chapterId="5" number={3}>
                     <p>
-                        Method 5.3-1 （掃き出し法の手順）に関する以下の文の空欄に適する行列を答えよ。
+                        Proposition 5.3-1 （掃き出し法の手順）に関する以下の文の空欄に適する行列を答えよ。
                     </p>
                     <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-md my-4">
                         <p>
@@ -62,7 +62,7 @@ export default function Exercises1_1_Chapter5() {
                     </div>
                     <ExerciseSolution>
                         <p>
-                            Method 5.3-1 にある通り、行基本変形によって左側を単位行列 <InlineMath math="I" /> にしたとき、右側に現れる行列 <InlineMath math="B" /> は <InlineMath math="A" /> の逆行列 <InlineMath math="A^{-1}" /> である。
+                            Proposition 5.3-1 にある通り、行基本変形によって左側を単位行列 <InlineMath math="I" /> にしたとき、右側に現れる行列 <InlineMath math="B" /> は <InlineMath math="A" /> の逆行列 <InlineMath math="A^{-1}" /> である。
                         </p>
                         <p className="mt-2">
                             <strong>答．</strong> 逆行列 <InlineMath math="A^{-1}" />
@@ -118,7 +118,7 @@ export default function Exercises1_1_Chapter5() {
                         
                         <p className="mt-4"><strong>(2)</strong></p>
                         <p>
-                            Definition 5.2-2 に従い、各成分の余因子 <InlineMath math="C_{ij}" /> を求める。
+                            Definition 5.2-1 に従い、各成分の余因子 <InlineMath math="C_{ij}" /> を求める。
                         </p>
                         <BlockMath math="
                             \begin{aligned}
@@ -148,7 +148,7 @@ export default function Exercises1_1_Chapter5() {
 
                 <ExerciseProblem chapterId="5" number={6}>
                     <p>
-                        次の行列の逆行列を、掃き出し法（Method 5.3-1）を用いて求めよ。
+                        次の行列の逆行列を、掃き出し法（Proposition 5.3-1）を用いて求めよ。
                     </p>
                     <BlockMath math="A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 2 & 1 \\ 1 & 0 & 1 \end{pmatrix}" />
                     <ExerciseSolution>
@@ -408,7 +408,7 @@ export default function Exercises1_1_Chapter5() {
                             左側の行列の第3行がすべて <InlineMath math="0" /> になってしまったため、これ以上変形しても左側を単位行列 <InlineMath math="I" /> にすることはできない。
                         </p>
                         <p>
-                            Method 5.3-1 の Note にある通り、単位行列に変形できない場合はもとの行列 <InlineMath math="A" /> は正則ではない。
+                            Proposition 5.3-1 の Note にある通り、単位行列に変形できない場合はもとの行列 <InlineMath math="A" /> は正則ではない。
                             したがって、<InlineMath math="A" /> の逆行列は存在しないことが確認できた。
                         </p>
                         <p className="text-right"><InlineMath math="\square" /></p>

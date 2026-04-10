@@ -98,7 +98,7 @@ export default function ContinuityDefinition() {
             <ContentBox type="note" title="§3.1 のまとめ">
                 <ul className="list-disc list-inside space-y-1">
                     <li><strong>連続写像</strong>とは、任意の開集合の逆像が再び開集合となる写像である。</li>
-                    <li>この定義は、距離空間における $\varepsilon-\delta$ 連続性の位相的な一般化である。</li>
+                    <li>この定義は、距離空間における <InlineMath math="\varepsilon-\delta" /> 連続性の位相的な一般化である。</li>
                     <li>一点での連続性は、像の近傍に対して逆像の中に近傍が取れることとして定義される。</li>
                     <li>恒等写像や定数写像は、あらゆる位相空間において連続な写像の基本的な例である。</li>
                 </ul>

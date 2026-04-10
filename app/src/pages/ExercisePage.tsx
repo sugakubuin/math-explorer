@@ -145,7 +145,7 @@ export default function ExercisePage() {
                                     </div>
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {prevChapter.id}. {prevChapter.title}
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@ export default function ExercisePage() {
                                 >
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {nextChapter.id}. {nextChapter.title}
                                         </div>
                                     </div>
@@ -214,7 +214,7 @@ export default function ExercisePage() {
                                     </div>
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {prevChapter.id}. {prevChapter.title}
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@ export default function ExercisePage() {
                                 >
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
-                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:truncate">
+                                        <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                                             Chapter {nextChapter.id}. {nextChapter.title}
                                         </div>
                                     </div>

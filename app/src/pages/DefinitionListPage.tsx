@@ -169,7 +169,8 @@ export default function DefinitionListPage() {
     const scrollToChapter = (chapterId: string) => {
         const element = document.getElementById(`def-chapter-${chapterId}`);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const y = element.getBoundingClientRect().top + window.scrollY - 160;
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
     };
 
