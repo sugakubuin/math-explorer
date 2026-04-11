@@ -2163,7 +2163,7 @@ export const roadmapData: Stage[] = [
                             { id: "8.2", title: "線形系と l(D)", description: "除数に付随する有理型空間 L(D) とその次元" },
                             { id: "8.3", title: "微分形式と標準除数", description: "正則 1-形式の空間 K の定義と次元" },
                             { id: "8.4", title: "リーマン・ロッホの定理の主張と証明の概略", description: "次元公式の幾何学的な解釈" },
-                            { id: "8.5", title: "応用", description: "種数と有理型関数の関係性、射影的埋め込みの概観" }
+                            { id: "8.5", title: "リーマン・ロッホの定理の応用", description: "種数と有理型関数の関係性、射影的埋め込みの概観" }
                         ]
                     }
                 ],
