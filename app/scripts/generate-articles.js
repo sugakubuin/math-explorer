@@ -5,13 +5,13 @@ import path from "path";
 // ==========================================
 // 設定
 // ==========================================
-const API_KEY = "AIzaSyDybgskM7c3S1-bDOtk8dGCVYvotqbQSos";
+const API_KEY = "[ENCRYPTION_KEY]";
 const GUIDE_FILE = "./docs/AGENT_CONTENT_GUIDE.md";
 const SYLLABUS_DIR = "../references/syllabus";
 const OUTPUT_BASE_DIR = "./src/contents";
 
 // モデル設定（ユーザー様指定の名称を維持）
-const MODEL_NAME = "gemini-3.1-pro-preview"; 
+const MODEL_NAME = "gemini-3.1-pro-preview";
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
@@ -46,14 +46,14 @@ async function parseSyllabus(topicId) {
         if (sectionMatch) {
             const sectionId = sectionMatch[1];
             const sectionTitle = sectionMatch[2];
-            
+
             sections.push({
                 topicId,
                 chapterId: currentChapterId,
                 chapterTitle: currentChapterTitle,
                 sectionId,
                 title: sectionTitle,
-                rawContent: "" 
+                rawContent: ""
             });
             continue;
         }
@@ -121,7 +121,7 @@ ${article.rawContent}
                     .replace(/\\"/g, '"')
                     .replace(/\\t/g, "\t")
                     .replace(/\\\\/g, "\\");
-                
+
                 result = {
                     fileName: fileName,
                     content: extractedContent
@@ -131,7 +131,7 @@ ${article.rawContent}
                 throw e;
             }
         }
-        
+
         await fs.ensureDir(outputDir);
         await fs.writeFile(filePath, result.content, "utf-8");
 
@@ -177,7 +177,7 @@ async function main() {
 
     const guideText = await fs.readFile(GUIDE_FILE, "utf-8");
     const sections = await parseSyllabus(topicId);
-    
+
     // シラバスの中身もキャッシュに含めるための元テキスト取得
     const syllabusPath = path.join(SYLLABUS_DIR, `syllabus_${topicId}.md`);
     const syllabusRaw = await fs.readFile(syllabusPath, "utf-8");
@@ -188,7 +188,7 @@ async function main() {
 
     for (const section of sections) {
         await generateArticle(cacheName, section, guideText);
-        await new Promise(r => setTimeout(r, 1500)); 
+        await new Promise(r => setTimeout(r, 1500));
     }
 
     console.log("🎉 すべての記事生成が完了しました！");
