@@ -11,10 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^1.49.0",
     "@types/dagre": "^0.7.53",
     "@xyflow/react": "^12.10.1",
     "dagre": "^0.8.5",
     "framer-motion": "^12.34.0",
+    "fs-extra": "^11.3.4",
     "katex": "^0.16.28",
     "lucide-react": "^0.564.0",
     "react": "^19.2.0",

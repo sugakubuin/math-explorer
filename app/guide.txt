@@ -159,13 +159,10 @@ export default function DescriptiveSectionName() {
 ## 5. Content Quality Guidelines
 
 - **Syllabus Structure**: You MUST strictly adhere to the structure provided in the corresponding syllabus markdown file under `references/syllabus/`. Specifically:
-  - Each **numbered item** (e.g., `- **1. 特異値・特異ベクトル**`) in the syllabus MUST become an `<h2>` heading in your content file, in the same order as the syllabus. 
-  - **IMPORTANT: Do NOT include the number prefix in the `<h2>` heading itself.** (e.g. use `<h2>特異値・特異ベクトル</h2>`, not `<h2>1. 特異値・特異ベクトル</h2>`).
-  - **IMPORTANT: Do NOT use LaTeX math delimiters (`$`) in `<h2>` headings.** Use simple plain text instead (e.g., use `<h2><InlineMath math="n" />-等分点</h2>` or `<h2>n-等分点</h2>` instead of `<h2>$n$-等分点</h2>`).
+  - Each **numbered item** (e.g., `- **1. 特異値・特異ベクトル**`) in the syllabus MUST become an `<h2>` heading in your content file, in the same order as the syllabus. **IMPORTANT: Do NOT include the number prefix in the `<h2>` heading itself.** (e.g. use `<h2>特異値・特異ベクトル</h2>`, not `<h2>1. 特異値・特異ベクトル</h2>`).
   - The Definition/Theorem/Example items listed under each numbered item MUST appear under the corresponding `<h2>` section.
   - Do NOT skip, reorder, or merge syllabus items. You are free to add `<h3>` tags at your own discretion to further structure the content within an `<h2>` section.
-- **Complete Proofs & Proof Marks**: Whenever a Theorem, Proposition, Lemma, or Corollary is introduced, you MUST provide a complete and rigorous proof using `<ContentBox type="proof">`. 
-  - **MANDATORY**: Ensure that proofs are comprehensive and complete, even if they become lengthy. Providing only a summary or outline is permitted ONLY when a full rigorous proof would require extensive background knowledge that falls far outside the current subject territory's scope. "Proof omitted" or "Proof is left as an exercise" is strictly forbidden.
+- **Complete Proofs & Proof Marks**: Whenever a Theorem, Proposition, Lemma, or Corollary is introduced, you MUST provide a complete and rigorous proof using `<ContentBox type="proof">`. "Proof omitted" is strictly forbidden unless specifically requested by the user. 
   - **Proof naming**: When a proof box immediately follows the statement of a theorem or proposition, the `title` of the `ContentBox` MUST be simply **"Proof"**. Do not use specific titles like "Theorem X.X の証明" or "証明".
   - **End mark**: The very end of any proof box MUST include the completion mark `\square` styled appropriately:
   ```tsx

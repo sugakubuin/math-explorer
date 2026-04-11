@@ -2238,11 +2238,11 @@ export const roadmapData: Stage[] = [
                             { id: "7.1", title: "ヤコビの楕円関数の定義", description: "第一種楕円積分の逆関数としての sn の定義、cn・dn のテータ関数による定義" },
                             { id: "7.2", title: "sn・cn・dn の基本性質", description: "周期性・加法公式・相互関係式" },
                             { id: "7.3", title: "ヤコビとワイエルシュトラスの対応", description: "二つの流儀の関係、格子パラメータの対応" },
-                            { id: "7.4", title: "応用例", description: "振り子の正確な周期の計算、楕円関数による非線形常微分方程式の求積" }
+                            { id: "7.4", title: "ヤコビの楕円関数の応用例", description: "振り子の正確な周期の計算、楕円関数による非線形常微分方程式の求積" }
                         ]
                     },
                     {
-                        id: "8", title: "展望", description: "モジュラー群・モジュライ空間・整数論への接続・一般化",
+                        id: "8", title: "楕円関数の展望", description: "モジュラー群・モジュライ空間・整数論への接続・一般化",
                         sections: [
                             { id: "8.1", title: "モジュラー群 SL₂(ℤ) の作用", description: "格子の基底変換としての SL₂(ℤ) 作用、基本領域の構成" },
                             { id: "8.2", title: "j 関数のモジュラー性", description: "j が SL₂(ℤ) に関して不変な有理型関数であること、モジュラー形式（5-7）への展望" },

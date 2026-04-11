@@ -48,7 +48,7 @@ export default function SectionPage() {
     }, [topic, chapter, section]);
 
     // Table of Contents Logic
-    const [toc, setToc] = React.useState<{ id: string; text: string }[]>([]);
+    const [toc, setToc] = React.useState<{ id: string; html: string }[]>([]);
     const contentRef = React.useRef<HTMLDivElement>(null);
     const hasScrolledToHash = React.useRef(false);
 
@@ -66,12 +66,12 @@ export default function SectionPage() {
                 }
                 return {
                     id: header.id,
-                    text: header.textContent || '',
+                    html: header.innerHTML || '',
                 };
             });
 
             setToc(prev => {
-                if (prev.length === tocData.length && prev.every((item, i) => item.id === tocData[i].id && item.text === tocData[i].text)) {
+                if (prev.length === tocData.length && prev.every((item, i) => item.id === tocData[i].id && item.html === tocData[i].html)) {
                     return prev;
                 }
                 return tocData;
@@ -290,9 +290,8 @@ export default function SectionPage() {
                                                 key={item.id}
                                                 onClick={() => scrollToHeader(item.id)}
                                                 className="text-left text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-primary"
-                                            >
-                                                {item.text}
-                                            </button>
+                                                dangerouslySetInnerHTML={{ __html: item.html }}
+                                            />
                                         ))}
                                     </nav>
                                 </div>
