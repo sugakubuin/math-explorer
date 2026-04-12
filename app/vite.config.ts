@@ -5,6 +5,10 @@ import contentBoxPlugin from './src/plugins/contentBoxPlugin'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), contentBoxPlugin()],
+  build: {
+    // gzip サイズ計測をスキップし、本番ビルド時のピークメモリを抑える
+    reportCompressedSize: false,
+  },
   optimizeDeps: {
     include: ['react-katex'],
   },
