@@ -87,7 +87,7 @@ export default function LHopitalRule() {
 
             <h2 className="text-2xl font-bold mt-8 mb-6">他の不定形への変換</h2>
 
-            <ContentBox type="proposition" title="Proposition 2.4-1 (0·∞, ∞−∞, 1^∞ 型への適用)">
+            <ContentBox type="proposition" title={<span>Proposition 2.4-1 (<InlineMath math="0 \cdot \infty" />, <InlineMath math="\infty - \infty" />, <InlineMath math="1^\infty" /> 型への適用)</span>}>
                 <p className="leading-relaxed">
                     ロピタルの定理は <InlineMath math="\frac{0}{0}" /> または <InlineMath math="\frac{\infty}{\infty}" /> 型にのみ直接適用できますが、
                     他の不定形も適切な変形により帰着できます。

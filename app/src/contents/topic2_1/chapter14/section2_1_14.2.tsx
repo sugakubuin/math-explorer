@@ -14,7 +14,7 @@ export default function SingularValueComputation() {
 
             <h2 className="text-2xl font-bold mt-8 mb-6">計算方法</h2>
 
-            <ContentBox type="proposition" title="Proposition 14.2-1 (特異値は A^T A の固有値の非負平方根)">
+            <ContentBox type="proposition" title={<span>Proposition 14.2-1 (特異値は <InlineMath math="A^T A" /> の固有値の非負平方根)</span>}>
                 <p className="leading-relaxed">
                     行列 <InlineMath math="A \in \mathbb{R}^{m \times n}" /> の特異値分解を <InlineMath math="A = U \Sigma V^T" /> とするとき、非ゼロの特異値 <InlineMath math="\sigma_i" /> の2乗 <InlineMath math="\sigma_i^2" /> は、対称行列 <InlineMath math="A^T A" /> および <InlineMath math="AA^T" /> の非ゼロの固有値と一致する。
                 </p>

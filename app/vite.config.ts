@@ -5,8 +5,12 @@ import contentBoxPlugin from './src/plugins/contentBoxPlugin'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), contentBoxPlugin()],
+  optimizeDeps: {
+    include: ['react-katex'],
+  },
   ssr: {
-    // SSG ビルド時に react-helmet-async を正しく処理するために必要
-    noExternal: ['react-helmet-async'],
+    // SSG 時: react-helmet-async はバンドル必須
+    // react-katex は CJS のみのため、外部化せずバンドルして ESM の名前付き import を解決する
+    noExternal: ['react-helmet-async', 'react-katex'],
   },
 })
