@@ -5,7 +5,7 @@ import path from "path";
 // ==========================================
 // 設定
 // ==========================================
-const API_KEY = "[ENCRYPTION_KEY]";
+const API_KEY = "AIzaSyAkqi5ht3GL3b2fXyL1pfneWwpYuVgsTyQ";
 const GUIDE_FILE = "./docs/AGENT_CONTENT_GUIDE.md";
 const SYLLABUS_DIR = "../references/syllabus";
 const OUTPUT_BASE_DIR = "./src/contents";
