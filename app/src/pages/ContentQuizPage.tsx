@@ -8,6 +8,7 @@ import { DEFINITION_TYPES, PROPOSITION_TYPES } from '../types/contentBoxTypes';
 import type { ContentBoxMeta } from '../types/contentBoxTypes';
 import ContentBoxViewer from '../components/content/ContentBoxViewer';
 import SEO from '../components/seo/SEO';
+import MathText from '../components/math/MathText';
 
 const TYPE_LABELS: Record<string, { label: string; color: string }> = {
     definition: { label: 'Definition', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400' },
@@ -171,7 +172,7 @@ export default function ContentQuizPage({ mode }: ContentQuizPageProps) {
                     <div className="flex flex-wrap items-center gap-y-2 text-sm text-slate-500 dark:text-slate-400">
                         <Link to="/roadmap" className="hover:text-primary transition-colors whitespace-nowrap">ロードマップ</Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} {topic.title}</Link>
+                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} <MathText text={topic.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
                         <Link to={listPath} className="hover:text-primary transition-colors whitespace-nowrap">{isDefinitionMode ? '定義一覧' : '命題一覧'}</Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
@@ -193,7 +194,7 @@ export default function ContentQuizPage({ mode }: ContentQuizPageProps) {
                                     <span>{topic.id}</span>
                                 </div>
                                 <div className="font-bold text-slate-600 dark:text-slate-400">
-                                    {topic.title}
+                                    <MathText text={topic.title} />
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">

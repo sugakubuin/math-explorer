@@ -902,7 +902,7 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "1.1", title: "複素数の定義と演算", description: "四則演算、実部・虚部、共役複素数" },
                             { id: "1.2", title: "複素平面（ガウス平面）", description: "絶対値、偏角、極形式 z = r(cosθ + i sinθ)" },
-                            { id: "1.3", title: "ド・モアブルの定理とn乗根", description: "z^n の幾何学的意味、1のn乗根の配置" },
+                            { id: "1.3", title: "ド・モアブルの定理とn乗根", description: "$z^n$ の幾何学的意味、1のn乗根の配置" },
                             { id: "1.4", title: "複素平面の位相", description: "開集合、閉集合、領域、コンパクト性" }
                         ]
                     },
@@ -918,10 +918,10 @@ export const roadmapData: Stage[] = [
                     {
                         id: "3", title: "初等複素関数", description: "指数・対数・三角関数の複素拡張",
                         sections: [
-                            { id: "3.1", title: "指数関数 e^z", description: "定義、周期性、写像の様子" },
+                            { id: "3.1", title: "指数関数 $e^z$", description: "定義、周期性、写像の様子" },
                             { id: "3.2", title: "三角関数と双曲線関数", description: "sin z, cos z, sinh z, cosh z の定義と公式" },
                             { id: "3.3", title: "対数関数 log z", description: "多価性、主値 Log z、分枝" },
-                            { id: "3.4", title: "一般のべき関数 z^a", description: "定義とその多価性" }
+                            { id: "3.4", title: "一般のべき関数 $z^a$", description: "定義とその多価性" }
                         ]
                     },
                     {
@@ -964,7 +964,7 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "8.1", title: "等角写像の定義", description: "角の保存、正則関数との関係" },
                             { id: "8.2", title: "一次分数変換（メビウス変換）", description: "円円対応、不動点、具体的な写像例" },
-                            { id: "8.3", title: "代表的な等角写像", description: "z^n, e^z, ジューコフスキー変換" },
+                            { id: "8.3", title: "代表的な等角写像", description: "$z^n$, $e^z$, ジューコフスキー変換" },
                             { id: "8.4", title: "リーマンの写像定理（概要）", description: "単連結領域の等角同値性" }
                         ]
                     }
@@ -1004,19 +1004,19 @@ export const roadmapData: Stage[] = [
                             { id: "3.2", title: "非負値可測関数の積分", description: "単関数による近似の上限としての積分定義" },
                             { id: "3.3", title: "単調収束定理（MCT）", description: "レヴィの定理と項別積分の正当性" },
                             { id: "3.4", title: "ファトゥの補題", description: "関数列の下極限の積分と積分の下極限の不等式" },
-                            { id: "3.5", title: "ルベーグ可積分", description: "一般の可測関数のルベーグ積分とL^1空間の構成" },
+                            { id: "3.5", title: "ルベーグ可積分", description: "一般の可測関数のルベーグ積分と$L^1$空間の構成" },
                             { id: "3.6", title: "ルベーグの優収束定理（DCT）", description: "被積分関数の極限と積分の順序交換の十分条件" }
                         ]
                     },
                     {
-                        id: "4", title: "L^p空間", description: "関数空間としての性質",
+                        id: "4", title: "$L^p$空間", description: "関数空間としての性質",
                         sections: [
-                            { id: "4.1", title: "L^p空間の定義とノルム", description: "同値類としての関数定義とpノルムの導入" },
-                            { id: "4.2", title: "本質的上限とL^∞空間", description: "本質的上界の概念と無限大ノルムの定義" },
+                            { id: "4.1", title: "$L^p$空間の定義とノルム", description: "同値類としての関数定義とpノルムの導入" },
+                            { id: "4.2", title: "本質的上限と$L^∞$空間", description: "本質的上界の概念と無限大ノルムの定義" },
                             { id: "4.3", title: "主要な不等式", description: "ヘルダーの不等式やミンコフスキーの不等式の証明" },
-                            { id: "4.4", title: "L^p空間の完備性", description: "リース・フィッシャーの定理とバナッハ空間としての性質" },
-                            { id: "4.5", title: "稠密性", description: "連続関数などのL^p空間における稠密性" },
-                            { id: "4.6", title: "ヒルベルト空間としてのL^2", description: "内積構造を持つ自乗可積分関数の特異性と重要性" }
+                            { id: "4.4", title: "$L^p$空間の完備性", description: "リース・フィッシャーの定理とバナッハ空間としての性質" },
+                            { id: "4.5", title: "稠密性", description: "連続関数などの$L^p$空間における稠密性" },
+                            { id: "4.6", title: "ヒルベルト空間としての$L^2$", description: "内積構造を持つ自乗可積分関数の特異性と重要性" }
                         ]
                     },
                     {
@@ -1046,7 +1046,7 @@ export const roadmapData: Stage[] = [
                             { id: "7.2", title: "ジョルダン分解", description: "符号付き測度の全変動と絶対連続な部分" },
                             { id: "7.3", title: "ラドン・ニコディムの定理", description: "測度に関する密度関数とラドン・ニコディム微分の存在" },
                             { id: "7.4", title: "ルベーグ分解定理", description: "測度を絶対連続部分と特異部分に分解する定理" },
-                            { id: "7.5", title: "リースの表現定理（L^p）", description: "L^p空間の双対空間とそのL^q空間としての構造" }
+                            { id: "7.5", title: "リースの表現定理（$L^p$）", description: "$L^p$空間の双対空間とその$L^q$空間としての構造" }
                         ]
                     }
                 ],
@@ -1060,8 +1060,8 @@ export const roadmapData: Stage[] = [
                         id: "1", title: "フーリエ級数の基礎", description: "周期関数の三角級数展開と収束理論",
                         sections: [
                             { id: "1.1", title: "フーリエ係数と複素フーリエ級数", description: "定義、実形式と複素形式の対応、計算例" },
-                            { id: "1.2", title: "フーリエ級数の各点収束（ディリクレの定理）", description: "区分的 C^1 級関数での各点収束、ディリクレ核による解析" },
-                            { id: "1.3", title: "パーセバルの等式と L^2 収束", description: "パーセバルの等式の証明、フーリエ級数の L^2 収束、完全正規直交系の概念" },
+                            { id: "1.2", title: "フーリエ級数の各点収束（ディリクレの定理）", description: "区分的 $C^1$ 級関数での各点収束、ディリクレ核による解析" },
+                            { id: "1.3", title: "パーセバルの等式と $L^2$ 収束", description: "パーセバルの等式の証明、フーリエ級数の $L^2$ 収束、完全正規直交系の概念" },
                             { id: "1.4", title: "ギブス現象とフェエール総和法", description: "不連続点近傍のオーバーシュート、チェザロ和による一様収束の回復" }
                         ]
                     },
@@ -1075,12 +1075,12 @@ export const roadmapData: Stage[] = [
                         ]
                     },
                     {
-                        id: "3", title: "フーリエ変換の基礎", description: "非周期関数への拡張と L^1 理論",
+                        id: "3", title: "フーリエ変換の基礎", description: "非周期関数への拡張と $L^1$ 理論",
                         sections: [
-                            { id: "3.1", title: "フーリエ変換の定義と基本性質", description: "L^1 関数における定義、線形性・推移・スケール変換・微分との交換" },
+                            { id: "3.1", title: "フーリエ変換の定義と基本性質", description: "$L^1$ 関数における定義、線形性・推移・スケール変換・微分との交換" },
                             { id: "3.2", title: "逆フーリエ変換と反転公式", description: "反転公式の成立条件と主値積分による拡張" },
-                            { id: "3.3", title: "畳み込み定理", description: "畳み込みの定義と L^1 での基本性質、線形フィルタへの応用" },
-                            { id: "3.4", title: "プランシュレルの定理", description: "L^2 等長性の成立、ユニタリ変換としての解釈" },
+                            { id: "3.3", title: "畳み込み定理", description: "畳み込みの定義と $L^1$ での基本性質、線形フィルタへの応用" },
+                            { id: "3.4", title: "プランシュレルの定理", description: "$L^2$ 等長性の成立、ユニタリ変換としての解釈" },
                             { id: "3.5", title: "代表的な関数のフーリエ変換", description: "ガウス関数、矩形波、ポアソン核の変換" }
                         ]
                     },
@@ -1150,8 +1150,8 @@ export const roadmapData: Stage[] = [
                     {
                         id: "2", title: "行列指数関数と連立ODE", description: "行列を指数の肩に乗せる理論と連立1階ODEの解法",
                         sections: [
-                            { id: "2.1", title: "行列指数関数 e^{At} の定義と基本性質", description: "べき級数による定義と性質の証明" },
-                            { id: "2.2", title: "ジョルダン標準形による e^{At} の計算", description: "ジョルダン細胞を用いた行列指数の計算" },
+                            { id: "2.1", title: "行列指数関数 $e^{At}$ の定義と基本性質", description: "べき級数による定義と性質の証明" },
+                            { id: "2.2", title: "ジョルダン標準形による $e^{At}$ の計算", description: "ジョルダン細胞を用いた行列指数の計算" },
                             { id: "2.3", title: "基本行列と一般解", description: "基本行列の定義と初期値問題の解法" },
                             { id: "2.4", title: "非同次連立ODEの解法", description: "定数変化法による一般解の公式と具体例" }
                         ]
@@ -1352,7 +1352,7 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "6.1", title: "概収束（a.s. 収束）", description: "概収束の定義と判定条件" },
                             { id: "6.2", title: "確率収束", description: "確率収束の定義と概収束との関係" },
-                            { id: "6.3", title: "L^p 収束", description: "L^p 収束の定義と確率収束への関係、一様可積分性" },
+                            { id: "6.3", title: "$L^p$ 収束", description: "$L^p$ 収束の定義と確率収束への関係、一様可積分性" },
                             { id: "6.4", title: "分布収束（法則収束）", description: "分布収束の定義と連続点での収束、各収束の包含関係" }
                         ]
                     },
@@ -1447,11 +1447,11 @@ export const roadmapData: Stage[] = [
                     {
                         id: "7", title: "群の具体例", description: "対称群・二面体群・行列群",
                         sections: [
-                            { id: "7.1", title: "対称群 S_n", description: "置換の基本概念と偶奇性、S_3 の乗積表" },
-                            { id: "7.2", title: "交代群 A_n", description: "交代群の定義と A_5 の単純性" },
-                            { id: "7.3", title: "二面体群 D_n", description: "正多角形の対称性と関係式、D_4 の具体計算" },
-                            { id: "7.4", title: "小さな群の例（Q_8・V_4）", description: "四元数群と Klein の四元群、D_4 との比較" },
-                            { id: "7.5", title: "行列群", description: "GL_n, SL_n, O_n, SO_n の定義と具体例" }
+                            { id: "7.1", title: "対称群 $S_n$", description: "置換の基本概念と偶奇性、$S_3$ の乗積表" },
+                            { id: "7.2", title: "交代群 $A_n$", description: "交代群の定義と $A_5$ の単純性" },
+                            { id: "7.3", title: "二面体群 $D_n$", description: "正多角形の対称性と関係式、$D_4$ の具体計算" },
+                            { id: "7.4", title: "小さな群の例（$Q_8$・$V_4$）", description: "四元数群と Klein の四元群、$D_4$ との比較" },
+                            { id: "7.5", title: "行列群", description: "$GL_n, SL_n, O_n, SO_n$ の定義と具体例" }
                         ]
                     },
                     {
@@ -1554,7 +1554,7 @@ export const roadmapData: Stage[] = [
                     {
                         id: "8", title: "多項式環の性質と因数分解", description: "既約性の判定",
                         sections: [
-                            { id: "8.1", title: "多変数多項式環 R[x_1,...,x_n]", description: "多変数化への拡張と多項式環の構造" },
+                            { id: "8.1", title: "多変数多項式環 $R[x_1,...,x_n]$", description: "多変数化への拡張と多項式環の構造" },
                             { id: "8.2", title: "ガウスの補題", description: "原始多項式の積公式や分数上の既約性判定" },
                             { id: "8.3", title: "R が UFD ⟹ R[x] も UFD", description: "多項式環の一意分解性の継承" },
                             { id: "8.4", title: "アイゼンシュタインの判定法", description: "強力な既約性判定条件と応用的な使用例" }
@@ -1990,7 +1990,7 @@ export const roadmapData: Stage[] = [
                     {
                         id: "1", title: "ノルム空間", description: "ノルムの公理、距離構造、基本的な例",
                         sections: [
-                            { id: "1.1", title: "ノルムの定義と例", description: "ノルムの3公理、R^n・C[a,b]・l^p・L^p の具体例" },
+                            { id: "1.1", title: "ノルムの定義と例", description: "ノルムの3公理、$R^n・C[a,b]・$l^p$・$L^p$ の具体例" },
                             { id: "1.2", title: "ノルムから誘導される距離", description: "距離空間としての構造、三角不等式" },
                             { id: "1.3", title: "収束・コーシー列・開集合", description: "ノルム空間における位相的概念の整理" },
                             { id: "1.4", title: "ノルムの同値性", description: "有限次元でのノルムの同値性定理とその意味" }
@@ -2000,9 +2000,9 @@ export const roadmapData: Stage[] = [
                         id: "2", title: "バナッハ空間", description: "完備性、主要な例、シャウダー基底、縮小写像定理",
                         sections: [
                             { id: "2.1", title: "完備性とバナッハ空間の定義", description: "コーシー列による完備性の定義と直感的意味" },
-                            { id: "2.2", title: "バナッハ空間の例", description: "C[a,b]・l^p・L^p の完備性の確認" },
+                            { id: "2.2", title: "バナッハ空間の例", description: "C[a,b]・$l^p$・$L^p$ の完備性の確認" },
                             { id: "2.3", title: "完備化", description: "任意のノルム空間の完備化の存在と一意性" },
-                            { id: "2.4", title: "シャウダー基底", description: "シャウダー基底の定義、l^p の標準基底、基底を持たないバナッハ空間の存在" },
+                            { id: "2.4", title: "シャウダー基底", description: "シャウダー基底の定義、$l^p$ の標準基底、基底を持たないバナッハ空間の存在" },
                             { id: "2.5", title: "バナッハの不動点定理", description: "縮小写像定理の証明と微分方程式への応用" }
                         ]
                     },
@@ -2029,17 +2029,17 @@ export const roadmapData: Stage[] = [
                         id: "5", title: "双対空間と弱位相", description: "連続線形汎関数、双対ノルム、弱収束、反射空間",
                         sections: [
                             { id: "5.1", title: "双対空間 X* と双対ノルム", description: "連続線形汎関数全体の空間と双対ノルム" },
-                            { id: "5.2", title: "双対空間の具体例", description: "l^p の双対 l^q* と C[a,b]* のリース-マルコフ表現" },
+                            { id: "5.2", title: "双対空間の具体例", description: "$l^p$ の双対 $l^q*$ と C[a,b]* のリース-マルコフ表現" },
                             { id: "5.3", title: "弱収束と強収束の比較", description: "弱収束の定義と強収束との違い" },
-                            { id: "5.4", title: "弱位相と反射的空間", description: "弱位相、アラオグルの定理、L^p の反射性" }
+                            { id: "5.4", title: "弱位相と反射的空間", description: "弱位相、アラオグルの定理、$L^p$ の反射性" }
                         ]
                     },
                     {
                         id: "6", title: "内積空間とヒルベルト空間", description: "内積の公理、基本不等式、完備性",
                         sections: [
-                            { id: "6.1", title: "内積空間の定義と例", description: "内積の公理と l^2・L^2 空間などの例" },
+                            { id: "6.1", title: "内積空間の定義と例", description: "内積の公理と $l^2$・$L^2$ 空間などの例" },
                             { id: "6.2", title: "コーシー-シュワルツの不等式と平行四辺形法則", description: "証明とノルムが内積に由来する条件" },
-                            { id: "6.3", title: "ヒルベルト空間の定義と例", description: "完備内積空間としての l^2・L^2 の完備性" },
+                            { id: "6.3", title: "ヒルベルト空間の定義と例", description: "完備内積空間としての $l^2$・$L^2$ の完備性" },
                             { id: "6.4", title: "直交性と直交補空間", description: "直交の定義と直交補空間の閉性" }
                         ]
                     },
@@ -2047,9 +2047,9 @@ export const roadmapData: Stage[] = [
                         id: "7", title: "ヒルベルト空間の幾何学", description: "射影定理、正規直交系、リースの表現定理",
                         sections: [
                             { id: "7.1", title: "射影定理と最近傍点", description: "凸閉部分集合への射影の存在と一意性" },
-                            { id: "7.2", title: "直交射影と直和分解", description: "閉部分空間による直和分解 H = M + M^perp" },
+                            { id: "7.2", title: "直交射影と直和分解", description: "閉部分空間による直和分解 $H = M ⊕ M^Ʇ$" },
                             { id: "7.3", title: "正規直交系とベッセルの不等式", description: "正規直交系の定義とベッセルの不等式" },
-                            { id: "7.4", title: "完全正規直交系とパーセバルの等式", description: "完全性、パーセバルの等式と L^2 フーリエ展開" },
+                            { id: "7.4", title: "完全正規直交系とパーセバルの等式", description: "完全性、パーセバルの等式と $L^2$ フーリエ展開" },
                             { id: "7.5", title: "リースの表現定理", description: "H* と H の同型とディラック記法との対応" }
                         ]
                     },
@@ -2058,8 +2058,8 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "8.1", title: "随伴作用素の定義と存在", description: "リースの表現定理による存在証明" },
                             { id: "8.2", title: "自己共役・歪自己共役・ユニタリ作用素", description: "定義とスペクトルに関する基本性質" },
-                            { id: "8.3", title: "正規作用素", description: "A*A = AA* とスペクトル定理の準備" },
-                            { id: "8.4", title: "直交射影作用素", description: "P^2 = P = P* による特徴づけと部分空間との対応" }
+                            { id: "8.3", title: "正規作用素", description: "$A^*A = AA^*$ とスペクトル定理の準備" },
+                            { id: "8.4", title: "直交射影作用素", description: "$P^2 = P = P^*$ による特徴づけと部分空間との対応" }
                         ]
                     },
                     {
@@ -2096,14 +2096,14 @@ export const roadmapData: Stage[] = [
                             { id: "1.1", title: "一致の定理", description: "零点の孤立性と一致の定理" },
                             { id: "1.2", title: "解析接続の定義", description: "関数要素・直接接続・間接接続" },
                             { id: "1.3", title: "解析接続の一意性", description: "同じ曲線に沿った接続の一意性" },
-                            { id: "1.4", title: "多価関数と分枝", description: "log z・z^α・√z の多価性、分枝点と分枝切断" }
+                            { id: "1.4", title: "多価関数と分枝", description: "log z・$z^α$・$√z$ の多価性、分枝点と分枝切断" }
                         ]
                     },
                     {
                         id: "2", title: "モノドロミーとリーマン面の準備", description: "モノドロミー定理、普遍被覆、多価関数の一価化",
                         sections: [
                             { id: "2.1", title: "モノドロミー定理", description: "単連結領域における経路非依存性" },
-                            { id: "2.2", title: "基本群と被覆空間の復習", description: "π_1 と普遍被覆概念の確認" },
+                            { id: "2.2", title: "基本群と被覆空間の復習", description: "$π_1$ と普遍被覆概念の確認" },
                             { id: "2.3", title: "多価関数の一価化の方針", description: "リーマン面を通じて多価性を解消するアプローチ" }
                         ]
                     },
@@ -2131,7 +2131,7 @@ export const roadmapData: Stage[] = [
                         id: "5", title: "双曲幾何とシュワルツ-ピック補題", description: "双曲計量、等長写像、一様化定理",
                         sections: [
                             { id: "5.1", title: "シュワルツの補題", description: "単位円板上の正則写像に関するシュワルツの補題" },
-                            { id: "5.2", title: "双曲計量の定義", description: "ポアンカレ計量 ds^2 の定義と等長群" },
+                            { id: "5.2", title: "双曲計量の定義", description: "ポアンカレ計量 $ds^2$ の定義と等長群" },
                             { id: "5.3", title: "シュワルツ-ピック補題", description: "双曲計量を縮小しない正則写像の性質" },
                             { id: "5.4", title: "双曲距離と測地線", description: "双曲距離の明示公式と測地線の計算" },
                             { id: "5.5", title: "一様化定理", description: "単連結リーマン面はリーマン球面・複素平面・単位円板のいずれかに双正則同値であること、定理の意義と各場合の特徴づけ" }
@@ -2265,7 +2265,7 @@ export const roadmapData: Stage[] = [
                             { id: "1.3", title: "凸集合の位相的性質", description: "内部・閉包・相対的内部の関係、凸集合の連結性" },
                             { id: "1.4", title: "分離定理", description: "超平面分離定理・支持超平面定理の証明と幾何的意味" },
                             { id: "1.5", title: "射影定理（凸集合版）", description: "閉凸集合への最近傍点の存在・一意性、射影の非拡大性" },
-                            { id: "1.6", title: "サポート関数", description: "サポート関数 σ_C(y) = sup⟨y,x⟩ の定義、凸集合の双対的記述としての役割、分離定理との接続" }
+                            { id: "1.6", title: "サポート関数", description: "サポート関数 $σ_C(y) = sup⟨y,x⟩$ の定義、凸集合の双対的記述としての役割、分離定理との接続" }
                         ]
                     },
                     {
@@ -2337,11 +2337,11 @@ export const roadmapData: Stage[] = [
                 title: "多様体論",
                 chapters: [
                     {
-                        id: "1", title: "位相多様体と滑らかな多様体", description: "ハウスドルフ性・第二可算性・チャート・アトラス・C^∞構造・1の分割",
+                        id: "1", title: "位相多様体と滑らかな多様体", description: "ハウスドルフ性・第二可算性・チャート・アトラス・$C^∞$構造・1の分割",
                         sections: [
                             { id: "1.1", title: "位相多様体の定義", description: "ハウスドルフ性・第二可算性・局所ユークリッド性の3条件" },
                             { id: "1.2", title: "チャートとアトラス", description: "座標近傍の定義、チャート間の座標変換の整合性条件" },
-                            { id: "1.3", title: "滑らかな多様体の定義", description: "C^∞-アトラスの整合性、極大アトラスの存在と一意性" },
+                            { id: "1.3", title: "滑らかな多様体の定義", description: "$C^∞$-アトラスの整合性、極大アトラスの存在と一意性" },
                             { id: "1.4", title: "多様体の例", description: "球面・トーラス・実射影空間・リー群の多様体構造" },
                             { id: "1.5", title: "1の分割の存在定理", description: "パラコンパクト性（位相空間論II（3-12）の結果）を用いた滑らかな1の分割の構成、大域的構成への応用の概観" }
                         ]
@@ -2381,9 +2381,9 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "5.1", title: "微分形式の定義", description: "外積代数（多重線形代数学I（3-11）の結果）を用いた交代テンソル場としての k-形式、局所座標による表示" },
                             { id: "5.2", title: "ウェッジ積", description: "外積の定義・反対称性・次数の加法性、基底の構成" },
-                            { id: "5.3", title: "外微分", description: "d の座標不変な定義、d^2 = 0 の証明、ライプニッツ則" },
+                            { id: "5.3", title: "外微分", description: "d の座標不変な定義、$d^2 = 0$ の証明、ライプニッツ則" },
                             { id: "5.4", title: "引き戻し", description: "写像 f による微分形式の引き戻し f*ω の定義と外微分との可換性" },
-                            { id: "5.5", title: "内部積とカルタンの公式", description: "ベクトル場による内部積 ι_X の定義、カルタンの公式 L_X = d ∘ ι_X + ι_X ∘ d の証明、リー微分（§4.4）との整合性" }
+                            { id: "5.5", title: "内部積とカルタンの公式", description: "ベクトル場による内部積 $ι_X$ の定義、カルタンの公式 $L_X = d ∘ ι_X + ι_X ∘ d$ の証明、リー微分（§4.4）との整合性" }
                         ]
                     },
                     {
@@ -2582,7 +2582,7 @@ export const roadmapData: Stage[] = [
                         id: "3", title: "単体ホモロジー", description: "単体複体・チェイン複体・境界作用素・ホモロジー群",
                         sections: [
                             { id: "3.1", title: "単体複体の定義と幾何的実現", description: "単体・単体的複体の定義、幾何的実現と多面体" },
-                            { id: "3.2", title: "チェイン複体と境界作用素", description: "向き付き単体によるチェイン群、境界作用素の定義と d^2 = 0" },
+                            { id: "3.2", title: "チェイン複体と境界作用素", description: "向き付き単体によるチェイン群、境界作用素の定義と $d^2 = 0$" },
                             { id: "3.3", title: "ホモロジー群の定義", description: "サイクル・バウンダリー・ホモロジー群の定義" },
                             { id: "3.4", title: "単体ホモロジーの計算例", description: "円周・トーラス・実射影平面の計算" }
                         ]
@@ -2618,7 +2618,7 @@ export const roadmapData: Stage[] = [
                         id: "7", title: "双対定理と係数定理", description: "ポアンカレ双対性・ユニバーサル係数定理・キュネットの公式",
                         sections: [
                             { id: "7.1", title: "向き付けと基本類", description: "向き付け可能閉多様体の基本ホモロジー類の存在と一意性" },
-                            { id: "7.2", title: "ポアンカレ双対性", description: "キャップ積による H_k と H^{n-k} の同型定理とその意味" },
+                            { id: "7.2", title: "ポアンカレ双対性", description: "キャップ積による $H_k$ と $H^{n-k}$ の同型定理とその意味" },
                             { id: "7.3", title: "ユニバーサル係数定理", description: "整係数と一般係数のホモロジー・コホモロジーの関係" },
                             { id: "7.4", title: "キュネットの公式", description: "積空間のホモロジーとコホモロジーの分解、テンソル積との関係" }
                         ]
@@ -2642,8 +2642,8 @@ export const roadmapData: Stage[] = [
                     {
                         id: "2", title: "ホイットニーの埋め込み定理", description: "埋め込みの存在・弱版と強版・近似定理",
                         sections: [
-                            { id: "2.1", title: "弱ホイットニー埋め込み定理", description: "n次元多様体の R^{2n+1} への埋め込みの存在証明" },
-                            { id: "2.2", title: "強ホイットニー埋め込み定理", description: "R^{2n} への埋め込みの存在と証明の概略" },
+                            { id: "2.1", title: "弱ホイットニー埋め込み定理", description: "n次元多様体の $R^{2n+1}$ への埋め込みの存在証明" },
+                            { id: "2.2", title: "強ホイットニー埋め込み定理", description: "$R^{2n}$ への埋め込みの存在と証明の概略" },
                             { id: "2.3", title: "ホイットニー近似定理", description: "連続写像の滑らかな写像による近似、ホモトピー的近似" },
                             { id: "2.4", title: "応用", description: "すべてのコンパクト多様体がユークリッド空間に埋め込めることの帰結" }
                         ]
@@ -2681,7 +2681,7 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "6.1", title: "2次元閉曲面の分類", description: "向き付け可能・不可能な閉曲面の完全分類とモース理論による証明" },
                             { id: "6.2", title: "3次元多様体の特殊性", description: "ヘガード分解・デーン手術の概念紹介、低次元位相幾何学への橋渡し" },
-                            { id: "6.3", title: "4次元多様体の病理的現象", description: "R^4 の異なる微分構造・ドナルドソン理論の概観" },
+                            { id: "6.3", title: "4次元多様体の病理的現象", description: "$R^4$ の異なる微分構造・ドナルドソン理論の概観" },
                             { id: "6.4", title: "ゲージ理論的手法への展望", description: "ドナルドソン不変量・サイバーグ-ウィッテン理論の位置づけ" }
                         ]
                     }
@@ -2730,7 +2730,7 @@ export const roadmapData: Stage[] = [
                     {
                         id: "5", title: "有限体", description: "有限体の分類・フロベニウス・有限体上の多項式",
                         sections: [
-                            { id: "5.1", title: "有限体の分類", description: "位数 p^n の有限体の存在と一意性、F_{p^n} の構成" },
+                            { id: "5.1", title: "有限体の分類", description: "位数 $p^n$ の有限体の存在と一意性、$F_{p^n}$ の構成" },
                             { id: "5.2", title: "有限体のガロア群", description: "フロベニウス自己同型の生成性、巡回群としての構造" },
                             { id: "5.3", title: "有限体上の既約多項式", description: "既約多項式の個数の公式、メビウスの反転公式による計算" },
                             { id: "5.4", title: "有限体の応用概観", description: "誤り訂正符号・暗号理論への接続、制御理論・符号理論への橋渡し" }
@@ -2802,7 +2802,7 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "6.1", title: "I-進位相とフィルトレーション", description: "イデアル進位相の定義、分離性の条件" },
                             { id: "6.2", title: "完備化の構成", description: "逆極限による完備化の定義、普遍性と一意性" },
-                            { id: "6.3", title: "p-進整数環と形式的べき級数環", description: "Z_p・k[[x]] の構成と性質" },
+                            { id: "6.3", title: "p-進整数環と形式的べき級数環", description: "$Z_p$・k[[x]] の構成と性質" },
                             { id: "6.4", title: "アルティン-リース補題とクルルの交叉定理", description: "部分加群の完備化への応用、∩ I^n M = 0 の条件" }
                         ]
                     },
@@ -2887,7 +2887,7 @@ export const roadmapData: Stage[] = [
                         id: "1", title: "対称代数と多項式環", description: "対称テンソルの代数・普遍性・多項式環との同一視",
                         sections: [
                             { id: "1.1", title: "対称代数の定義と普遍性", description: "テンソル代数の商代数としての対称代数、可換性の普遍性" },
-                            { id: "1.2", title: "対称代数と多項式環の同型", description: "S(V) ≅ k[x_1,...,x_n] の証明、次数付き構造" },
+                            { id: "1.2", title: "対称代数と多項式環の同型", description: "$S(V) ≅ k[x_1,...,x_n]$ の証明、次数付き構造" },
                             { id: "1.3", title: "対称多項式と基本対称式", description: "対称多項式の定義、基本対称式による生成定理" },
                             { id: "1.4", title: "外積代数との対比", description: "対称代数と外積代数の普遍性の双対的な関係" }
                         ]
@@ -3133,7 +3133,7 @@ export const roadmapData: Stage[] = [
                             { id: "2.1", title: "停止問題の決定不可能性", description: "対角線論法による証明と直感的意味" },
                             { id: "2.2", title: "再帰的集合と再帰的可算集合", description: "決定可能・半決定可能の定義、r.e. 集合の例" },
                             { id: "2.3", title: "多対一簡約とチューリング簡約", description: "問題の難易度の比較、簡約による決定不可能性の伝播" },
-                            { id: "2.4", title: "算術的階層", description: "Σ_n・Π_n による集合の複雑さの分類、停止問題の位置づけ" }
+                            { id: "2.4", title: "算術的階層", description: "$Σ_n・Π_n$ による集合の複雑さの分類、停止問題の位置づけ" }
                         ]
                     },
                     {
@@ -3160,7 +3160,7 @@ export const roadmapData: Stage[] = [
                     {
                         id: "5", title: "安定性理論", description: "型空間・安定理論・ω安定理論・モデルの分類",
                         sections: [
-                            { id: "5.1", title: "型空間の定義", description: "完全型の定義、型空間 S_n(T) の位相的構造" },
+                            { id: "5.1", title: "型空間の定義", description: "完全型の定義、型空間 $S_n(T)$ の位相的構造" },
                             { id: "5.2", title: "安定理論の基礎", description: "安定性の定義と特徴づけ、分岐の概念の導入" },
                             { id: "5.3", title: "ω安定理論", description: "ω安定性の定義、ω安定理論での型のランクとモレーランク" },
                             { id: "5.4", title: "モレーの圏性定理", description: "ω安定理論の可算モデルの圏性、モデル分類プログラムの概観" }
@@ -3171,8 +3171,8 @@ export const roadmapData: Stage[] = [
                         sections: [
                             { id: "6.1", title: "シーケント計算", description: "ゲンツェンの LK・LJ の定義と自然演繹との対応" },
                             { id: "6.2", title: "カット除去定理", description: "主要定理の主張・証明の概略・部分式性質への帰結" },
-                            { id: "6.3", title: "証明論的順序数", description: "証明の「強さ」を順序数で測る枠組み、ε_0 の定義" },
-                            { id: "6.4", title: "ゲンツェンの無矛盾性証明", description: "ε_0 までの超限帰納法を用いた PA の無矛盾性証明の概略" },
+                            { id: "6.3", title: "証明論的順序数", description: "証明の「強さ」を順序数で測る枠組み、$ε_0$ の定義" },
+                            { id: "6.4", title: "ゲンツェンの無矛盾性証明", description: "$ε_0$ までの超限帰納法を用いた PA の無矛盾性証明の概略" },
                             { id: "6.5", title: "発展分野への展望", description: "超積と超準解析の接続、カリー-ハワード対応と型理論への橋渡し" }
                         ]
                     }

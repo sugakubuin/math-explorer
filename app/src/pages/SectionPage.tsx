@@ -7,6 +7,7 @@ import { hasTopicContent } from '../data/contentAvailability';
 import AmazonAffiliate from '../components/ads/AmazonAffiliate';
 import AdSense from '../components/ads/AdSense';
 import SEO from '../components/seo/SEO';
+import MathText from '../components/math/MathText';
 // Dynamic Import Loading Strategy will handle routing components based on IDs.
 
 export default function SectionPage() {
@@ -133,7 +134,7 @@ export default function SectionPage() {
                 <div className="text-center">
                     <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200">Section not found</h1>
                     <Link to={`/roadmap/${topicId}/${chapterId}`} className="text-primary hover:underline mt-4 inline-block">
-                        Return to {chapter?.title || "Chapter"}
+                        Return to <MathText text={chapter?.title || "Chapter"} />
                     </Link>
                 </div>
             </div>
@@ -196,11 +197,11 @@ export default function SectionPage() {
                     <div className="flex flex-wrap items-center gap-y-2 text-sm text-slate-500 dark:text-slate-400">
                         <Link to="/roadmap" className="hover:text-primary transition-colors whitespace-nowrap">ロードマップ</Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} {topic.title}</Link>
+                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} <MathText text={topic.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}/${chapterId}`} className="hover:text-primary transition-colors whitespace-nowrap">{chapter.id}. {chapter.title}</Link>
+                        <Link to={`/roadmap/${topicId}/${chapterId}`} className="hover:text-primary transition-colors whitespace-nowrap">{chapter.id}. <MathText text={chapter.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <span className="font-semibold text-slate-800 dark:text-slate-200">§{section.id} {section.title}</span>
+                        <span className="font-semibold text-slate-800 dark:text-slate-200">§{section.id} <MathText text={section.title} /></span>
                     </div>
                 </div>
             </div>
@@ -217,21 +218,21 @@ export default function SectionPage() {
                                     <span>{topic.id}</span>
                                 </div>
                                 <div className="font-bold text-slate-600 dark:text-slate-400">
-                                    {topic.title}
+                                    <MathText text={topic.title} />
                                 </div>
                             </div>
                             <div className="text-xl font-bold text-slate-700 dark:text-slate-300">
                                 <span className="text-slate-400 dark:text-slate-500 mr-2">Chapter {chapter.id}.</span>
-                                {chapter.title}
+                                <MathText text={chapter.title} />
                             </div>
                         </div>
 
                         <h1 id="section-title" className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 dark:text-white">
-                            §{section.id} {section.title}
+                            §{section.id} <MathText text={section.title} />
                         </h1>
                         {section.description && (
                             <p className="text-lg text-slate-600 mb-8 dark:text-slate-400">
-                                {section.description}
+                                <MathText text={section.description} />
                             </p>
                         )}
 
@@ -250,7 +251,7 @@ export default function SectionPage() {
                                         <div className="min-w-0">
                                             <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
                                             <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                                §{prev.section.id} {prev.section.title}
+                                                §{prev.section.id} <MathText text={prev.section.title} />
                                             </div>
                                         </div>
                                     </Link>
@@ -266,7 +267,7 @@ export default function SectionPage() {
                                         <div className="min-w-0">
                                             <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
                                             <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                                §{next.section.id} {next.section.title}
+                                                §{next.section.id} <MathText text={next.section.title} />
                                             </div>
                                         </div>
                                         <div className="h-8 w-8 flex-shrink-0 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ml-3 sm:ml-4">
@@ -354,7 +355,7 @@ export default function SectionPage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            §{prev.section.id} {prev.section.title}
+                                            §{prev.section.id} <MathText text={prev.section.title} />
                                         </div>
                                     </div>
                                 </Link>
@@ -370,7 +371,7 @@ export default function SectionPage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            §{next.section.id} {next.section.title}
+                                            §{next.section.id} <MathText text={next.section.title} />
                                         </div>
                                     </div>
                                     <div className="h-8 w-8 flex-shrink-0 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ml-3 sm:ml-4">

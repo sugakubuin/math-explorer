@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, Construction, BookOpenCheck } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import MathText from '../components/math/MathText';
 import { getTopicById, getStageByTopicId } from '../data/roadmapData';
 import { hasTopicContent } from '../data/contentAvailability';
 
@@ -92,9 +93,9 @@ export default function ExercisePage() {
                     <div className="flex flex-wrap items-center gap-y-2 text-sm text-slate-500 dark:text-slate-400">
                         <Link to="/roadmap" className="hover:text-primary transition-colors whitespace-nowrap">ロードマップ</Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} {topic.title}</Link>
+                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} <MathText text={topic.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}/${chapterId}`} className="hover:text-primary transition-colors whitespace-nowrap">{chapter.id}. {chapter.title}</Link>
+                        <Link to={`/roadmap/${topicId}/${chapterId}`} className="hover:text-primary transition-colors whitespace-nowrap">{chapter.id}. <MathText text={chapter.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
                         <span className="font-semibold text-slate-800 dark:text-slate-200">演習問題</span>
                     </div>
@@ -114,12 +115,12 @@ export default function ExercisePage() {
                                     <span>{topic.id}</span>
                                 </div>
                                 <div className="font-bold text-slate-600 dark:text-slate-400">
-                                    {topic.title}
+                                    <MathText text={topic.title} />
                                 </div>
                             </div>
                             <div className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-4">
                                 <span className="text-slate-400 dark:text-slate-500 mr-2">Chapter {chapter.id}.</span>
-                                {chapter.title}
+                                <MathText text={chapter.title} />
                             </div>
                             <div className="flex items-center gap-3">
                                 <BookOpenCheck className="h-8 w-8 text-blue-500" />
@@ -146,7 +147,7 @@ export default function ExercisePage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            Chapter {prevChapter.id}. {prevChapter.title}
+                                            Chapter {prevChapter.id}. <MathText text={prevChapter.title} />
                                         </div>
                                     </div>
                                 </Link>
@@ -162,7 +163,7 @@ export default function ExercisePage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            Chapter {nextChapter.id}. {nextChapter.title}
+                                            Chapter {nextChapter.id}. <MathText text={nextChapter.title} />
                                         </div>
                                     </div>
                                     <div className="h-8 w-8 flex-shrink-0 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ml-3 sm:ml-4">
@@ -215,7 +216,7 @@ export default function ExercisePage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Previous</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            Chapter {prevChapter.id}. {prevChapter.title}
+                                            Chapter {prevChapter.id}. <MathText text={prevChapter.title} />
                                         </div>
                                     </div>
                                 </Link>
@@ -231,7 +232,7 @@ export default function ExercisePage() {
                                     <div className="min-w-0">
                                         <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">Next</div>
                                         <div className="font-semibold text-xs sm:text-base text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                            Chapter {nextChapter.id}. {nextChapter.title}
+                                            Chapter {nextChapter.id}. <MathText text={nextChapter.title} />
                                         </div>
                                     </div>
                                     <div className="h-8 w-8 flex-shrink-0 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ml-3 sm:ml-4">

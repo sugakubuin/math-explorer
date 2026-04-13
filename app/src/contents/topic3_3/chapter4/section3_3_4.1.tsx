@@ -13,13 +13,13 @@ export default function LpSpaceDefinition() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h2 className="text-2xl font-bold mt-8 mb-6">Lp 空間の定義</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-6"><InlineMath math='L^p'></InlineMath> 空間の定義</h2>
 
             <p>
                 測度空間 <InlineMath math="(X, \mathcal{A}, \mu)" /> 上の可測関数 <InlineMath math="f" /> に対して、その絶対値の <InlineMath math="p" /> 乗が可積分であるとき、それを <InlineMath math="p" /> 乗可積分であるといいます。
             </p>
 
-            <ContentBox type="definition" title="Definition 4.1-1 (Lp 空間)">
+            <ContentBox type="definition" title={<span>Definition 4.1-1 (<InlineMath math="L^p"></InlineMath> 空間)</span>}>
                 <p>
                     <InlineMath math="1 \leq p < \infty" /> とする。測度空間 <InlineMath math="(X, \mathcal{A}, \mu)" /> 上の複素数値（または実数値）可測関数 <InlineMath math="f" /> が
                     <BlockMath math="\int_X |f(x)|^p \, d\mu(x) < \infty" />
@@ -35,14 +35,14 @@ export default function LpSpaceDefinition() {
                 単に集合として定義するだけでなく、関数間の「距離」や「大きさ」を測るためにノルムを導入します。
             </p>
 
-            <ContentBox type="definition" title="Definition 4.1-2 (Lp ノルム)">
+            <ContentBox type="definition" title={<span>Definition 4.1-2 (<InlineMath math="L^p"></InlineMath>ノルム)</span>}>
                 <p>
                     <InlineMath math="f \in L^p(X, \mu)" /> に対し、その <b><InlineMath math="L^p" /> ノルム (norm)</b> を次で定義する：
                     <BlockMath math="\|f\|_p := \left( \int_X |f(x)|^p \, d\mu(x) \right)^{1/p}" />
                 </p>
             </ContentBox>
 
-            <ContentBox type="example" title="Example 4.1-1 (べき関数の L^p 性)">
+            <ContentBox type="example" title={<span>Example 4.1-1 (べき関数の <InlineMath math="L^p"></InlineMath> 性)</span>}>
                 <p>
                     実数直線上のルベーグ測度 <InlineMath math="\lambda" /> を考える。
                     開区間 <InlineMath math="(0, 1)" /> 上の関数 <InlineMath math="f(x) = x^\alpha" /> (<InlineMath math="\alpha \in \mathbb{R}" />) が <InlineMath math="L^p(0, 1)" /> に属するか判定しよう。

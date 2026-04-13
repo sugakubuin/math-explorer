@@ -19,6 +19,7 @@ import {
 import { Link } from 'react-router-dom';
 import SEO from '../components/seo/SEO';
 import AdSense from '../components/ads/AdSense';
+import MathText from '../components/math/MathText';
 
 const getStageTheme = (stageId: string) => {
     switch (stageId) {
@@ -188,7 +189,7 @@ export default function Roadmap() {
                             <div className="flex items-center space-x-4 mb-10">
                                 <div className="h-px flex-1 bg-gradient-to-r from-blue-200 to-transparent dark:from-blue-800"></div>
                                 <h2 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white px-4 min-w-fit">
-                                    {stage.title}
+                                    <MathText text={stage.title} />
                                 </h2>
                                 <div className="h-px flex-1 bg-gradient-to-l from-blue-200 to-transparent dark:from-blue-800"></div>
                             </div>
@@ -221,7 +222,7 @@ export default function Roadmap() {
                                                     </div>
 
                                                     <h3 className={`mb-2 text-base font-bold text-slate-800 dark:text-white transition-colors line-clamp-2 ${theme.title}`}>
-                                                        {topic.title}
+                                                        <MathText text={topic.title} />
                                                     </h3>
 
                                                     <div className="mt-auto space-y-2">
@@ -273,7 +274,7 @@ export default function Roadmap() {
                                                     </div>
 
                                                     <h3 className={`mb-2 text-base font-bold text-slate-800 dark:text-white transition-colors line-clamp-2 ${theme.title}`}>
-                                                        {topic.title}
+                                                        <MathText text={topic.title} />
                                                     </h3>
 
                                                     <div className="mt-auto space-y-2">

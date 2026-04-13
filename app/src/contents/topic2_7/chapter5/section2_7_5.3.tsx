@@ -18,7 +18,7 @@ export default function RSAApplication() {
                 RSA 暗号は、公開鍵と秘密鍵という 2 つの鍵を使い、安全な情報交換を実現します。
             </p>
 
-            <ContentBox type="definition" title="RSA 暗号の手順">
+            <ContentBox type="remark" title="RSA 暗号の手順">
                 <ol className="list-decimal list-inside space-y-2">
                     <li>
                         <strong>準備</strong>： 2 つの巨大な素数 <InlineMath math="p, q" /> を選び、 <InlineMath math="n = pq" /> とする。また、 <InlineMath math="\phi(n) = (p-1)(q-1)" /> を計算する。
@@ -46,7 +46,7 @@ export default function RSAApplication() {
                 なぜ <InlineMath math="C^d" /> を計算すると元のメッセージ <InlineMath math="M" /> に戻るのでしょうか。ここにフェルマーの小定理（の一般化であるオイラーの定理、あるいは小定理そのもの）が登場します。
             </p>
 
-            <ContentBox type="theorem" title="RSA 復号の正当性">
+            <ContentBox type="proof" title="RSA 復号の正当性">
                 <p>
                     <InlineMath math="\gcd(M, n) = 1" /> と仮定する。このとき、次が成り立つ：
                     <BlockMath math="C^d = (M^e)^d = M^{ed} \pmod{n}" />

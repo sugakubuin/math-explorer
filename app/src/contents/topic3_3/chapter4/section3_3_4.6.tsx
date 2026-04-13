@@ -12,13 +12,13 @@ export default function L2HilbertSpace() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h2 className="text-2xl font-bold mt-8 mb-6">L2 の内積構造</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-6"><InlineMath math="L^2" /> の内積構造</h2>
 
             <p>
                 複素数値関数の場合、内積は片方の複素共役をとって積分することで定義されます。
             </p>
 
-            <ContentBox type="definition" title="Definition 4.6-1 (L^2 の内積)">
+            <ContentBox type="definition" title={<span>Definition 4.6-1 (<InlineMath math="L^2" /> の内積)</span>}>
                 <p>
                     <InlineMath math="f, g \in L^2(X, \mu)" /> に対し、その <b>内積 (inner product)</b> を次のように定義する：
                     <BlockMath math="\langle f, g \rangle := \int_X f(x)\overline{g(x)} \, d\mu(x)" />

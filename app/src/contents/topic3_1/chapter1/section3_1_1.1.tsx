@@ -12,13 +12,67 @@ export default function ScalarFieldAndGradient() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
+            <h2 className="text-2xl font-bold mt-8 mb-6">ベクトルの内積と外積</h2>
+
+            <p>
+                スカラー場や方向微分を定義する前に、ベクトル解析で頻繁に用いられる<strong>内積（inner product）</strong>と<strong>外積（outer product / cross product）</strong>の計算規則を復習しておきましょう。
+            </p>
+
+            <ContentBox type="definition" title="Definition 1.1-1 (内積と外積)">
+                <p>
+                    3次元空間内の2つのベクトル <InlineMath math="\mathbf{A} = (A_x, A_y, A_z)" /> と <InlineMath math="\mathbf{B} = (B_x, B_y, B_z)" /> に対して、
+                    <strong>内積（ドット積）</strong>と<strong>外積（クロス積）</strong>を次のように定義する：
+                </p>
+                <div className="mt-4">
+                    <strong>内積</strong>：
+                    <BlockMath math="\mathbf{A} \cdot \mathbf{B} = A_x B_x + A_y B_y + A_z B_z" />
+                    内積はスカラー（実数値）となる。
+                </div>
+                <div className="mt-4">
+                    <strong>外積</strong>：
+                    <BlockMath math="\begin{aligned}
+                        \mathbf{A} \times \mathbf{B} &= \begin{vmatrix} \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3 \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix} \\
+                        &= (A_y B_z - A_z B_y,\, A_z B_x - A_x B_z,\, A_x B_y - A_y B_x)
+                    \end{aligned}" />
+                    ここで <InlineMath math="\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3" /> は基本ベクトルである。外積はベクトルとなる。
+                </div>
+            </ContentBox>
+
+            <p>
+                内積は2つのベクトルの「同じ方向への向きの揃い具合」を、外積は「2つのベクトルが張る平行四辺形の面積と、それに直交する向き」をそれぞれ表します。<br />
+                特に外積は3次元空間ベクトルでのみ定義される演算であり、ベクトル解析の多くの公式（後述するベクトル三重積など）は、この外積の性質に深く依存しています。
+            </p>
+
+            <ContentBox type="example" title="Example 1.1-1 (内積と外積の計算)">
+                <p>
+                    ベクトル <InlineMath math="\mathbf{A} = (1, 2, 3)" /> と <InlineMath math="\mathbf{B} = (4, -5, 6)" /> の内積と外積を計算します。
+                </p>
+                <ul className="list-disc list-inside space-y-2">
+                    <li>
+                        <strong>内積</strong>：
+                        <BlockMath math="\mathbf{A} \cdot \mathbf{B} = 1 \cdot 4 + 2 \cdot (-5) + 3 \cdot 6 = 4 - 10 + 18 = 12" />
+                    </li>
+                    <li>
+                        <strong>外積</strong>：
+                        <BlockMath math="\begin{aligned}
+                            \mathbf{A} \times \mathbf{B} &= \begin{vmatrix} \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3 \\ 1 & 2 & 3 \\ 4 & -5 & 6 \end{vmatrix} \\
+                            &= (2 \cdot 6 - 3 \cdot (-5),\, 3 \cdot 4 - 1 \cdot 6,\, 1 \cdot (-5) - 2 \cdot 4) \\
+                            &= (12 + 15,\, 12 - 6,\, -5 - 8) \\
+                            &= (27,\, 6,\, -13)
+                        \end{aligned}" />
+                    </li>
+                </ul>
+            </ContentBox>
+
+            <hr className="my-8 border-slate-200 dark:border-slate-700" />
+
             <h2 className="text-2xl font-bold mt-8 mb-6">スカラー場の定義</h2>
 
             <p>
                 まずは、空間の各点に対して1つの実数値が割り当てられている状態を厳密に定義しましょう。
             </p>
 
-            <ContentBox type="definition" title="Definition 1.1-1 (スカラー場)">
+            <ContentBox type="definition" title="Definition 1.1-2 (スカラー場)">
                 <p>
                     <InlineMath math="n" /> 次次元空間の開集合 <InlineMath math="U \subset \mathbb{R}^n" /> 上で定義された実数値関数
                     <BlockMath math="f : U \to \mathbb{R}" />
@@ -30,7 +84,7 @@ export default function ScalarFieldAndGradient() {
                 直感的には、部屋の中の各点での温度や、気象図における各地点の気圧などがスカラー場に相当します。
             </p>
 
-            <ContentBox type="example" title="Example 1.1-1 (身近なスカラー場)">
+            <ContentBox type="example" title="Example 1.1-2 (身近なスカラー場)">
                 <ul className="list-disc list-inside space-y-2">
                     <li>
                         <strong>気温分布 <InlineMath math="T(x, y, z)" /></strong>：空間の各点に対して温度というスカラー値を対応させます。
@@ -50,7 +104,7 @@ export default function ScalarFieldAndGradient() {
                 多変数関数の変化を考えるとき、特定の方向に沿って場がどのように変化するかを考えるのが「方向微分」です。
             </p>
 
-            <ContentBox type="definition" title="Definition 1.1-2 (方向微分)">
+            <ContentBox type="definition" title="Definition 1.1-3 (方向微分)">
                 <p>
                     スカラー場 <InlineMath math="f" /> と、単位ベクトル <InlineMath math="\mathbf{u} = (u_1, u_2, u_3)" /> に対して、
                     点 <InlineMath math="\mathbf{p}" /> における <InlineMath math="\mathbf{u}" /> 方向の<strong>方向微分 (directional derivative)</strong> を次のように定義する：
@@ -79,7 +133,7 @@ export default function ScalarFieldAndGradient() {
                 あらゆる方向の微分を統括し、その点が「どの方向に、どれだけ急激に変化しているか」をベクトルで表したものが「勾配（gradient）」です。
             </p>
 
-            <ContentBox type="definition" title="Definition 1.1-3 (勾配：grad)">
+            <ContentBox type="definition" title="Definition 1.1-4 (勾配：grad)">
                 <p>
                     <InlineMath math="C^1" /> 級スカラー場 <InlineMath math="f" /> の<strong>勾配 (gradient)</strong> を、各成分の偏微分を並べたベクトルとして定義する：
                     <BlockMath math="\nabla f = \text{grad}\, f = \left(\frac{\partial f}{\partial x},\, \frac{\partial f}{\partial y},\, \frac{\partial f}{\partial z}\right)" />
@@ -140,7 +194,7 @@ export default function ScalarFieldAndGradient() {
                 </div>
             </ContentBox>
 
-            <ContentBox type="example" title="Example 1.1-2 (勾配の計算)">
+            <ContentBox type="example" title="Example 1.1-3 (勾配の計算)">
                 <p>
                     2変数関数 <InlineMath math="f(x, y) = x^2 + 4y^2" /> について考える。
                 </p>
@@ -170,6 +224,7 @@ export default function ScalarFieldAndGradient() {
 
             <ContentBox type="note" title="§1.1 のまとめ">
                 <ul className="list-disc list-inside space-y-1">
+                    <li><strong>内積・外積</strong>：ベクトル解析の基礎となる演算。内積はスカラー、外積はベクトルとなる。</li>
                     <li><strong>スカラー場</strong>：空間の各点に対応する数値の分布。</li>
                     <li><strong>方向微分</strong>：特定の方向に沿った関数の変化率（傾き）。</li>
                     <li><strong>勾配 (grad)</strong>：変化率が最大となる方向を向き、その大きさが最大傾斜を表すベクトル。</li>

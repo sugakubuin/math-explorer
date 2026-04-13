@@ -21,7 +21,7 @@ export default function VectorIdentities() {
 
             <ContentBox type="proposition" title="Proposition 1.4-1 (スカラー三重積)">
                 <p>
-                    3つのベクトル <InlineMath math="\mathbf{A}, \mathbf{B}, \mathbf{C}" /> に対し、以下の巡回置換の等式が成り立つ：
+                    3次元空間の3つのベクトル <InlineMath math="\mathbf{A}, \mathbf{B}, \mathbf{C} \in \mathbb{R}^3" /> に対し、以下の巡回置換の等式が成り立つ：
                 </p>
                 <BlockMath math="\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C}) = \mathbf{B} \cdot (\mathbf{C} \times \mathbf{A}) = \mathbf{C} \cdot (\mathbf{A} \times \mathbf{B})" />
             </ContentBox>
@@ -85,6 +85,9 @@ export default function VectorIdentities() {
             </p>
 
             <ContentBox type="proposition" title="Proposition 1.4-2 (ベクトル三重積：BAC-CAB則)">
+                <p>
+                    3次元空間の3つのベクトル <InlineMath math="\mathbf{A}, \mathbf{B}, \mathbf{C} \in \mathbb{R}^3" /> に対して、以下の等式が成り立つ：
+                </p>
                 <p>
                     <BlockMath math="\mathbf{A} \times (\mathbf{B} \times \mathbf{C}) = \mathbf{B}(\mathbf{A} \cdot \mathbf{C}) - \mathbf{C}(\mathbf{A} \cdot \mathbf{B})" />
                 </p>

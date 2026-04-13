@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import Logo from '../components/layout/Logo';
 import { roadmapData } from '../data/roadmapData';
 import SEO from '../components/seo/SEO';
+import MathText from '../components/math/MathText';
 
 const getTopicBadgeColor = (stageId: string) => {
     switch (stageId) {
@@ -106,7 +107,7 @@ export default function Home() {
                                                                     {topic.id}
                                                                 </span>
                                                                 <span className="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors leading-tight">
-                                                                    {topic.title}
+                                                                    <MathText text={topic.title} />
                                                                 </span>
                                                             </div>
                                                         </Link>

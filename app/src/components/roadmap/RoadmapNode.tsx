@@ -1,4 +1,5 @@
 import { Handle, Position } from '@xyflow/react';
+import MathText from './../math/MathText';
 
 interface RoadmapNodeProps {
     data: {
@@ -74,7 +75,7 @@ export default function RoadmapNode({ data }: RoadmapNodeProps) {
                 {data.stage === 'root' ? '大前提' : data.id}
             </span>
             <div className={`font-medium text-sm text-center ${textColor}`}>
-                {data.label}
+                <MathText text={data.label} />
             </div>
 
             <Handle type="source" position={Position.Bottom} id="s-bottom" className="opacity-0" />

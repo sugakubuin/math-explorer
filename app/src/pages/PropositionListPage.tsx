@@ -8,6 +8,7 @@ import { PROPOSITION_TYPES } from '../types/contentBoxTypes';
 import { getSectionLoader } from '../utils/sectionLoader';
 import AdSense from '../components/ads/AdSense';
 import SEO from '../components/seo/SEO';
+import MathText from '../components/math/MathText';
 
 const getStageTheme = (stageId: string | undefined) => {
     switch (stageId) {
@@ -198,7 +199,7 @@ export default function PropositionListPage() {
                     <div className="flex flex-wrap items-center gap-y-2 text-sm text-slate-500 dark:text-slate-400">
                         <Link to="/roadmap" className="hover:text-primary transition-colors whitespace-nowrap">ロードマップ</Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
-                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} {topic.title}</Link>
+                        <Link to={`/roadmap/${topicId}`} className="hover:text-primary transition-colors whitespace-nowrap">{topic.id} <MathText text={topic.title} /></Link>
                         <ChevronRight className="h-4 w-4 mx-1 md:mx-2 shrink-0" />
                         <span className="font-semibold text-slate-800 dark:text-slate-200">命題一覧</span>
                     </div>
@@ -218,7 +219,7 @@ export default function PropositionListPage() {
                                     <span>{topic.id}</span>
                                 </div>
                                 <div className="font-bold text-slate-600 dark:text-slate-400">
-                                    {topic.title}
+                                    <MathText text={topic.title} />
                                 </div>
                             </div>
                             <div className="flex items-center gap-3 mb-4">
@@ -244,7 +245,7 @@ export default function PropositionListPage() {
                                             onClick={() => scrollToChapter(chapterId)}
                                             className="text-left text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors py-1 pl-3 border-l-2 border-transparent hover:border-primary"
                                         >
-                                            Chapter {chapterId}. {chapterTitle}
+                                            Chapter {chapterId}. <MathText text={chapterTitle} />
                                         </button>
                                     ))}
                                 </nav>
@@ -274,7 +275,7 @@ export default function PropositionListPage() {
                                 <div key={chapterId} id={`prop-chapter-${chapterId}`}>
                                     <h2 className="text-base font-bold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-2 sticky top-28 bg-slate-50 dark:bg-slate-950 py-2 z-20">
                                         <span className="text-slate-400 dark:text-slate-500">Chapter {chapterId}.</span>
-                                        {chapterTitle}
+                                        <MathText text={chapterTitle} />
                                     </h2>
                                     <div className="bg-white rounded-2xl border border-blue-100 p-5 sm:p-8 md:p-12 shadow-sm dark:bg-slate-900 dark:border-slate-800">
                                         <div className="prose prose-slate dark:prose-invert max-w-none">

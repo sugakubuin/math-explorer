@@ -50,7 +50,7 @@ export default function LinftySpaceDefinition() {
                 本質的に有界な関数の全体も、a.e. 同一視を行うことでバナッハ空間を構成します。
             </p>
 
-            <ContentBox type="definition" title="Definition 4.2-2 (L^∞ 空間)">
+            <ContentBox type="definition" title={<span>Definition 4.2-2 (<InlineMath math="L^\infty"></InlineMath> 空間)</span>}>
                 <p>
                     測度空間 <InlineMath math="(X, \mathcal{A}, \mu)" /> 上の本質的に有界な複素数値（または実数値）可測関数の同値類（a.e. 同一視）からなる集合を <b><InlineMath math="L^\infty" /> 空間</b> と呼び、<InlineMath math="L^\infty(X, \mu)" /> と表記する。
                 </p>
@@ -60,7 +60,7 @@ export default function LinftySpaceDefinition() {
                 <InlineMath math="L^\infty" /> は、<InlineMath math="p \to \infty" /> としたときの <InlineMath math="L^p" /> ノルムの極限として解釈することができます。
             </p>
 
-            <ContentBox type="remark" title="p ノルムの極限としての L^\infty">
+            <ContentBox type="remark" title={<span><InlineMath math="p"></InlineMath> ノルムの極限としての <InlineMath math="L^\infty"></InlineMath></span>}>
                 <p>
                     有限測度空間（例：有界区間）の場合、<InlineMath math="f \in L^\infty" /> ならば、すべての <InlineMath math="p \geq 1" /> に対して <InlineMath math="f \in L^p" /> であり、
                     <BlockMath math="\lim_{p \to \infty} \|f\|_p = \|f\|_\infty" />

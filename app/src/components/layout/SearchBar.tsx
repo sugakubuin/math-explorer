@@ -4,6 +4,7 @@ import { Search, X, ChevronRight, Filter } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { roadmapData, getStageByTopicId } from '../../data/roadmapData';
 import { searchIndex } from '../../data/searchIndex';
+import MathText from '../math/MathText';
 
 const getTopicBadgeColor = (topicId: string): string => {
     const stageId = getStageByTopicId(topicId)?.id;
@@ -245,7 +246,7 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
                                 >
                                     <span className="truncate flex items-center gap-1.5">
                                         <span className={`font-mono font-bold px-1 py-0.5 rounded text-[9px] flex-shrink-0 ${getTopicBadgeColor(topic.id)}`}>{topic.id}</span>
-                                        {topic.title}
+                                        <MathText text={topic.title} />
                                     </span>
                                     {topic.id === currentTopicId && (
                                         <span className="ml-2 text-[9px] bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 px-1 py-0.5 rounded leading-none">現在地</span>
@@ -265,16 +266,16 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
                                 className="w-full text-left px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border-b last:border-b-0 border-slate-100 dark:border-slate-700"
                             >
                                 <div className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1 mb-0.5">
-                                    <span>{r.topicTitle}</span>
+                                    <span><MathText text={r.topicTitle} /></span>
                                     <ChevronRight className="h-3 w-3" />
-                                    <span>Ch.{r.chapterId} {r.chapterTitle}</span>
+                                    <span>Ch.{r.chapterId} <MathText text={r.chapterTitle} /></span>
                                 </div>
                                 <div className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                                    §{r.sectionId}　{highlight(r.sectionTitle)}
+                                    §{r.sectionId}　<MathText text={r.sectionTitle} />
                                 </div>
                                 {r.matchField === 'description' && r.sectionDescription && (
                                     <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
-                                        {highlight(r.sectionDescription)}
+                                        <MathText text={r.sectionDescription} />
                                     </div>
                                 )}
                                 {r.matchField === 'tag' && r.matchTags && (
@@ -397,7 +398,7 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
                                                         >
                                                             <div className="truncate flex items-center gap-1.5">
                                                             <span className={`font-mono font-bold px-1 py-0.5 rounded text-[9px] flex-shrink-0 ${getTopicBadgeColor(topic.id)}`}>{topic.id}</span>
-                                                            <span className="truncate">{topic.title}</span>
+                                                            <span className="truncate"><MathText text={topic.title} /></span>
                                                         </div>
                                                             {topic.id === currentTopicId && (
                                                                 <div className="text-[9px] text-amber-600 dark:text-amber-400 mt-0.5 font-bold">現在地</div>
@@ -419,16 +420,16 @@ export default function SearchBar({ isMobile = false }: { isMobile?: boolean }) 
                                                                     group cursor-pointer"
                                                             >
                                                                 <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1 mb-0.5">
-                                                                    <span className="truncate">{r.topicTitle}</span>
+                                                                    <span className="truncate"><MathText text={r.topicTitle} /></span>
                                                                     <ChevronRight className="h-3 w-3 flex-shrink-0" />
-                                                                    <span className="truncate">Ch.{r.chapterId} {r.chapterTitle}</span>
+                                                                    <span className="truncate">Ch.{r.chapterId} <MathText text={r.chapterTitle} /></span>
                                                                 </div>
                                                                 <div className="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors leading-tight">
-                                                                    §{r.sectionId}　{highlight(r.sectionTitle)}
+                                                                    §{r.sectionId}　<MathText text={r.sectionTitle} />
                                                                 </div>
                                                                 {r.matchField === 'description' && r.sectionDescription && (
                                                                     <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
-                                                                        {highlight(r.sectionDescription)}
+                                                                        <MathText text={r.sectionDescription} />
                                                                     </div>
                                                                 )}
                                                                 {r.matchField === 'tag' && r.matchTags && (

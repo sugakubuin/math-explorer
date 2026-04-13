@@ -15,6 +15,7 @@ import '@xyflow/react/dist/style.css';
 import dagre from 'dagre';
 import { roadmapData, getTopicById } from '../data/roadmapData';
 import RoadmapNode from '../components/roadmap/RoadmapNode';
+import MathText from '../components/math/MathText';
 
 const nodeTypes = {
     custom: RoadmapNode,
@@ -186,7 +187,7 @@ export default function PrerequisiteFlowPage() {
                     <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 mb-2">
                         <Link to={`/roadmap/${targetTopic.id}`} className="hover:text-primary transition-colors flex items-center shrink-0">
                             <ChevronLeft className="h-4 w-4 mr-1" />
-                            {targetTopic.id} {targetTopic.title}
+                            {targetTopic.id} <MathText text={targetTopic.title} />
                         </Link>
                         <ArrowRight className="h-4 w-4 mx-2 shrink-0" />
                         <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">前提フロー</span>

@@ -18,7 +18,7 @@ export default function LpCompleteness() {
                 この定理により、<InlineMath math="L^p" /> 空間はバナッハ空間としての地位を確立します。
             </p>
 
-            <ContentBox type="theorem" title="Theorem 4.4-1 (L^p 空間の完備性)">
+            <ContentBox type="theorem" title={<span>Theorem 4.4-1 (<InlineMath math="L^p" /> 空間の完備性)</span>}>
                 <p>
                     <InlineMath math="1 \leq p \leq \infty" /> とすると、測度空間 <InlineMath math="(X, \mathcal{A}, \mu)" /> 上の空間 <InlineMath math="L^p(X, \mu)" /> は <InlineMath math="L^p" /> ノルムに関して完備である。
                 </p>
