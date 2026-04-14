@@ -61,7 +61,7 @@ export default function Home() {
                             to="/roadmap"
                             className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-10 text-base font-bold text-primary-foreground shadow-lg shadow-blue-900/10 transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-blue-900/20 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
-                            ロードマップを見る <ArrowRight className="ml-2 h-4 w-4" />
+                            ロードマップへ <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                     </div>
                 </div>

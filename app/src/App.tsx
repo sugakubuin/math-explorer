@@ -11,6 +11,9 @@ import AboutPage from './pages/AboutPage.tsx';
 import DefinitionListPage from './pages/DefinitionListPage.tsx';
 import PropositionListPage from './pages/PropositionListPage.tsx';
 import ContentQuizPage from './pages/ContentQuizPage.tsx';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import NotFoundPage from './pages/NotFoundPage.tsx';
 import ScrollManager from './components/layout/ScrollManager.tsx';
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
           <Route path="roadmap/:topicId/:chapterId/exercises" element={<ExercisePage />} />
           <Route path="roadmap/:topicId/:chapterId/:sectionId" element={<SectionPage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="privacy" element={<PrivacyPolicyPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Router>

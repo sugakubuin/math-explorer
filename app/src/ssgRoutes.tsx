@@ -11,6 +11,9 @@ import AboutPage from './pages/AboutPage';
 import DefinitionListPage from './pages/DefinitionListPage';
 import PropositionListPage from './pages/PropositionListPage';
 import ContentQuizPage from './pages/ContentQuizPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { roadmapData } from './data/roadmapData';
 import { hasTopicContent } from './data/contentAvailability';
 
@@ -153,6 +156,18 @@ export const routes: RouteRecord[] = [
             {
                 path: 'about',
                 element: <AboutPage />,
+            },
+            {
+                path: 'privacy',
+                element: <PrivacyPolicyPage />,
+            },
+            {
+                path: 'contact',
+                element: <ContactPage />,
+            },
+            {
+                path: '*',
+                element: <NotFoundPage />,
             },
         ],
     },
