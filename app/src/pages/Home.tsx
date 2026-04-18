@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Logo from '../components/layout/Logo';
 import { roadmapData } from '../data/roadmapData';
+import { hasTopicContent } from '../data/contentAvailability';
 import SEO from '../components/seo/SEO';
 import MathText from '../components/math/MathText';
 
@@ -17,6 +18,16 @@ const getTopicBadgeColor = (stageId: string) => {
         default: return 'bg-slate-100 text-slate-700 dark:bg-slate-900/30 dark:text-slate-300';
     }
 };
+
+// AdSense 審査対策: Coming Soon なトピック（コンテンツ未作成）は収録分野リストから除外する。
+// 併せて、表示トピックが残らないステージは丸ごと非表示にする。
+// すべてのコンテンツが揃ったら、このフィルタを外して roadmapData をそのまま使ってよい。
+const visibleStages = roadmapData
+    .map((stage) => ({
+        ...stage,
+        topics: stage.topics.filter((topic) => hasTopicContent(topic.id)),
+    }))
+    .filter((stage) => stage.topics.length > 0);
 
 export default function Home() {
     return (
@@ -78,7 +89,7 @@ export default function Home() {
 
                     <div className="w-full pb-12 pt-4 mb-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
                         <div className="flex min-w-max lg:min-w-0 lg:w-full items-start justify-start lg:justify-between gap-3 lg:gap-2 px-1 pb-4">
-                            {roadmapData.map((stage, index) => {
+                            {visibleStages.map((stage, index) => {
                                 const titleParts = stage.title.split('：');
                                 const shortTitle = titleParts[0].toLowerCase().includes('stage')
                                     ? titleParts[0]
@@ -117,9 +128,9 @@ export default function Home() {
                                         </div>
 
                                         {/* Arrow or Spacer */}
-                                        {index < roadmapData.length - 1 && (
+                                        {index < visibleStages.length - 1 && (
                                             <div className="flex items-start justify-center pt-6 flex-shrink-0 w-6 lg:w-8">
-                                                {index === roadmapData.length - 2 ? (
+                                                {index === visibleStages.length - 2 ? (
                                                     <div className="w-full" />
                                                 ) : (
                                                     <ArrowRight className="text-slate-300 dark:text-slate-600 w-4 h-4 mt-1" />

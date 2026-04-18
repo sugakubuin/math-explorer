@@ -3,7 +3,6 @@ import { hasTopicContent } from '../data/contentAvailability';
 import { motion } from 'framer-motion';
 import {
     ChevronRight,
-    Construction,
     Triangle,
     BarChart,
     Layers,
@@ -172,7 +171,15 @@ export default function Roadmap() {
 
             <div className="container mx-auto px-6 md:px-8 py-16">
                 <div className="max-w-7xl mx-auto space-y-20">
-                    {roadmapData.map((stage) => (
+                    {roadmapData.map((stage) => {
+                        // AdSense 審査対策: コンテンツが存在する (Coming Soon ではない) トピックだけを表示する。
+                        // 後で Coming Soon カードを復活させたい場合は、このフィルタと下の早期 return を外すこと。
+                        const visibleTopics = stage.topics.filter((topic) => hasTopicContent(topic.id));
+                        if (visibleTopics.length === 0) {
+                            return null;
+                        }
+
+                        return (
                         <div
                             key={stage.id}
                             className="relative"
@@ -195,17 +202,15 @@ export default function Roadmap() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
-                                {stage.topics.map((topic) => {
+                                {visibleTopics.map((topic) => {
                                     const theme = getStageTheme(stage.id);
-                                    const hasContent = hasTopicContent(topic.id);
 
                                     return (
                                         <motion.div
                                             key={topic.id}
-                                            whileHover={hasContent ? { y: -5 } : undefined}
+                                            whileHover={{ y: -5 }}
                                             className="h-full"
                                         >
-                                            {hasContent ? (
                                             <Link
                                                 to={`/roadmap/${topic.id}`}
                                                 className={`group block relative overflow-hidden rounded-xl border transition-all hover:shadow-lg h-full flex flex-col ${theme.card}`}
@@ -247,65 +252,13 @@ export default function Roadmap() {
                                                     <ChevronRight className={`h-4 w-4 text-slate-300 transition-colors ${theme.icon}`} />
                                                 </div>
                                             </Link>
-                                            ) : (
-                                            <Link
-                                                to={`/roadmap/${topic.id}`}
-                                                className={`group block relative overflow-hidden rounded-xl border transition-all hover:shadow-lg h-full flex flex-col ${theme.card}`}
-                                            >
-                                                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
-                                                    {getTopicIcon(topic.title, `w-12 h-12 rotate-12 ${theme.icon}`)}
-                                                </div>
-
-                                                {/* Coming Soon 帯 */}
-                                                <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/30 dark:bg-slate-950/30 rounded-xl pointer-events-none">
-                                                    <div className="w-full flex items-center justify-center gap-1.5 py-1.5 border-y-2 border-red-400/80 dark:border-red-500/60 bg-red-50/90 dark:bg-red-950/50 backdrop-blur-sm">
-                                                        <Construction className="w-3.5 h-3.5 text-red-500 shrink-0" />
-                                                        <span className="text-xs font-bold text-red-500 tracking-[0.15em] uppercase">
-                                                            Coming Soon
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="p-4 relative z-10 flex-1 flex flex-col opacity-70 group-hover:opacity-100 transition-opacity">
-                                                    <div className="mb-2 flex flex-wrap items-center gap-1">
-                                                        <span className={`inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-mono font-bold ${theme.badge}`}>
-                                                            {topic.id}
-                                                        </span>
-                                                    </div>
-
-                                                    <h3 className={`mb-2 text-base font-bold text-slate-800 dark:text-white transition-colors line-clamp-2 ${theme.title}`}>
-                                                        <MathText text={topic.title} />
-                                                    </h3>
-
-                                                    <div className="mt-auto space-y-2">
-                                                        {topic.prerequisites && topic.prerequisites.length > 0 && (
-                                                            <div className="flex flex-wrap gap-1 mt-1">
-                                                                <span className="text-[9px] text-slate-400 font-semibold uppercase pt-0.5 hidden sm:inline">Pre:</span>
-                                                                {topic.prerequisites.map(preId => (
-                                                                    <span key={preId} className="flex items-center text-[10px] text-slate-500 bg-white/50 px-1 py-0.5 rounded border border-slate-100 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400">
-                                                                        {preId}
-                                                                    </span>
-                                                                ))}
-                                                            </div>
-                                                        )}
-                                                        <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed pt-1 flex items-center gap-1">
-                                                            <BookOpen className="w-3 h-3" />
-                                                            {topic.chapters.length} chapters
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className={`px-3 py-2 flex justify-end items-center transition-colors bg-white/30 opacity-70 group-hover:opacity-100 ${theme.footer}`}>
-                                                    <ChevronRight className={`h-4 w-4 text-slate-300 transition-colors ${theme.icon}`} />
-                                                </div>
-                                            </Link>
-                                            )}
                                         </motion.div>
                                     );
                                 })}
                             </div>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>
