@@ -30,6 +30,12 @@ export default function Header() {
                         ロードマップ
                     </Link>
                     <Link
+                        to="/mathematician-timeline"
+                        className={`transition-colors hover:text-primary ${location.pathname === '/mathematician-timeline' ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}
+                    >
+                        近世数学史年表
+                    </Link>
+                    <Link
                         to="/about"
                         className="text-slate-500 transition-colors hover:text-primary dark:text-slate-400"
                     >
@@ -65,6 +71,13 @@ export default function Header() {
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 ロードマップ
+                            </Link>
+                            <Link
+                                to="/mathematician-timeline"
+                                className="text-lg font-bold text-slate-700 hover:text-primary py-2 px-4 rounded-lg hover:bg-blue-50 dark:text-slate-200 dark:hover:bg-slate-800"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                近世数学史年表
                             </Link>
                             <Link
                                 to="/about"

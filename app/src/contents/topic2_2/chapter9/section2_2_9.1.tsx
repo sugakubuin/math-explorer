@@ -18,8 +18,8 @@ export default function Section2_2_9_1() {
             <h2 className="text-2xl font-bold mt-8 mb-6">ヤコビアンと可逆性</h2>
 
             <p>
-                1変数関数 <InlineMath math="y = f(x)" /> の場合を振り返ります。関数がある点 <InlineMath math="x=a" /> の近傍で逆関数を持つ（単調である）ためには、その点での微分係数 <InlineMath math="f'(a)" /> が <InlineMath math="0" /> でないこと、つまり <InlineMath math="f'(a) \neq 0" /> が十分条件でした。
-                もし <InlineMath math="f'(a) = 0" /> となると、その点では関数のグラフが水平になり、その周辺で <InlineMath math="y" /> の値が「かぶる」（同じ <InlineMath math="y" /> に対して複数の <InlineMath math="x" /> が対応してしまう）可能性が高くなります（例：<InlineMath math="y = x^2" /> の <InlineMath math="x=0" /> 近傍）。
+                1変数関数 <InlineMath math="y = f(x)" /> の場合を振り返ります。関数がある点 <InlineMath math="x=a" /> の近傍で逆関数を持つ（すなわち、その近傍で単射である）ためには、その点での微分係数 <InlineMath math="f'(a)" /> が <InlineMath math="0" /> でないこと、つまり <InlineMath math="f'(a) \neq 0" /> が十分条件でした。
+                もし <InlineMath math="f'(a) = 0" /> となると、その点では関数のグラフが水平になり、その周辺で <InlineMath math="y" /> の値が「かぶる」（同じ <InlineMath math="y" /> に対して複数の <InlineMath math="x" /> が対応してしまう）可能性が高くなります。例えば、<InlineMath math="y = x^2" /> は <InlineMath math="x=0" /> で <InlineMath math="f'(0) = 0" /> となり、<InlineMath math="x=0" /> のいかなる開近傍においても単射にはなりません。
             </p>
             <p>
                 これを多変数の写像 <InlineMath math="\mathbf{y} = \mathbf{f}(\mathbf{x})" /> （<InlineMath math="\mathbb{R}^n \to \mathbb{R}^n" />）に拡張するとどうなるでしょうか。<InlineMath math="1" /> 変数の <InlineMath math="f'(a)" /> に相当するものは、多変数ではヤコビ行列 <InlineMath math="J_{\mathbf{f}}(\mathbf{a})" /> であり、その「<InlineMath math="0" />でない」という条件は「行列式が <InlineMath math="0" /> でない」、すなわちヤコビアンが非零であることに対応します。
@@ -47,6 +47,29 @@ export default function Section2_2_9_1() {
                 <p className="mt-2">
                     写像 <InlineMath math="\mathbf{f}" /> のヤコビアン <InlineMath math="\det J_{\mathbf{f}}(\mathbf{a})" /> は、まさに点 <InlineMath math="\mathbf{a}" /> の局所的な体積拡大率です。
                     したがって、<strong>「ヤコビアンが非零であること」は、「その点の周りで空間がペシャンコに潰されないこと」、すなわち「局所的に1対1の対応が保たれること」を定量的に保証する条件</strong>だと言えます。
+                </p>
+            </ContentBox>
+
+            <p>
+                この直感的な理解を深めるために、具体的な2変数の写像についてヤコビアンを計算し、可逆性との関係を見てみましょう。
+            </p>
+
+            <ContentBox type="example" title="Example 9.1-1">
+                <p>
+                    <InlineMath math="\mathbb{R}^2" /> から <InlineMath math="\mathbb{R}^2" /> への写像 <InlineMath math="\mathbf{f}(x, y) = (x^2 - y^2, 2xy)" /> を考えます。この写像のヤコビ行列 <InlineMath math="J_{\mathbf{f}}(x, y)" /> は次のようになります。
+                </p>
+                <BlockMath math="J_{\mathbf{f}}(x, y) = \begin{pmatrix} 2x & -2y \\ 2y & 2x \end{pmatrix}" />
+                <p className="mt-2">
+                    ヤコビアン（行列式）を計算すると、
+                </p>
+                <BlockMath math="\det J_{\mathbf{f}}(x, y) = (2x)(2x) - (-2y)(2y) = 4(x^2 + y^2)" />
+                <p className="mt-2">
+                    となります。したがって、原点 <InlineMath math="(0, 0)" /> を除くすべての点で <InlineMath math="\det J_{\mathbf{f}}(x, y) \neq 0" /> となります。
+                    これは、原点以外の点の周りでは、局所的に写像が潰れず、逆写像が存在し得ることを示唆しています。
+                    一方、原点 <InlineMath math="(0, 0)" /> ではヤコビアンが <InlineMath math="0" /> となり、局所的な可逆性が保証されません。
+                </p>
+                <p className="mt-2">
+                    複素数を用いると、この写像は <InlineMath math="z = x + iy" /> に対して <InlineMath math="f(z) = z^2" /> と表せます。原点では <InlineMath math="z^2" /> は <InlineMath math="2" /> 対 <InlineMath math="1" /> の対応となり、確かに単射ではありません。
                 </p>
             </ContentBox>
 

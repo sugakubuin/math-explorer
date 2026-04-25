@@ -13,16 +13,16 @@ export default function SigmaAlgebras() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h2 className="text-2xl font-bold mt-8 mb-6">集合代数と σ-加法族の定義</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-6">有限加法族と <InlineMath math="\sigma" />-加法族の定義</h2>
 
             <p>
                 「集合の大きさ」を考える際、集合の補集合や、2つの集合を合わせたものも「測れる」べきだという要請は自然です。
-                このような有限回の操作について閉じている集合族を集合代数と呼びます。
+                このような有限回の操作について閉じている集合族を有限加法族と呼びます。
             </p>
 
-            <ContentBox type="definition" title="Definition 1.1-1 (集合代数)">
+            <ContentBox type="definition" title="Definition 1.1-1 (有限加法族)">
                 <p>
-                    集合 <InlineMath math="X" /> 上の集合族 <InlineMath math="\mathcal{A} \subset 2^X" /> が以下の3条件を満たすとき、<InlineMath math="\mathcal{A}" /> を<b>集合代数</b> (algebra) という。
+                    集合 <InlineMath math="X" /> 上の集合族 <InlineMath math="\mathcal{A} \subset 2^X" /> が以下の3条件を満たすとき、<InlineMath math="\mathcal{A}" /> を<b>有限加法族</b> (algebra) という。
                 </p>
                 <ul className="list-decimal list-inside space-y-2 mt-4">
                     <li><InlineMath math="X \in \mathcal{A}" /></li>
@@ -31,27 +31,27 @@ export default function SigmaAlgebras() {
                 </ul>
             </ContentBox>
 
-            <ContentBox type="example" title="Example 1.1-1 (集合代数の例と限界)">
+            <ContentBox type="example" title="Example 1.1-1 (有限加法族の例と限界)">
                 <p>
                     実数直線 <InlineMath math="\mathbb{R}" /> 上の集合族 <InlineMath math="\mathcal{A}" /> として、「有限個の左開右閉区間 <InlineMath math="(a, b]" /> の和集合として表される集合全体の集合」を考える。
                 </p>
                 <ul className="list-disc list-inside space-y-2 mt-4">
-                    <li>この <InlineMath math="\mathcal{A}" /> は有限個の和集合や補集合について閉じているため、<b>集合代数</b>である。</li>
+                    <li>この <InlineMath math="\mathcal{A}" /> は有限個の和集合や補集合について閉じているため、<b>有限加法族</b>である。</li>
                     <li>しかし、開区間 <InlineMath math="(0, 1) = \bigcup_{n=1}^\infty (0, 1 - 1/n]" /> は可算個の和集合として表されるが、これは有限個の左開右閉区間の和としては書けないため、<InlineMath math="\mathcal{A}" /> には属さない。</li>
                 </ul>
                 <p className="mt-4">
-                    このように、集合代数は「有限回の操作」には十分ですが、極限を扱うための「可算回の操作」には十分ではありません。
+                    このように、有限加法族は「有限回の操作」には十分ですが、極限を扱うための「可算回の操作」には十分ではありません。
                 </p>
             </ContentBox>
 
             <p>
-                集合代数の定義から、空集合 <InlineMath math="\emptyset = X^c" /> も含まれることや、有限個の共通部分 <InlineMath math="A \cap B = (A^c \cup B^c)^c" /> についても閉じていることが容易にわかります。
+                有限加法族の定義から、空集合 <InlineMath math="\emptyset = X^c" /> も含まれることや、有限個の共通部分 <InlineMath math="A \cap B = (A^c \cup B^c)^c" /> についても閉じていることが容易にわかります。
                 しかし、解析学において極限操作（無限和や無限共通部分）を扱うためには、有限回ではなく「可算無限回」の操作について閉じている必要があります。
             </p>
 
             <ContentBox type="definition" title="Definition 1.1-2 (σ-加法族)">
                 <p>
-                    集合代数 <InlineMath math="\mathcal{A}" /> の条件 (iii) を以下の「可算和について閉じる」に強めたものを <b><InlineMath math="\sigma" />-加法族</b> (<InlineMath math="\sigma" />-algebra) という。
+                    有限加法族 <InlineMath math="\mathcal{A}" /> の条件 (iii) を以下の「可算和について閉じる」に強めたものを <b><InlineMath math="\sigma" />-加法族</b> (<InlineMath math="\sigma" />-algebra) という。
                 </p>
                 <ul className="list-inside space-y-2 mt-4">
                     <li>(iii)' <InlineMath math="A_1, A_2, \ldots \in \mathcal{A} \implies \bigcup_{n=1}^\infty A_n \in \mathcal{A}" /></li>
@@ -64,7 +64,7 @@ export default function SigmaAlgebras() {
             <ContentBox type="remark" title="極限操作の正当化">
                 <p>
                     「可算和で閉じる」という条件は、関数列の極限や無限級数の収束を議論する際に不可欠です。
-                    有限和までしか認めない集合代数では、開区間の極限として表現される集合の大きさを議論できず、ルベーグ積分の収束定理（単調収束定理や優収束定理）が成り立ちません。
+                    有限和までしか認めない有限加法族では、開区間の極限として表現される集合の大きさを議論できず、ルベーグ積分の収束定理（単調収束定理や優収束定理）が成り立ちません。
                 </p>
             </ContentBox>
 
@@ -88,7 +88,7 @@ export default function SigmaAlgebras() {
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h2 className="text-2xl font-bold mt-8 mb-6">σ-加法族の生成</h2>
+            <h2 className="text-2xl font-bold mt-8 mb-6"><InlineMath math="\sigma" />-加法族の生成</h2>
 
             <p>
                 ある条件を満たすすべての集合を含みつつ、必要最小限の元だけで構成された <InlineMath math="\sigma" />-加法族を考えたいことがよくあります。
@@ -147,8 +147,8 @@ export default function SigmaAlgebras() {
 
             <ContentBox type="note" title="§1.1 のまとめ">
                 <ul className="list-disc list-inside space-y-1">
-                    <li><b>集合代数</b>は有限和・補集合について閉じている集合族。</li>
-                    <li><b><InlineMath math="\sigma" />-加法族</b>は集合代数の条件を可算和について閉じるように強めたもの。</li>
+                    <li><b>有限加法族</b>は有限和・補集合について閉じている集合族。</li>
+                    <li><b><InlineMath math="\sigma" />-加法族</b>は有限加法族の条件を可算和について閉じるように強めたもの。</li>
                     <li><b>生成された <InlineMath math="\sigma" />-加法族</b>はある集合族を含む最小の <InlineMath math="\sigma" />-加法族。</li>
                     <li><b>ボレル集合族</b>は開集合全体から生成される、解析学で最も基本的な <InlineMath math="\sigma" />-加法族。</li>
                 </ul>

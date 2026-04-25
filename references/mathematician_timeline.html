@@ -1,0 +1,327 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+
+.timeline-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 8px;
+  cursor: grab;
+  user-select: none;
+}
+.timeline-wrapper:active { cursor: grabbing; }
+
+.timeline-canvas {
+  position: relative;
+  height: 820px;
+  min-width: 100%;
+}
+
+.era-bg {
+  position: absolute;
+  top: 0;
+  height: 260px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.era-label {
+  position: absolute;
+  top: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.axis-line {
+  position: absolute;
+  top: 248px;
+  height: 2px;
+  background: var(--color-border-secondary);
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: 232px;
+  width: 1px;
+  height: 32px;
+  background: var(--color-border-tertiary);
+  pointer-events: none;
+}
+
+.tick-label {
+  position: absolute;
+  top: 268px;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.bar-group {
+  position: absolute;
+}
+
+.bar {
+  position: absolute;
+  height: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+  top: 0;
+}
+.bar:hover {
+  filter: brightness(1.2);
+  transform: scaleY(1.4);
+}
+
+.bar-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  color: var(--color-text-secondary);
+}
+
+.achievement {
+  position: absolute;
+  bottom: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  white-space: nowrap;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-tertiary);
+  cursor: default;
+  transition: color 0.2s;
+}
+.achievement:hover {
+  color: var(--color-text-primary);
+}
+
+.dot-line {
+  position: absolute;
+  width: 1px;
+  background: var(--color-border-tertiary);
+  pointer-events: none;
+}
+
+.era-divider {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 260px;
+  background: var(--color-border-secondary);
+  pointer-events: none;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 8px 0 4px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+</style>
+
+<div class="legend">
+  <span style="font-size:11px;color:var(--color-text-tertiary);margin-right:4px;">▐</span>
+  <div class="legend-item"><div class="legend-dot" style="background:#8B7AD4"></div>Ⅰ 黎明期</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5B9BD4"></div>Ⅱ 微積分時代</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4BAA7A"></div>Ⅲ 厳密化・抽象化</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#D4884A"></div>Ⅳ 基礎構築</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C45A7A"></div>Ⅴ 現代数学</div>
+</div>
+
+<div class="timeline-wrapper" id="wrapper">
+  <div class="timeline-canvas" id="canvas"></div>
+</div>
+
+<script>
+const START = 1490;
+const END = 2000;
+const PX_PER_YEAR = 5.5;
+const TOTAL_W = (END - START) * PX_PER_YEAR + 80;
+const AXIS_Y = 248;
+const BAR_BASE_Y = 130;
+
+const ERAS = [
+  { label: "Ⅰ 黎明期", start: 1490, end: 1660, color: "#8B7AD4" },
+  { label: "Ⅱ 微積分時代", start: 1660, end: 1800, color: "#5B9BD4" },
+  { label: "Ⅲ 厳密化・抽象化", start: 1800, end: 1870, color: "#4BAA7A" },
+  { label: "Ⅳ 基礎構築", start: 1870, end: 1950, color: "#D4884A" },
+  { label: "Ⅴ 現代数学", start: 1950, end: 2000, color: "#C45A7A" },
+];
+
+const MATHEMATICIANS = [
+  // Ⅰ
+  { name: "カルダーノ",  born: 1501, died: 1576, color: "#8B7AD4", row: 0, achievement: "三次・四次方程式の代数的解法" },
+  { name: "ヴィエト",    born: 1540, died: 1603, color: "#8B7AD4", row: 1, achievement: "記号代数学の創始" },
+  { name: "ナピア",      born: 1550, died: 1617, color: "#8B7AD4", row: 2, achievement: "対数の発明" },
+  { name: "デカルト",    born: 1596, died: 1650, color: "#8B7AD4", row: 3, achievement: "解析幾何学（代数と幾何の統合）" },
+  { name: "フェルマー",  born: 1607, died: 1665, color: "#8B7AD4", row: 4, achievement: "数論・フェルマーの最終定理" },
+  // Ⅱ
+  { name: "パスカル",    born: 1623, died: 1662, color: "#5B9BD4", row: 5, achievement: "確率論の基礎" },
+  { name: "ニュートン",  born: 1643, died: 1727, color: "#5B9BD4", row: 6, achievement: "微積分の発明・二項定理" },
+  { name: "ライプニッツ",born: 1646, died: 1716, color: "#5B9BD4", row: 7, achievement: "微積分の独立発明・記法の整備" },
+  { name: "J.ベルヌーイ",born: 1654, died: 1705, color: "#5B9BD4", row: 8, achievement: "変分法・確率論" },
+  { name: "オイラー",    born: 1707, died: 1783, color: "#5B9BD4", row: 9, achievement: "解析学・数論・グラフ理論の基礎" },
+  { name: "ラグランジュ",born: 1736, died: 1813, color: "#5B9BD4", row: 10, achievement: "解析力学・変分法" },
+  // Ⅲ
+  { name: "ガウス",      born: 1777, died: 1855, color: "#4BAA7A", row: 0, achievement: "数論・複素解析・微分幾何学" },
+  { name: "コーシー",    born: 1789, died: 1857, color: "#4BAA7A", row: 1, achievement: "極限・収束の厳密化・複素解析" },
+  { name: "アーベル",    born: 1802, died: 1829, color: "#4BAA7A", row: 2, achievement: "楕円関数・五次方程式の不可解性" },
+  { name: "ガロア",      born: 1811, died: 1832, color: "#4BAA7A", row: 3, achievement: "群論の創始・代数方程式の本質的解明" },
+  { name: "リーマン",    born: 1826, died: 1866, color: "#4BAA7A", row: 4, achievement: "リーマン面・ゼータ関数・多様体論" },
+  { name: "ワイエルシュトラス", born: 1815, died: 1897, color: "#4BAA7A", row: 5, achievement: "解析学の厳密化" },
+  { name: "カントール",  born: 1845, died: 1918, color: "#D4884A", row: 0, achievement: "集合論・無限の理論" },
+  // Ⅳ
+  { name: "ポアンカレ",  born: 1854, died: 1912, color: "#D4884A", row: 1, achievement: "トポロジーの創始・三体問題" },
+  { name: "ヒルベルト",  born: 1862, died: 1943, color: "#D4884A", row: 2, achievement: "形式主義・ヒルベルトの23問題" },
+  { name: "ルベーグ",    born: 1875, died: 1941, color: "#D4884A", row: 3, achievement: "測度論・ルベーグ積分" },
+  { name: "ラマヌジャン",born: 1887, died: 1920, color: "#D4884A", row: 4, achievement: "整数論・無限級数の天才的発見" },
+  { name: "ゲーデル",    born: 1906, died: 1978, color: "#D4884A", row: 5, achievement: "不完全性定理" },
+  { name: "ノイマン",    born: 1903, died: 1957, color: "#D4884A", row: 6, achievement: "作用素環・ゲーム理論・計算機科学" },
+  { name: "コルモゴロフ",born: 1903, died: 1987, color: "#D4884A", row: 7, achievement: "確率論の公理化・乱流理論" },
+  // Ⅴ
+  { name: "グロタンディーク", born: 1928, died: 2014, color: "#C45A7A", row: 0, achievement: "スキーム理論・代数幾何の革命" },
+  { name: "アティヤ",    born: 1929, died: 2019, color: "#C45A7A", row: 1, achievement: "アティヤ＝シンガー指数定理" },
+  { name: "コンヌ",      born: 1947, died: null,  color: "#C45A7A", row: 2, achievement: "非可換幾何学" },
+  { name: "ワイルズ",    born: 1953, died: null,  color: "#C45A7A", row: 3, achievement: "フェルマーの最終定理の証明（1995）" },
+  { name: "ペレルマン",  born: 1966, died: null,  color: "#C45A7A", row: 4, achievement: "ポアンカレ予想の証明（2003）" },
+  { name: "タオ",        born: 1975, died: null,  color: "#C45A7A", row: 5, achievement: "調和解析・素数論など幅広い貢献" },
+];
+
+const ROW_H = 14;
+const ROW_GAP = 2;
+const NUM_ROWS = 11;
+const BARS_TOP = 60;
+
+function xOf(year) { return 40 + (year - START) * PX_PER_YEAR; }
+
+const canvas = document.getElementById('canvas');
+canvas.style.width = TOTAL_W + 'px';
+
+// Era backgrounds and dividers
+ERAS.forEach(era => {
+  const x = xOf(era.start);
+  const w = xOf(era.end) - x;
+
+  const bg = document.createElement('div');
+  bg.className = 'era-bg';
+  bg.style.cssText = `left:${x}px;width:${w}px;background:${era.color};`;
+  canvas.appendChild(bg);
+
+  const lbl = document.createElement('div');
+  lbl.className = 'era-label';
+  lbl.style.cssText = `left:${x+6}px;color:${era.color};opacity:0.8;`;
+  lbl.textContent = era.label;
+  canvas.appendChild(lbl);
+
+  const div = document.createElement('div');
+  div.className = 'era-divider';
+  div.style.left = x + 'px';
+  canvas.appendChild(div);
+});
+
+// Axis
+const axis = document.createElement('div');
+axis.className = 'axis-line';
+axis.style.cssText = `left:40px;width:${TOTAL_W-40}px;`;
+canvas.appendChild(axis);
+
+// Ticks
+for (let yr = 1500; yr <= END; yr += 50) {
+  const x = xOf(yr);
+  const tick = document.createElement('div');
+  tick.className = 'tick';
+  tick.style.left = x + 'px';
+  canvas.appendChild(tick);
+
+  const lbl = document.createElement('div');
+  lbl.className = 'tick-label';
+  lbl.style.left = x + 'px';
+  lbl.textContent = yr;
+  canvas.appendChild(lbl);
+}
+
+// Bars and achievements
+const achX = {}; // track x positions for achievements
+
+MATHEMATICIANS.forEach((m, i) => {
+  const x1 = xOf(m.born);
+  const x2 = m.died ? xOf(m.died) : xOf(1995);
+  const w = Math.max(x2 - x1, 6);
+  const row = m.row;
+  const y = BARS_TOP + row * (ROW_H + ROW_GAP);
+
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  bar.style.cssText = `left:${x1}px;width:${w}px;top:${y}px;background:${m.color};opacity:${m.died ? 0.85 : 0.65};`;
+  bar.title = `${m.name}（${m.born}–${m.died || '存命'}）`;
+  canvas.appendChild(bar);
+
+  // Name label
+  const lbl = document.createElement('div');
+  lbl.className = 'bar-label';
+  const labelX = x1 + w + 3;
+  lbl.style.cssText = `left:${labelX}px;top:${y - 1}px;color:${m.color};font-size:9.5px;opacity:0.9;`;
+  lbl.textContent = m.name;
+  canvas.appendChild(lbl);
+
+  // Achievement: anchored at midpoint of lifespan
+  const midX = x1 + w / 2;
+  const ach = document.createElement('div');
+  ach.className = 'achievement';
+  const achHeight = 440;
+  ach.style.cssText = `left:${midX - 6}px;height:${achHeight}px;bottom:${820 - AXIS_Y - 16}px;`;
+  ach.textContent = `${m.name}　${m.achievement}`;
+  canvas.appendChild(ach);
+
+  // Dot line from bar to achievement top
+  const dotLine = document.createElement('div');
+  dotLine.className = 'dot-line';
+  const barBottom = y + ROW_H;
+  dotLine.style.cssText = `left:${midX}px;top:${barBottom}px;height:${AXIS_Y - barBottom + 4}px;opacity:0.3;`;
+  canvas.appendChild(dotLine);
+});
+
+// Drag to scroll
+const wrapper = document.getElementById('wrapper');
+let isDown = false, startX, scrollLeft;
+wrapper.addEventListener('mousedown', e => {
+  isDown = true;
+  startX = e.pageX - wrapper.offsetLeft;
+  scrollLeft = wrapper.scrollLeft;
+});
+document.addEventListener('mouseup', () => isDown = false);
+document.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - wrapper.offsetLeft;
+  wrapper.scrollLeft = scrollLeft - (x - startX);
+});
+
+// Set canvas height
+canvas.style.height = '820px';
+</script>

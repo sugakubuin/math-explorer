@@ -377,7 +377,7 @@ export const roadmapData: Stage[] = [
                         id: "9", title: "逆写像定理", description: "局所的な逆関数の存在",
                         sections: [
                             { id: "9.1", title: "ヤコビアンと局所可逆性", description: "ヤコビ行列式による局所的な可逆性の直感的理解" },
-                            { id: "9.2", title: "逆写像定理の証明の概略", description: "縮小写像の原理を用いた証明の構成" },
+                            { id: "9.2", title: "逆写像定理の主張と証明", description: "縮小写像の原理を用いた証明の構成" },
                             { id: "9.3", title: "陰関数定理との関係", description: "逆写像定理から陰関数定理を導くアプローチ" },
                             { id: "9.4", title: "座標変換への応用", description: "局所座標変換と面積積・体積素の変換" }
                         ]
@@ -976,9 +976,9 @@ export const roadmapData: Stage[] = [
                 title: "測度論",
                 chapters: [
                     {
-                        id: "1", title: "測度論の基礎", description: "集合族と測度の定義",
+                        id: "1", title: "測度論の基礎", description: "σ-加法族と測度の定義",
                         sections: [
-                            { id: "1.1", title: "集合族とσ-加法族", description: "集合代数とσ-加法族の定義・生成、ボレル集合族" },
+                            { id: "1.1", title: "有限加法族とσ-加法族", description: "有限加法族とσ-加法族の定義・生成、ボレル集合族" },
                             { id: "1.2", title: "測度の定義と基本的性質", description: "測度の有限加法性・可算加法性と連続性" },
                             { id: "1.3", title: "外測度と可測性", description: "外測度の定義とカラテオドリの可測条件" },
                             { id: "1.4", title: "ルベーグ測度の構成", description: "区間の体積からの拡張とルベーグ測度の完備性" },

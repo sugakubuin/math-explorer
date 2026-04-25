@@ -13,6 +13,7 @@ import PropositionListPage from './pages/PropositionListPage';
 import ContentQuizPage from './pages/ContentQuizPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ContactPage from './pages/ContactPage';
+import MathematicianTimelinePage from './pages/MathematicianTimelinePage';
 import NotFoundPage from './pages/NotFoundPage';
 import { roadmapData } from './data/roadmapData';
 import { hasTopicContent } from './data/contentAvailability';
@@ -152,6 +153,10 @@ export const routes: RouteRecord[] = [
                 path: 'roadmap/:topicId/:chapterId/:sectionId',
                 element: <SectionPage />,
                 getStaticPaths: getSectionPaths,
+            },
+            {
+                path: 'mathematician-timeline',
+                element: <MathematicianTimelinePage />,
             },
             {
                 path: 'about',

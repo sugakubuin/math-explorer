@@ -13,6 +13,7 @@ import PropositionListPage from './pages/PropositionListPage.tsx';
 import ContentQuizPage from './pages/ContentQuizPage.tsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.tsx';
 import ContactPage from './pages/ContactPage.tsx';
+import MathematicianTimelinePage from './pages/MathematicianTimelinePage.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
 import ScrollManager from './components/layout/ScrollManager.tsx';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="roadmap/:topicId/:chapterId" element={<ChapterPage />} />
           <Route path="roadmap/:topicId/:chapterId/exercises" element={<ExercisePage />} />
           <Route path="roadmap/:topicId/:chapterId/:sectionId" element={<SectionPage />} />
+          <Route path="mathematician-timeline" element={<MathematicianTimelinePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="privacy" element={<PrivacyPolicyPage />} />
           <Route path="contact" element={<ContactPage />} />
