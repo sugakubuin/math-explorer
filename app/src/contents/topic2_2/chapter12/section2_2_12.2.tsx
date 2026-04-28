@@ -113,6 +113,15 @@ export default function Section2_2_12_2() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§12.2 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>フビニの定理により、二重積分は1変数の積分を2回繰り返す「累次積分」として計算できる。</li>
+                    <li>一般領域での累次積分では、領域の形状（縦線領域か横線領域か）に応じて積分範囲が変数となる。</li>
+                    <li>積分順序の交換は、領域を図示して積分範囲を作り直す操作であり、解析的に積分困難な関数を計算可能にする強力なテクニックである。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

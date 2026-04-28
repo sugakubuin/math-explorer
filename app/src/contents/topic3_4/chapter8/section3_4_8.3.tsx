@@ -100,7 +100,7 @@ export default function LaplaceEquationSection() {
 
             <ContentBox type="example" title="Example 8.3-3 (ポアソン核と複素解析の接続)">
                 <p>
-                    複素解析（Topic 3-2）において、実関数 <InlineMath math="u(x,y)" /> が調和であれば、それは正則関数 <InlineMath math="F(z) = u + iv" /> の実部として解釈できる。
+                    3-2 複素解析I において、実関数 <InlineMath math="u(x,y)" /> が調和であれば、それは正則関数 <InlineMath math="F(z) = u + iv" /> の実部として解釈できる。
                 </p>
                 <p>
                     ポアソン核を用いると、共役調和関数 <InlineMath math="v(x,y)" /> も境界値 <InlineMath math="f(t)" /> から直接構成できる：

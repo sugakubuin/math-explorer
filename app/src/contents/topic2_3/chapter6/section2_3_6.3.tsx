@@ -106,7 +106,7 @@ export default function TaylorsTheorem() {
                     そのため、この関数の原点周りでのテイラー級数は <InlineMath math="0 + 0x + 0x^2 + \dots" /> となり、「恒等的に 0」という結果になります。元の関数 <InlineMath math="f(x)" /> とは <InlineMath math="x=0" /> 以外では全く一致しておらず、近似（展開）に失敗しているのです。これは剰余項 <InlineMath math="R_n(x)" /> が 0 に収束しないためです。
                 </p>
                 <p className="mt-4">
-                    このように、テイラー級数展開が元の関数と一致する関数だけを特別に<strong>解析関数</strong>（Analytic function）と呼びます。<InlineMath math="C^{\infty}" /> の集合の中に、さらに行儀の良い（剰余項が消える）解析関数の集合が含まれるという構造になっています。複素関数の世界（Topic 2-4）へ進むと、この「1回微分可能ならば自動的に解析的になる」という決定的な違いが生じます。
+                    このように、テイラー級数展開が元の関数と一致する関数だけを特別に<strong>解析関数</strong>（Analytic function）と呼びます。<InlineMath math="C^{\infty}" /> の集合の中に、さらに行儀の良い（剰余項が消える）解析関数の集合が含まれるという構造になっています。複素関数の世界（3-2 複素解析I）へ進むと、この「1回微分可能ならば自動的に解析的になる」という決定的な違いが生じます。
                 </p>
             </ContentBox>
 

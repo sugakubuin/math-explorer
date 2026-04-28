@@ -138,6 +138,15 @@ export default function Section2_2_10_2() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§10.2 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>曲線の弧長は、曲線を微小な線分で近似した折れ線の長さの極限として定義される。</li>
+                    <li><InlineMath math="C^1" /> 級曲線の弧長は、速度ベクトルの大きさ <InlineMath math="\|\mathbf{r}'(t)\|" /> の定積分として計算できる。</li>
+                    <li>弧長の積分は解析的に計算できる例が限られており、楕円の周長などは特殊関数（楕円積分）を必要とする。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

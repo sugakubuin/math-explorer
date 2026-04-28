@@ -28,7 +28,7 @@ export default function ExamplesOfAdjoints() {
                     <li><strong>Abel化と包含：</strong> 群のAbel化関手 <InlineMath math="(-)_{ab} \dashv" /> 包含（忘却）関手（<InlineMath math="\mathbf{Grp} \leftrightarrows \mathbf{Ab}" />）。<br/>
                     群 <InlineMath math="G" /> から交換子群 <InlineMath math="[G,G]" /> で割った商群 <InlineMath math="G/[G,G]" /> を作る操作は、アーベル群の圏からの忘却関手の左随伴である。<br/>
                     （<InlineMath math="\mathrm{Hom}_{\mathbf{Ab}}(G_{ab}, A) \cong \mathrm{Hom}_{\mathbf{Grp}}(G, A)" />）</li>
-                    <li><strong>商体と包含：</strong> 商体関手 <InlineMath math="\mathrm{Frac} \dashv" /> 包含関手（<InlineMath math="\mathbf{IntDom} \leftrightarrows \mathbf{Field}" />）。整域から商体を作る操作（Topic 3-9）。</li>
+                    <li><strong>商体と包含：</strong> 商体関手 <InlineMath math="\mathrm{Frac} \dashv" /> 包含関手（<InlineMath math="\mathbf{IntDom} \leftrightarrows \mathbf{Field}" />）。整域から商体を作る操作（3-9 環論）。</li>
                     <li><strong>完備化と包含：</strong> 距離空間の完備化 <InlineMath math="\dashv" /> 包含関手（<InlineMath math="\mathbf{MetricSp} \leftrightarrows \mathbf{CompleteMetricSp}" />）。</li>
                 </ul>
             </ContentBox>
@@ -76,7 +76,7 @@ export default function ExamplesOfAdjoints() {
                     <BlockMath math="\mathrm{Hom}_R(N \otimes_R M, P) \cong \mathrm{Hom}_R(N, \mathrm{Hom}_R(M, P))" />
                 </p>
                 <p>
-                    これは Topic 3-11 で学んだ「双線形写像とテンソル積からの線形写像の普遍的対応」を、随伴という形で純粋に圏論的に定式化したものである。
+                    これは 3-11 多重線形代数学Iで学んだ「双線形写像とテンソル積からの線形写像の普遍的対応」を、随伴という形で純粋に圏論的に定式化したものである。
                 </p>
             </ContentBox>
 

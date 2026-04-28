@@ -112,6 +112,15 @@ export default function Section2_2_12_5() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§12.5 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>広義重積分は、非有界領域や無界関数に対する積分を、有界な領域での積分の極限として定義する。</li>
+                    <li>重積分における広義積分は「絶対収束」を前提としており、極限の取り方（近似列の選び方）によらず一定値に収束する必要がある。</li>
+                    <li>収束・発散の判定には、より簡単な関数で上下から抑え込む「比較判定法」が有効である。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

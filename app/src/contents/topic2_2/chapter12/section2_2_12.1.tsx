@@ -104,6 +104,15 @@ export default function Section2_2_12_1() {
                 ※ この定義により、積分の対象は「関数自体」だけでなく、「領域の境界の形状」にも依存するようになります。<InlineMath math="\tilde{f}" /> は領域 <InlineMath math="D" /> の境界線において不連続になる可能性が高いため、境界線の面積（ルベーグ測度）が <InlineMath math="0" /> であること（例えば滑らかな曲線や折れ線で囲まれていること）が、この積分が定まるための重要な要件となります（Jordan可測性）。
             </p>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§12.1 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>二重積分は、領域を細かく分割したリーマン和の極限として定義され、幾何学的には「曲面の下の体積」を表す。</li>
+                    <li>有界閉領域上で連続な関数は、常に可積分である。</li>
+                    <li>一般領域上の積分は、領域外で関数値を <InlineMath math="0" /> とした関数を長方形領域で積分することに帰着させて定義される。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

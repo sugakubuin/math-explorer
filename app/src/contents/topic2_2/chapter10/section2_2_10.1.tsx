@@ -107,6 +107,15 @@ export default function Section2_2_10_1() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§10.1 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>パラメータ曲線は、1次元のパラメータ <InlineMath math="t" /> から空間への連続写像として定義される。</li>
+                    <li>正則曲線とは、至る所で速度ベクトルが零にならない（<InlineMath math="\mathbf{r}'(t) \neq \mathbf{0}" />）滑らかな曲線である。</li>
+                    <li>弧長パラメータ <InlineMath math="s" /> を用いた表示は、常に速さ1で移動する自然なパラメータ表示であり、曲線の幾何学的な性質を調べるのに適している。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

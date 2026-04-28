@@ -81,6 +81,15 @@ export default function Section2_2_11_3() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§11.3 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>スカラー場の面積分は、曲面上の各点での関数値と微小な面積要素の積を足し合わせた極限として定義される（例：曲面状の板の質量の計算）。</li>
+                    <li>ベクトル場の面積分（流束）は、ベクトル場の曲面に対する法線成分を面積分したものであり、曲面を貫く流量などを表す。</li>
+                    <li>パラメータ表示を用いると、流束の計算はベクトル三重積 <InlineMath math="\mathbf{F} \cdot (\mathbf{r}_u \times \mathbf{r}_v)" /> の二重積分に帰着し、分母のノルムが約分されて計算が簡略化される。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

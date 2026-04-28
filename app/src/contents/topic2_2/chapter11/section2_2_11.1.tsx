@@ -92,6 +92,15 @@ export default function Section2_2_11_1() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§11.1 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>スカラー場の線積分は、曲線上の各点での関数値と微小な弧長の積を足し合わせた極限として定義される（例：針金の質量の計算）。</li>
+                    <li>実際の計算は、曲線のパラメータ表示を用いて <InlineMath math="\int_a^b f(\mathbf{r}(t)) \|\mathbf{r}'(t)\| \, dt" /> という1変数の定積分に帰着させる。</li>
+                    <li>スカラー場の線積分の値は、曲線のパラメータの取り方や向きに依存しない。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

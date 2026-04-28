@@ -108,7 +108,7 @@ export default function DistributionFunctions() {
                 <p>
                     半直線 <InlineMath math="(-\infty, x]" /> の集合族は <InlineMath math="\pi" />-システム（共通部分で閉じている族）を形成し、
                     これらが生成する <InlineMath math="\sigma" />-加法族はボレル集合族 <InlineMath math="\mathcal{B}(\mathbb{R})" /> に一致する。
-                    測度の一意性定理（Topic 3-3 参照）によれば、生成系の上で測度が一致していれば、生成された <InlineMath math="\sigma" />-加法族全体でも一致する。
+                    測度の一意性定理（3-3 ルベーグ積分 参照）によれば、生成系の上で測度が一致していれば、生成された <InlineMath math="\sigma" />-加法族全体でも一致する。
                     したがって、分布関数の一致は全ボレル集合上での確率の一致を保証する。
                 </p>
                 <div className="text-right text-slate-500 dark:text-slate-400">

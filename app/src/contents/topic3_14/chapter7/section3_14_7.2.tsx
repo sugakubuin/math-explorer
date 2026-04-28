@@ -56,7 +56,7 @@ export default function AxiomOfChoiceAndEquivalences() {
                 </p>
                 <ol className="list-decimal list-inside space-y-2 mt-2">
                     <li><strong>選択公理 (AC)：</strong> 空でない集合の族には選択関数が存在する。</li>
-                    <li><strong>ツォルンの補題 (Zorn's Lemma)：</strong> 帰納的順序集合（任意の全順序部分集合が上界を持つような半順序集合）は、少なくとも1つの極大元をもつ。（※Topic 3-9 参照）</li>
+                    <li><strong>ツォルンの補題 (Zorn's Lemma)：</strong> 帰納的順序集合（任意の全順序部分集合が上界を持つような半順序集合）は、少なくとも1つの極大元をもつ。（※3-9 環論 参照）</li>
                     <li><strong>整列定理 (Well-ordering Theorem)：</strong> 任意の集合上には、整列順序（空でない任意の部分集合が最小元を持つような全順序）を入れることができる。</li>
                 </ol>
             </ContentBox>

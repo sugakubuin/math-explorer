@@ -45,7 +45,7 @@ export default function ExamplesOfFunctors() {
                     集合の圏 <InlineMath math="\mathbf{Set}" /> から群の圏 <InlineMath math="\mathbf{Grp}" /> への<strong>自由関手 <InlineMath math="F : \mathbf{Set} \to \mathbf{Grp}" /></strong> を考える。
                 </p>
                 <ul className="list-disc list-inside space-y-1 mt-2">
-                    <li><strong>対象の対応：</strong> 集合 <InlineMath math="S" /> に対して、<InlineMath math="S" /> の要素を「文字（生成元）」として作られるすべての「語（word）」の集まりからなる<strong>自由群 <InlineMath math="F(S)" /></strong> を対応させる（Topic 3-8 参照）。</li>
+                    <li><strong>対象の対応：</strong> 集合 <InlineMath math="S" /> に対して、<InlineMath math="S" /> の要素を「文字（生成元）」として作られるすべての「語（word）」の集まりからなる<strong>自由群 <InlineMath math="F(S)" /></strong> を対応させる（3-8 群論 参照）。</li>
                     <li><strong>射の対応：</strong> 写像 <InlineMath math="f : S \to T" /> が与えられたとき、群準同型 <InlineMath math="F(f) : F(S) \to F(T)" /> を、「元の語に現れる <InlineMath math="S" /> の文字 <span className='font-serif italic'>s</span> を、すべて <InlineMath math="T" /> の文字 <InlineMath math="f(s)" /> に一斉に置き換える操作」として定義する。</li>
                 </ul>
                 <p>
@@ -65,7 +65,7 @@ export default function ExamplesOfFunctors() {
                 title="Example 2.2-3 (基本群関手)"
             >
                 <p>
-                    Topic 3-12 で学んだ「基本群」は、基点付き位相空間の圏 <InlineMath math="\mathbf{Top}_*" /> から、群の圏 <InlineMath math="\mathbf{Grp}" /> への関手 <strong><InlineMath math="\pi_1 : \mathbf{Top}_* \to \mathbf{Grp}" /></strong> として定式化される。
+                    3-12 位相空間論II で学んだ「基本群」は、基点付き位相空間の圏 <InlineMath math="\mathbf{Top}_*" /> から、群の圏 <InlineMath math="\mathbf{Grp}" /> への関手 <strong><InlineMath math="\pi_1 : \mathbf{Top}_* \to \mathbf{Grp}" /></strong> として定式化される。
                 </p>
                 <ul className="list-disc list-inside space-y-1 mt-2">
                     <li><strong>対象の対応：</strong> 基点付き空間 <InlineMath math="(X, x_0)" /> に対して、その基本群 <InlineMath math="\pi_1(X, x_0)" />（ループのホモトピー類の群）を対応させる。</li>

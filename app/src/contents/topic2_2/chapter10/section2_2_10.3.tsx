@@ -117,6 +117,15 @@ export default function Section2_2_10_3() {
                 </div>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§10.3 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>パラメータ曲面は、2次元の領域から空間への連続写像として定義される。</li>
+                    <li>正則曲面とは、至る所で2つの接ベクトルが一次独立（<InlineMath math="\mathbf{r}_u \times \mathbf{r}_v \neq \mathbf{0}" />）となる滑らかな曲面である。</li>
+                    <li>曲面の面積要素は <InlineMath math="dS = \|\mathbf{r}_u \times \mathbf{r}_v\| \, du \, dv" /> で与えられ、これを積分することで曲面の面積が求まる。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

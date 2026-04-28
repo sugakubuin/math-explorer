@@ -6,7 +6,7 @@ export default function RoleOfZFAxioms() {
     return (
         <section className="prose prose-slate dark:prose-invert max-w-none text-slate-800 dark:text-slate-200">
             <p className="leading-relaxed">
-                これまでは自然数を記述する算術（PA）を見てきましたが、現代数学のほぼすべての基礎となっているのは「集合論」です。19世紀末にカントールが創始した素朴集合論（Topic 2-4）は、ラッセルのパラドックスなどの矛盾を引き起こしました。それを克服するために構築されたのが、ツェルメロとフレンケルによる「ZF公理系」です。
+                これまでは自然数を記述する算術（PA）を見てきましたが、現代数学のほぼすべての基礎となっているのは「集合論」です。19世紀末にカントールが創始した 2-4 素朴集合論 は、ラッセルのパラドックスなどの矛盾を引き起こしました。それを克服するために構築されたのが、ツェルメロとフレンケルによる「ZF公理系」です。
             </p>
 
             <hr className="my-8 border-slate-200 dark:border-slate-700" />

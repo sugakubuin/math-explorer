@@ -81,7 +81,7 @@ export default function DefinitionOfRandomVariables() {
 
             <ContentBox type="proof" title="Proof">
                 <p>
-                    これらは、実数上の可測関数どうしの和・積、および可測関数の合成が再び可測関数になるという測度論の基本性質（Topic 3-3 参照）から従う。
+                    これらは、実数上の可測関数どうしの和・積、および可測関数の合成が再び可測関数になるという測度論の基本性質（3-3 ルベーグ積分 参照）から従う。
                     例えば <InlineMath math="f(X)" /> については、任意の <InlineMath math="B \in \mathcal{B}(\mathbb{R})" /> に対し、
                     <BlockMath math="(f \circ X)^{-1}(B) = X^{-1}(f^{-1}(B))" />
                     であり、<InlineMath math="f" /> の可測性から <InlineMath math="f^{-1}(B) \in \mathcal{B}(\mathbb{R})" />、

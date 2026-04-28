@@ -111,6 +111,15 @@ export default function Section2_2_12_3() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§12.3 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>極座標変換 <InlineMath math="(r, \theta)" /> を行うと、微小面積要素はヤコビアン <InlineMath math="r" /> を掛けて <InlineMath math="dx \, dy = r \, dr \, d\theta" /> と変換される。</li>
+                    <li>極座標変換は、円や扇形など原点対称な領域での積分や、<InlineMath math="x^2 + y^2" /> を含む関数の積分を劇的に簡単にする。</li>
+                    <li>ガウス積分 <InlineMath math="\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}" /> は、二重積分と極座標変換を経由することで正確に求めることができる。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

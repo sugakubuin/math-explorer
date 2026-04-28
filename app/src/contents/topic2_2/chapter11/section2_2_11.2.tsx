@@ -132,6 +132,15 @@ export default function Section2_2_11_2() {
                 </div>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§11.2 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>ベクトル場の線積分は、力場の中を移動する粒子に対して力がする仕事を計算する操作に相当する。</li>
+                    <li>スカラー場の線積分とは異なり、ベクトル場の線積分は曲線の進む向きを逆にすると符号が反転する。</li>
+                    <li>ベクトル場が保存力場（ポテンシャルの勾配）であることと、線積分が経路に依存せず始点と終点のみで決まることは同値である（線積分の基本定理）。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

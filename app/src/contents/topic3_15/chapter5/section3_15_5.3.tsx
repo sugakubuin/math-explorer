@@ -76,7 +76,7 @@ export default function DefinitionOfColimits() {
                 title="代数構造と貼り合わせの統一"
             >
                 <p>
-                    例えば、位相幾何学で登場する「ファン・カンペンの定理（Seifert–van Kampen Theorem）」（Topic 3-12）は、空間を <InlineMath math="U" /> と <InlineMath math="V" /> に分割したときの基本群の計算公式です。
+                    例えば、位相幾何学で登場する「ファン・カンペンの定理（Seifert–van Kampen Theorem）」（3-12 位相空間論II）は、空間を <InlineMath math="U" /> と <InlineMath math="V" /> に分割したときの基本群の計算公式です。
                 </p>
                 <p>
                     <BlockMath math="\pi_1(U \cup V) \cong \pi_1(U) *_{\pi_1(U \cap V)} \pi_1(V)" />

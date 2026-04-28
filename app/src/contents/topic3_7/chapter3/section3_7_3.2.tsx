@@ -54,7 +54,7 @@ export default function BasicPropertiesOfExpectation() {
 
             <ContentBox type="proof" title="Proof">
                 <p>
-                    この定理はルベーグ積分における単調収束定理そのものである（詳細は Topic 3-3 参照）。
+                    この定理はルベーグ積分における単調収束定理そのものである（詳細は 3-3 ルベーグ積分 参照）。
                     本章での定義に従えば、まず単純関数列に対する成立を示し、次に一般の非負可測関数に対して、それを近似する単純関数列の二重極限の順位交換可能性（測度の連続性に基づく）を用いることで導かれる。
                 </p>
                 <div className="text-right text-slate-500 dark:text-slate-400">

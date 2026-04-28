@@ -75,7 +75,7 @@ export default function YonedaEmbeddingAndApplications() {
                 title="Example 4.3-2 (テンソル積の普遍性の再定式化)"
             >
                 <p>
-                    ベクトル空間 <InlineMath math="V, W" /> のテンソル積 <InlineMath math="V \otimes W" /> の普遍性は、「<InlineMath math="V \times W" /> から任意のベクトル空間 <InlineMath math="Z" /> への双線形写像は、<InlineMath math="V \otimes W" /> から <InlineMath math="Z" /> への線形写像と一対一対応する」というものであった（Topic 3-11 参照）。
+                    ベクトル空間 <InlineMath math="V, W" /> のテンソル積 <InlineMath math="V \otimes W" /> の普遍性は、「<InlineMath math="V \times W" /> から任意のベクトル空間 <InlineMath math="Z" /> への双線形写像は、<InlineMath math="V \otimes W" /> から <InlineMath math="Z" /> への線形写像と一対一対応する」というものであった（3-11 多重線形代数学I 参照）。
                 </p>
                 <p>
                     これを関手の言葉で書き直す。<InlineMath math="Z" /> を変数とする関手 <InlineMath math="\mathrm{Bilin}(V \times W, -)" /> を考えると、テンソル積の普遍性とは、自然同型

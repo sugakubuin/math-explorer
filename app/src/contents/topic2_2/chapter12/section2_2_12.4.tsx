@@ -153,6 +153,15 @@ export default function Section2_2_12_4() {
                 </p>
             </ContentBox>
 
+            {/* まとめ */}
+            <ContentBox type="note" title="§12.4 のまとめ">
+                <ul className="list-disc list-inside space-y-1">
+                    <li>三重積分の変数変換では、微小体積要素はヤコビアンの絶対値 <InlineMath math="|J|" /> を掛けて変換される。</li>
+                    <li>円柱座標の体積要素は <InlineMath math="r \, dr \, d\theta \, dz" />、球座標の体積要素は <InlineMath math="r^2 \sin \phi \, dr \, d\phi \, d\theta" /> である。</li>
+                    <li>球座標変換は、球の体積計算など、球対称な領域や関数を扱う際に強力な威力を発揮する。</li>
+                </ul>
+            </ContentBox>
+
         </section>
     );
 }

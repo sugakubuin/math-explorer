@@ -88,7 +88,7 @@ export default function JFunctionModularity() {
                 </p>
                 <BlockMath math="G_{2k}\left(\frac{a\tau+b}{c\tau+d}\right) = (c\tau+d)^{2k} G_{2k}(\tau)" />
                 <p>
-                    このような変換則を満たす正則関数を<b>重さ <InlineMath math="2k" /> のモジュラー形式</b>と呼びます。モジュラー形式の理論（5-7 Topic）は、楕円関数論の自然な延長線上にあるだけでなく、数論や表現論と深く結びつく現代数学の中心的なテーマの一つです。
+                    このような変換則を満たす正則関数を<b>重さ <InlineMath math="2k" /> のモジュラー形式</b>と呼びます。5-7 モジュラー形式 は、楕円関数論の自然な延長線上にあるだけでなく、数論や表現論と深く結びつく現代数学の中心的なテーマの一つです。
                 </p>
             </ContentBox>
 
