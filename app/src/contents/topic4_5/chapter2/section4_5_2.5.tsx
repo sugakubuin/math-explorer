@@ -31,7 +31,7 @@ export default function RegularValueTheorem() {
                         （※ <InlineMath math="f^{-1}(q) = \emptyset" /> の場合も、条件は空虚に満たされるため <InlineMath math="q" /> は正則値とみなす。）
                     </li>
                     <li>
-                        正則値でない <InlineMath math="q \in N" /> （すなわち、<f^{-1}(q) /> の中に少なくとも1つの臨界点を含むような値）を <b>臨界値（critical value）</b> という。
+                        正則値でない <InlineMath math="q \in N" /> （すなわち、<InlineMath math="f^{-1}(q)" /> の中に少なくとも1つの臨界点を含むような値）を <b>臨界値（critical value）</b> という。
                     </li>
                 </ul>
             </ContentBox>
