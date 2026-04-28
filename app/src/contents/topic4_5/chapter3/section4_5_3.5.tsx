@@ -112,7 +112,7 @@ export default function VectorFieldFlows() {
 
             <ContentBox type="definition" title="Definition 3.5-3 (完備ベクトル場)">
                 <p>
-                    ベクトル場 <InlineMath math="X" /> のフロー <InlineMath math="\theta" /> の定義域が <InlineMath math="\mathcal{D} = \mathbb{R} \times M" /> 全体であるとき、すなわち任意の点からの積分曲線が <$-\infty < t < \infty$> で定義されるとき、<InlineMath math="X" /> を<strong>完備ベクトル場（complete vector field）</strong>と呼ぶ。
+                    ベクトル場 <InlineMath math="X" /> のフロー <InlineMath math="\theta" /> の定義域が <InlineMath math="\mathcal{D} = \mathbb{R} \times M" /> 全体であるとき、すなわち任意の点からの積分曲線が <InlineMath math="-\infty < t < \infty" /> で定義されるとき、<InlineMath math="X" /> を<strong>完備ベクトル場（complete vector field）</strong>と呼ぶ。
                 </p>
             </ContentBox>
 
