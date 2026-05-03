@@ -217,12 +217,14 @@ export default function TopicPage() {
                         </nav>
                     </div>
 
-                    <div className="mb-8 text-center relative z-0">
-                        <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Advertisement</div>
-                        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[100px] flex items-center justify-center">
-                            <AdSense slot="" format="auto" responsive={true} />
+                    {hasContent && (
+                        <div className="mb-8 text-center relative z-0">
+                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Advertisement</div>
+                            <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-2 sm:p-4 overflow-hidden min-h-[100px] flex items-center justify-center">
+                                <AdSense slot="" format="auto" responsive={true} />
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     <div className="grid gap-4 md:grid-cols-1">
                         {topic.chapters.map((chapter, index) => (

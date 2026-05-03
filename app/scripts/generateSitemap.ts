@@ -63,6 +63,9 @@ function createSitemap() {
         stage.topics.forEach(topic => {
             const hasContent = hasTopicContent(topic.id);
 
+            // コンテンツがない場合はトピック自体のURLや配下のURLをサイトマップに出力しない
+            if (!hasContent) return;
+
             // トピックのURL
             urls += `
     <url>
@@ -81,7 +84,7 @@ function createSitemap() {
         <priority>0.7</priority>
     </url>`;
 
-            // 以下のチャプターやセクションのコンテンツは、存在しない場合はスキップ
+            // 以下のチャプターやセクションのコンテンツは、存在しない場合はスキップ（上記で既に弾いているため念のため）
             if (!hasContent) return;
 
             // 定義一覧のURL
